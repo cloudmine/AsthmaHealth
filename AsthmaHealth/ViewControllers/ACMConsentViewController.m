@@ -1,5 +1,5 @@
 #import "ACMConsentViewController.h"
-#import "ACMConsentDocument.h"
+#import "ACMConsentTask.h"
 
 @interface ACMConsentViewController ()
 
@@ -12,12 +12,7 @@
     self = [super initWithCoder:aDecoder];
     if (nil == self) return nil;
 
-    ACMConsentDocument *consentDoc = [ACMConsentDocument new];
-
-    ORKVisualConsentStep *consentStep = [[ORKVisualConsentStep alloc] initWithIdentifier:@"Constent Step Id" document:consentDoc];
-    ORKOrderedTask *consentTask = [[ORKOrderedTask alloc] initWithIdentifier:@"Identifier" steps:@[consentStep]];
-
-    self.task = consentTask;
+    self.task = ACMConsentTask.task;
 
     return self;
 }
