@@ -1,0 +1,52 @@
+#import "ACMOnboardingViewController.h"
+#import "ACMConsentViewController.h"
+
+@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate>
+
+@end
+
+@implementation ACMOnboardingViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[ACMConsentViewController class]]) {
+        ACMConsentViewController *consentVC = (ACMConsentViewController *)segue.destinationViewController;
+        consentVC.delegate = self;
+    }
+}
+
+#pragma mark ORKTaskViewControllerDelegate
+
+- (void)taskViewController:(ORKTaskViewController *)taskViewController didFinishWithReason:(ORKTaskViewControllerFinishReason)reason error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    if (nil != error) {
+        NSLog(@"Consent Error: %@", error.localizedDescription);
+        return;
+    }
+
+    switch (reason) {
+        case ORKTaskViewControllerFinishReasonCompleted:
+            NSLog(@"Consent Completed");
+            break;
+        case ORKTaskViewControllerFinishReasonDiscarded:
+            NSLog(@"Consent Discarded");
+            break;
+        case ORKTaskViewControllerFinishReasonFailed:
+            NSLog(@"Consent Failed");
+            break;
+        case ORKTaskViewControllerFinishReasonSaved:
+            NSLog(@"Consent Saved");
+            break;
+        default:
+            break;
+    }
+}
+
+@end
