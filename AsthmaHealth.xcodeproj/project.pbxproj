@@ -10,6 +10,7 @@
 		394D27665E5672044448CDCF /* libPods-AsthmaHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */; };
 		B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */; };
 		B43ECBCE1C4FF9D800865C5A /* ACMOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43ECBCD1C4FF9D800865C5A /* ACMOnboardingViewController.m */; };
+		B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = B43ECBD01C50004A00865C5A /* ACMConsentDocument.m */; };
 		B463CC451C4FE13D002B4F9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC441C4FE13D002B4F9C /* main.m */; };
 		B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */; };
 		B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC4A1C4FE13D002B4F9C /* ACMConsentViewController.m */; };
@@ -35,6 +36,8 @@
 		B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Consent.storyboard; sourceTree = "<group>"; };
 		B43ECBCC1C4FF9D800865C5A /* ACMOnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMOnboardingViewController.h; sourceTree = "<group>"; };
 		B43ECBCD1C4FF9D800865C5A /* ACMOnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMOnboardingViewController.m; sourceTree = "<group>"; };
+		B43ECBCF1C50004A00865C5A /* ACMConsentDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMConsentDocument.h; sourceTree = "<group>"; };
+		B43ECBD01C50004A00865C5A /* ACMConsentDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMConsentDocument.m; sourceTree = "<group>"; };
 		B463CC401C4FE13D002B4F9C /* AsthmaHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B463CC441C4FE13D002B4F9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B463CC461C4FE13D002B4F9C /* ACMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMAppDelegate.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 		B463CC711C4FEBC2002B4F9C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B43ECBCF1C50004A00865C5A /* ACMConsentDocument.h */,
+				B43ECBD01C50004A00865C5A /* ACMConsentDocument.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			files = (
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
 				B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */,
+				B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */,
 				B463CC451C4FE13D002B4F9C /* main.m in Sources */,
 				B43ECBCE1C4FF9D800865C5A /* ACMOnboardingViewController.m in Sources */,
 			);
