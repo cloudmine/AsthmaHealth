@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Consent View Controller-->
         <scene sceneID="Bg5-A2-kop">
             <objects>
-                <viewController id="OwB-5f-5u0" sceneMemberID="viewController">
+                <viewController id="OwB-5f-5u0" customClass="ACMConsentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6BN-5i-5n8"/>
                         <viewControllerLayoutGuide type="bottom" id="99l-n4-wle"/>

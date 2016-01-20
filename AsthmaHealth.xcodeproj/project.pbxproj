@@ -10,7 +10,7 @@
 		394D27665E5672044448CDCF /* libPods-AsthmaHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */; };
 		B463CC451C4FE13D002B4F9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC441C4FE13D002B4F9C /* main.m */; };
 		B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */; };
-		B463CC4B1C4FE13D002B4F9C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC4A1C4FE13D002B4F9C /* ViewController.m */; };
+		B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC4A1C4FE13D002B4F9C /* ACMConsentViewController.m */; };
 		B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B463CC4F1C4FE13D002B4F9C /* Assets.xcassets */; };
 		B463CC5E1C4FE13E002B4F9C /* AsthmaHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC5D1C4FE13E002B4F9C /* AsthmaHealthTests.m */; };
 		B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */; };
@@ -34,8 +34,8 @@
 		B463CC441C4FE13D002B4F9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B463CC461C4FE13D002B4F9C /* ACMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMAppDelegate.h; sourceTree = "<group>"; };
 		B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACMAppDelegate.m; sourceTree = "<group>"; };
-		B463CC491C4FE13D002B4F9C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B463CC4A1C4FE13D002B4F9C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B463CC491C4FE13D002B4F9C /* ACMConsentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMConsentViewController.h; sourceTree = "<group>"; };
+		B463CC4A1C4FE13D002B4F9C /* ACMConsentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACMConsentViewController.m; sourceTree = "<group>"; };
 		B463CC4F1C4FE13D002B4F9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B463CC541C4FE13D002B4F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B463CC591C4FE13E002B4F9C /* AsthmaHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,8 +136,8 @@
 		B463CC6B1C4FEA2E002B4F9C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B463CC491C4FE13D002B4F9C /* ViewController.h */,
-				B463CC4A1C4FE13D002B4F9C /* ViewController.m */,
+				B463CC491C4FE13D002B4F9C /* ACMConsentViewController.h */,
+				B463CC4A1C4FE13D002B4F9C /* ACMConsentViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -310,7 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B463CC4B1C4FE13D002B4F9C /* ViewController.m in Sources */,
+				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
 				B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */,
 				B463CC451C4FE13D002B4F9C /* main.m in Sources */,
 			);
