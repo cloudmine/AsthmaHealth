@@ -10,6 +10,7 @@ static NSString *const ACMSignatureIdentifier = @"ACMConsentParticipantConsentSi
     self = [super init];
     if (nil == self) return nil;
 
+    self.htmlReviewContent = ACMConsentDocument.reviewContent;
     self.sections = ACMConsentDocument.sections;
 
     ORKConsentSignature *signature = [ORKConsentSignature signatureForPersonWithTitle:nil dateFormatString:nil identifier:ACMSignatureIdentifier];
@@ -19,6 +20,22 @@ static NSString *const ACMSignatureIdentifier = @"ACMConsentParticipantConsentSi
 }
 
 #pragma mark Static Private Helpers
+
++ (NSString *)reviewContent
+{
+    return  @"<center><h3>ICAHN SCHOOL OF MEDICINE AT MOUNT SINAI AND THE MOUNT SINAI HOSPITAL<br />"
+            "CONSENT FORM TO VOLUNTEER IN A RESEARCH STUDY<br />"
+            "AND AUTHORIZATION FOR USE AND DISCLOSURE OF MEDICAL INFORMATION</h3></center>"
+            "<p>&nbsp;</p>"
+            "<p><strong>TITLE OF RESEARCH STUDY:</strong>"
+            "Asthma Mobile Health Application 2.0 (AMHA 2.0)"
+            "</p><p><strong>PRINCIPAL INVESTIGATOR (HEAD RESEARCHER) NAME AND CONTACT INFORMATION:</strong></p>"
+            "<p style=\"padding-left:10px;\">"
+            "Name: Yu-Feng Yvonne Chan, MD, PhD<br />"
+            "Mailing Address: One Gustave L. Levy Place Box 1498, NY, NY 10029<br />"
+            "Phone:  212-241-7526<br />"
+            "Email: <a href=\"mailto:asthmamobilehealth@mssm.edu;\">asthmamobilehealth@mssm.edu</a></p>";
+}
 
 + (NSArray<ORKConsentSection *> *)sections
 {
