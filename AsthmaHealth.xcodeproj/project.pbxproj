@@ -11,10 +11,10 @@
 		B463CC451C4FE13D002B4F9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC441C4FE13D002B4F9C /* main.m */; };
 		B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */; };
 		B463CC4B1C4FE13D002B4F9C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC4A1C4FE13D002B4F9C /* ViewController.m */; };
-		B463CC4E1C4FE13D002B4F9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC4C1C4FE13D002B4F9C /* Main.storyboard */; };
 		B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B463CC4F1C4FE13D002B4F9C /* Assets.xcassets */; };
-		B463CC531C4FE13D002B4F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC511C4FE13D002B4F9C /* LaunchScreen.storyboard */; };
 		B463CC5E1C4FE13E002B4F9C /* AsthmaHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC5D1C4FE13E002B4F9C /* AsthmaHealthTests.m */; };
+		B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */; };
+		B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +36,13 @@
 		B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACMAppDelegate.m; sourceTree = "<group>"; };
 		B463CC491C4FE13D002B4F9C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B463CC4A1C4FE13D002B4F9C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B463CC4D1C4FE13D002B4F9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B463CC4F1C4FE13D002B4F9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B463CC521C4FE13D002B4F9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B463CC541C4FE13D002B4F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B463CC591C4FE13E002B4F9C /* AsthmaHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B463CC5D1C4FE13E002B4F9C /* AsthmaHealthTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsthmaHealthTests.m; sourceTree = "<group>"; };
 		B463CC5F1C4FE13E002B4F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,25 +105,23 @@
 		B463CC421C4FE13D002B4F9C /* AsthmaHealth */ = {
 			isa = PBXGroup;
 			children = (
-				B463CC461C4FE13D002B4F9C /* ACMAppDelegate.h */,
-				B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */,
-				B463CC491C4FE13D002B4F9C /* ViewController.h */,
-				B463CC4A1C4FE13D002B4F9C /* ViewController.m */,
-				B463CC4C1C4FE13D002B4F9C /* Main.storyboard */,
-				B463CC4F1C4FE13D002B4F9C /* Assets.xcassets */,
-				B463CC511C4FE13D002B4F9C /* LaunchScreen.storyboard */,
-				B463CC541C4FE13D002B4F9C /* Info.plist */,
-				B463CC431C4FE13D002B4F9C /* Supporting Files */,
+				B463CC711C4FEBC2002B4F9C /* Models */,
+				B463CC6C1C4FEA9A002B4F9C /* Views */,
+				B463CC6B1C4FEA2E002B4F9C /* ViewControllers */,
+				B463CC431C4FE13D002B4F9C /* SupportingFiles */,
 			);
 			path = AsthmaHealth;
 			sourceTree = "<group>";
 		};
-		B463CC431C4FE13D002B4F9C /* Supporting Files */ = {
+		B463CC431C4FE13D002B4F9C /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				B463CC461C4FE13D002B4F9C /* ACMAppDelegate.h */,
+				B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */,
 				B463CC441C4FE13D002B4F9C /* main.m */,
+				B463CC541C4FE13D002B4F9C /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		B463CC5C1C4FE13E002B4F9C /* AsthmaHealthTests */ = {
@@ -133,6 +131,32 @@
 				B463CC5F1C4FE13E002B4F9C /* Info.plist */,
 			);
 			path = AsthmaHealthTests;
+			sourceTree = "<group>";
+		};
+		B463CC6B1C4FEA2E002B4F9C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B463CC491C4FE13D002B4F9C /* ViewController.h */,
+				B463CC4A1C4FE13D002B4F9C /* ViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B463CC6C1C4FEA9A002B4F9C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B463CC4F1C4FE13D002B4F9C /* Assets.xcassets */,
+				B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */,
+				B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B463CC711C4FEBC2002B4F9C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,9 +242,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B463CC531C4FE13D002B4F9C /* LaunchScreen.storyboard in Resources */,
+				B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */,
 				B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */,
-				B463CC4E1C4FE13D002B4F9C /* Main.storyboard in Resources */,
+				B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,25 +334,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		B463CC4C1C4FE13D002B4F9C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B463CC4D1C4FE13D002B4F9C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B463CC511C4FE13D002B4F9C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B463CC521C4FE13D002B4F9C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		B463CC601C4FE13E002B4F9C /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -415,7 +420,7 @@
 			baseConfigurationReference = 5FCA5FDF42D14EBE6C192A99 /* Pods-AsthmaHealth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AsthmaHealth/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AsthmaHealth/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.cloudmine.AsthmaHealth;
@@ -428,7 +433,7 @@
 			baseConfigurationReference = ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AsthmaHealth/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AsthmaHealth/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.cloudmine.AsthmaHealth;
