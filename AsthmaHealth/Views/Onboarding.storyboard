@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Consent View Controller-->
+        <!--View Controller-->
         <scene sceneID="Bg5-A2-kop">
             <objects>
-                <viewController id="OwB-5f-5u0" customClass="ACMConsentViewController" sceneMemberID="viewController">
+                <viewController id="OwB-5f-5u0" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6BN-5i-5n8"/>
                         <viewControllerLayoutGuide type="bottom" id="99l-n4-wle"/>
@@ -15,12 +15,33 @@
                     <view key="view" contentMode="scaleToFill" id="wVg-iM-6LI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqH-dx-qG6">
+                                <rect key="frame" x="249" y="550" width="102" height="30"/>
+                                <state key="normal" title="Demo Consent"/>
+                                <connections>
+                                    <segue destination="PYp-zM-MVy" kind="presentation" id="da0-uY-f0w"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="99l-n4-wle" firstAttribute="top" secondItem="VqH-dx-qG6" secondAttribute="bottom" constant="20" id="cBm-aK-bpa"/>
+                            <constraint firstItem="VqH-dx-qG6" firstAttribute="centerX" secondItem="wVg-iM-6LI" secondAttribute="centerX" id="eDM-cd-p3F"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTt-yH-Gho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="441" y="421"/>
+        </scene>
+        <!--Consent-->
+        <scene sceneID="4TC-ht-DwC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Consent" id="PYp-zM-MVy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pNH-WP-agK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894.5" y="648"/>
         </scene>
     </scenes>
 </document>

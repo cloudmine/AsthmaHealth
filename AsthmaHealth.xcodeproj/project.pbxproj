@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		394D27665E5672044448CDCF /* libPods-AsthmaHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */; };
+		B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */; };
 		B463CC451C4FE13D002B4F9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC441C4FE13D002B4F9C /* main.m */; };
 		B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */; };
 		B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC4A1C4FE13D002B4F9C /* ACMConsentViewController.m */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsthmaHealth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCA5FDF42D14EBE6C192A99 /* Pods-AsthmaHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.debug.xcconfig"; sourceTree = "<group>"; };
+		B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Consent.storyboard; sourceTree = "<group>"; };
 		B463CC401C4FE13D002B4F9C /* AsthmaHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B463CC441C4FE13D002B4F9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B463CC461C4FE13D002B4F9C /* ACMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMAppDelegate.h; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				B463CC4F1C4FE13D002B4F9C /* Assets.xcassets */,
 				B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */,
 				B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */,
+				B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */,
 				B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */,
 				B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */,
+				B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
