@@ -27,6 +27,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BM-Uf-g2G">
+                                                <rect key="frame" x="20" y="153" width="560" height="61"/>
+                                                <string key="text">Your data will be stored by CloudMine, a company that specializes in the secure collection and storage of sensitive data. Please provide a unique email address and password to create a secure account.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Hv-Ah-QIZ">
                                                 <rect key="frame" x="20" y="45" width="560" height="38"/>
                                                 <constraints>
@@ -35,13 +42,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BM-Uf-g2G">
-                                                <rect key="frame" x="20" y="153" width="560" height="61"/>
-                                                <string key="text">Your data will be stored by CloudMine, a company that specializes in the secure collection and storage of sensitive data. Please provide a unique email address and password to create a secure account.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -80,6 +80,11 @@
                     <navigationItem key="navigationItem" title="Registration" id="75W-FW-KAt">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="E2i-zZ-bPH"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="1Hv-Ah-QIZ" id="nYv-Vj-nwe"/>
+                        <outlet property="nextButton" destination="E2i-zZ-bPH" id="ven-hK-rju"/>
+                        <outlet property="passwordTextField" destination="ene-Z2-e06" id="Tzh-TP-sZm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVo-nn-pEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
