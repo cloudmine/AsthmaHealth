@@ -1,4 +1,6 @@
 #import "ACMAppDelegate.h"
+#import "Secrets.h"
+#import <CloudMine/CloudMine.h>
 
 @interface ACMAppDelegate ()
 
@@ -7,7 +9,12 @@
 @implementation ACMAppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    CMAPICredentials *credentials = [CMAPICredentials sharedInstance];
+    credentials.appIdentifier = ACMAppIdentifier;
+    credentials.appSecret = ACMAppSecret;
+    
     return YES;
 }
 

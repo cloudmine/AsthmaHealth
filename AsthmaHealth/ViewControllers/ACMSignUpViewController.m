@@ -1,4 +1,5 @@
 #import "ACMSignUpViewController.h"
+#import <Cloudmine/CloudMine.h>
 
 @interface ACMSignUpViewController ()
 
@@ -22,6 +23,21 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (IBAction)nextButtonDidPress:(UIBarButtonItem *)sender
+{
+    CMUser *newUser = [[CMUser alloc] initWithEmail:self.emailTextField.text andPassword:self.passwordTextField.text];
+
+    [newUser createAccountAndLoginWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
+
+        if (CMUserAccountOperationFailed(resultCode)) {
+            NSLog(@"Account Creation Failed with code: %ld\nMessages: %@", (long)resultCode, messages);
+            return;
+        }
+
+        NSLog(@"Account creation succeeded with code: %ld\nMessages: %@", (long)resultCode, messages);
+    }];
 }
 
 #pragma mark Notifications

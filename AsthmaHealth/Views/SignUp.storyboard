@@ -78,7 +78,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="75W-FW-KAt">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="E2i-zZ-bPH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="E2i-zZ-bPH">
+                            <connections>
+                                <action selector="nextButtonDidPress:" destination="xvW-Ik-LM7" id="jFh-wB-hUQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="1Hv-Ah-QIZ" id="nYv-Vj-nwe"/>
