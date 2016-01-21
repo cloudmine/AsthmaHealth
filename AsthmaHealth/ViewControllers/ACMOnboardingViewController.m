@@ -1,6 +1,8 @@
 #import "ACMOnboardingViewController.h"
 #import "ACMConsentViewController.h"
 
+static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
+
 @interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate>
 
 @end
@@ -40,7 +42,7 @@
 
     switch (reason) {
         case ORKTaskViewControllerFinishReasonCompleted:
-            NSLog(@"Consent Completed");
+            [self performSegueWithIdentifier:ACMSignUpSegueIdentifier sender:self];
             break;
         case ORKTaskViewControllerFinishReasonDiscarded:
             NSLog(@"Consent Discarded");

@@ -12,6 +12,8 @@
 		B43ECBCE1C4FF9D800865C5A /* ACMOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43ECBCD1C4FF9D800865C5A /* ACMOnboardingViewController.m */; };
 		B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = B43ECBD01C50004A00865C5A /* ACMConsentDocument.m */; };
 		B43ECBD41C50027500865C5A /* ACMConsentTask.m in Sources */ = {isa = PBXBuildFile; fileRef = B43ECBD31C50027500865C5A /* ACMConsentTask.m */; };
+		B43ECBD71C51709E00865C5A /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43ECBD61C51709E00865C5A /* SignUp.storyboard */; };
+		B43ECBDA1C51772300865C5A /* ACMSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43ECBD91C51772300865C5A /* ACMSignUpViewController.m */; };
 		B463CC451C4FE13D002B4F9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC441C4FE13D002B4F9C /* main.m */; };
 		B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */; };
 		B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC4A1C4FE13D002B4F9C /* ACMConsentViewController.m */; };
@@ -41,6 +43,9 @@
 		B43ECBD01C50004A00865C5A /* ACMConsentDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMConsentDocument.m; sourceTree = "<group>"; };
 		B43ECBD21C50027500865C5A /* ACMConsentTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMConsentTask.h; sourceTree = "<group>"; };
 		B43ECBD31C50027500865C5A /* ACMConsentTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMConsentTask.m; sourceTree = "<group>"; };
+		B43ECBD61C51709E00865C5A /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		B43ECBD81C51772300865C5A /* ACMSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSignUpViewController.h; sourceTree = "<group>"; };
+		B43ECBD91C51772300865C5A /* ACMSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSignUpViewController.m; sourceTree = "<group>"; };
 		B463CC401C4FE13D002B4F9C /* AsthmaHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B463CC441C4FE13D002B4F9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B463CC461C4FE13D002B4F9C /* ACMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMAppDelegate.h; sourceTree = "<group>"; };
@@ -151,6 +156,8 @@
 				B43ECBCD1C4FF9D800865C5A /* ACMOnboardingViewController.m */,
 				B463CC491C4FE13D002B4F9C /* ACMConsentViewController.h */,
 				B463CC4A1C4FE13D002B4F9C /* ACMConsentViewController.m */,
+				B43ECBD81C51772300865C5A /* ACMSignUpViewController.h */,
+				B43ECBD91C51772300865C5A /* ACMSignUpViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 				B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */,
 				B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */,
 				B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */,
+				B43ECBD61C51709E00865C5A /* SignUp.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,6 +272,7 @@
 				B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */,
 				B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */,
 				B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */,
+				B43ECBD71C51709E00865C5A /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43ECBDA1C51772300865C5A /* ACMSignUpViewController.m in Sources */,
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
 				B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */,
 				B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */,

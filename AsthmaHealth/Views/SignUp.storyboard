@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xvW-Ik-LM7">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Registration-->
+        <scene sceneID="2jX-w2-F3Y">
+            <objects>
+                <viewController id="xvW-Ik-LM7" customClass="ACMSignUpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wHW-8n-4Rw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vw9-Uo-Evk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BsR-9r-8CM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="je4-hA-s0D">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ow-3s-bMa" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="147"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ene-Z2-e06">
+                                                <rect key="frame" x="20" y="97" width="560" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Hv-Ah-QIZ">
+                                                <rect key="frame" x="20" y="45" width="560" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="1Hv-Ah-QIZ" secondAttribute="trailing" constant="20" symbolic="YES" id="1NT-4m-VVo"/>
+                                            <constraint firstAttribute="bottom" secondItem="ene-Z2-e06" secondAttribute="bottom" constant="20" symbolic="YES" id="90u-oa-nga"/>
+                                            <constraint firstItem="ene-Z2-e06" firstAttribute="trailing" secondItem="1Hv-Ah-QIZ" secondAttribute="trailing" id="Pqy-Ld-NRm"/>
+                                            <constraint firstItem="ene-Z2-e06" firstAttribute="top" secondItem="1Hv-Ah-QIZ" secondAttribute="bottom" constant="22" id="TKY-my-7Um"/>
+                                            <constraint firstItem="1Hv-Ah-QIZ" firstAttribute="leading" secondItem="2ow-3s-bMa" secondAttribute="leading" constant="20" symbolic="YES" id="f3S-Bq-osB"/>
+                                            <constraint firstItem="ene-Z2-e06" firstAttribute="leading" secondItem="1Hv-Ah-QIZ" secondAttribute="leading" id="tV5-VI-ExC"/>
+                                            <constraint firstItem="1Hv-Ah-QIZ" firstAttribute="top" secondItem="2ow-3s-bMa" secondAttribute="top" constant="45" id="yzQ-k6-LsG"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="2ow-3s-bMa" firstAttribute="leading" secondItem="je4-hA-s0D" secondAttribute="leading" id="CJ5-8U-EcM"/>
+                                    <constraint firstAttribute="bottom" secondItem="2ow-3s-bMa" secondAttribute="bottom" id="pP8-Uz-7Yc"/>
+                                    <constraint firstAttribute="trailing" secondItem="2ow-3s-bMa" secondAttribute="trailing" id="pjB-Dw-O7N"/>
+                                    <constraint firstItem="2ow-3s-bMa" firstAttribute="top" secondItem="je4-hA-s0D" secondAttribute="top" id="ud8-Bb-dix"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="je4-hA-s0D" firstAttribute="leading" secondItem="BsR-9r-8CM" secondAttribute="leading" id="CyJ-rZ-ii6"/>
+                            <constraint firstItem="2ow-3s-bMa" firstAttribute="width" secondItem="BsR-9r-8CM" secondAttribute="width" id="MnP-bS-eYg"/>
+                            <constraint firstItem="je4-hA-s0D" firstAttribute="top" secondItem="wHW-8n-4Rw" secondAttribute="bottom" id="RhY-bY-Tro"/>
+                            <constraint firstItem="Vw9-Uo-Evk" firstAttribute="top" secondItem="je4-hA-s0D" secondAttribute="bottom" id="SrZ-Ry-9PP"/>
+                            <constraint firstAttribute="trailing" secondItem="je4-hA-s0D" secondAttribute="trailing" id="pK8-mf-A30"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Registration" id="75W-FW-KAt">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="E2i-zZ-bPH"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVo-nn-pEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="364" y="431"/>
+        </scene>
+    </scenes>
+</document>
