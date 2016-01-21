@@ -17,7 +17,6 @@ static NSString *const ACMConsentTaskIdentifier     = @"ACMParticipantConsentTas
     ORKVisualConsentStep *consentStep = [[ORKVisualConsentStep alloc] initWithIdentifier:ACMConsentStepIdentifier document:consentDoc];
 
     ORKConsentReviewStep *reviewStep = [[ORKConsentReviewStep alloc] initWithIdentifier:ACMReviewConsentIdentifier signature:consentDoc.signatures.firstObject inDocument:consentDoc];
-    reviewStep.text = NSLocalizedString(@"Review ACM Consent", nil);
     reviewStep.reasonForConsent = NSLocalizedString(@"Consent to Join ACM Study", nil);
 
     ACMConsentTask *consentTask = [[ACMConsentTask alloc] initWithIdentifier:ACMConsentTaskIdentifier steps:@[consentStep, self.sharingOptionStep, reviewStep]];
