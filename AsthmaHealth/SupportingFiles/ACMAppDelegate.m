@@ -14,7 +14,12 @@
     CMAPICredentials *credentials = [CMAPICredentials sharedInstance];
     credentials.appIdentifier = ACMAppIdentifier;
     credentials.appSecret = ACMAppSecret;
-    
+
+    CMUser *currentUser = [CMUser currentUser];
+    if (nil != currentUser) {
+        NSLog(@"User Logged In: %@", currentUser.email);
+    }
+
     return YES;
 }
 

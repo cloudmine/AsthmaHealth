@@ -38,6 +38,8 @@
 
         NSLog(@"Account creation succeeded with code: %ld\nMessages: %@", (long)resultCode, messages);
     }];
+
+    [CMStore defaultStore].user = newUser;
 }
 
 #pragma mark Notifications
