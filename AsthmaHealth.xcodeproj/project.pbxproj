@@ -21,6 +21,7 @@
 		B463CC5E1C4FE13E002B4F9C /* AsthmaHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC5D1C4FE13E002B4F9C /* AsthmaHealthTests.m */; };
 		B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */; };
 		B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */; };
+		B4E8DDD81C52CD2E00878DE4 /* ACMTaskResultWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E8DDD71C52CD2E00878DE4 /* ACMTaskResultWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		B463CC5F1C4FE13E002B4F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		B4E8DDD61C52CD2E00878DE4 /* ACMTaskResultWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMTaskResultWrapper.h; sourceTree = "<group>"; };
+		B4E8DDD71C52CD2E00878DE4 /* ACMTaskResultWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMTaskResultWrapper.m; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +186,8 @@
 				B43ECBD01C50004A00865C5A /* ACMConsentDocument.m */,
 				B43ECBD21C50027500865C5A /* ACMConsentTask.h */,
 				B43ECBD31C50027500865C5A /* ACMConsentTask.m */,
+				B4E8DDD61C52CD2E00878DE4 /* ACMTaskResultWrapper.h */,
+				B4E8DDD71C52CD2E00878DE4 /* ACMTaskResultWrapper.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */,
 				B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */,
 				B43ECBD41C50027500865C5A /* ACMConsentTask.m in Sources */,
+				B4E8DDD81C52CD2E00878DE4 /* ACMTaskResultWrapper.m in Sources */,
 				B463CC451C4FE13D002B4F9C /* main.m in Sources */,
 				B43ECBCE1C4FF9D800865C5A /* ACMOnboardingViewController.m in Sources */,
 			);

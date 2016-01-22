@@ -1,5 +1,6 @@
 #import "ACMSignUpViewController.h"
 #import <Cloudmine/CloudMine.h>
+#import "ACMTaskResultWrapper.h"
 
 @interface ACMSignUpViewController ()
 
@@ -28,6 +29,7 @@
 - (IBAction)nextButtonDidPress:(UIBarButtonItem *)sender
 {
     CMUser *newUser = [[CMUser alloc] initWithEmail:self.emailTextField.text andPassword:self.passwordTextField.text];
+    [CMStore defaultStore].user = newUser;
 
     [newUser createAccountAndLoginWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
 
@@ -37,9 +39,12 @@
         }
 
         NSLog(@"Account creation succeeded with code: %ld\nMessages: %@", (long)resultCode, messages);
-    }];
 
-    [CMStore defaultStore].user = newUser;
+        ACMTaskResultWrapper *resultWrapper = [[ACMTaskResultWrapper alloc] initWithTaskResult:self.consentResults];
+        [resultWrapper save:^(CMObjectUploadResponse *response) {
+            NSLog(@"Status: %@", [response.uploadStatuses objectForKey:resultWrapper.objectId]);
+        }];
+    }];
 }
 
 #pragma mark Notifications

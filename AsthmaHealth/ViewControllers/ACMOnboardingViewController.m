@@ -1,9 +1,12 @@
 #import "ACMOnboardingViewController.h"
 #import "ACMConsentViewController.h"
+#import "ACMSignUpViewController.h"
 
 static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
 @interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate>
+
+@property (nonatomic, nullable) ORKTaskResult* consentResults;
 
 @end
 
@@ -26,6 +29,9 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     if ([segue.destinationViewController isKindOfClass:[ACMConsentViewController class]]) {
         ACMConsentViewController *consentVC = (ACMConsentViewController *)segue.destinationViewController;
         consentVC.delegate = self;
+    } else if ([segue.destinationViewController isKindOfClass:[ACMSignUpViewController class]] && nil != self.consentResults) {
+        ACMSignUpViewController * signupVC = (ACMSignUpViewController *)segue.destinationViewController;
+        signupVC.consentResults = self.consentResults;
     }
 }
 
@@ -33,8 +39,6 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
 - (void)taskViewController:(ORKTaskViewController *)taskViewController didFinishWithReason:(ORKTaskViewControllerFinishReason)reason error:(NSError *)error
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
-
     if (nil != error) {
         NSLog(@"Consent Error: %@", error.localizedDescription);
         return;
@@ -42,8 +46,8 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
     switch (reason) {
         case ORKTaskViewControllerFinishReasonCompleted:
-            [self performSegueWithIdentifier:ACMSignUpSegueIdentifier sender:self];
-            break;
+            [self handleConsentCompleted];
+            return;
         case ORKTaskViewControllerFinishReasonDiscarded:
             NSLog(@"Consent Discarded");
             break;
@@ -56,6 +60,21 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
         default:
             break;
     }
+
+    self.consentResults = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark Private Helprs
+
+- (void)handleConsentCompleted
+{
+    NSAssert([self.presentedViewController isKindOfClass:[ACMConsentViewController class]], @"Handle Consent Completion");
+
+    self.consentResults = ((ACMConsentViewController *)self.presentedViewController).result;
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:ACMSignUpSegueIdentifier sender:self];
 }
 
 @end
