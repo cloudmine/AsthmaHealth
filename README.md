@@ -8,6 +8,11 @@ Requires [CocoaPods](https://cocoapods.org/) for dependency management
 
 ```
 #> git clone git@github.com:cloudmine/AsthmaHealth.git
+#> mv AsthmaHealth/SupportingFiles/Secrets.h-Template AsthmaHealth/SupportingFiles/Secrets.h
 #> pod install
 #> open AsthmaHealth.xcworkspace
 ```
+
+The project should now open and build.
+
+** BE SURE TO EDIT `Secret.h` to add your CloudMine App ID & API Keys **
