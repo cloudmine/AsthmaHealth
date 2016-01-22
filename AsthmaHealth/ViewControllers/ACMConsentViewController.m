@@ -12,6 +12,7 @@
     self = [super initWithCoder:aDecoder];
     if (nil == self) return nil;
 
+    self.showsProgressInNavigationBar = NO;
     self.task = ACMConsentTask.task;
 
     return self;
