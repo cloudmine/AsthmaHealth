@@ -1,6 +1,33 @@
 #import "ACMTaskResultWrapper.h"
 
-@implementation ORKCollectionResult (CloudMine)
+@implementation ORKResult (CloudMine)
+@end
+
+@implementation ORKConsentSignature (CloudMine)
+@end
+
+@implementation UIImage (CloudMine)
+@end
+
+@implementation NSData (CloudMine)
+@end
+
+@implementation UITraitCollection (CloudMine)
+@end
+
+@implementation NSUUID (CloudMine)
+@end
+
+@implementation CMObjectEncoder (CMORK)
+- (void)encodeBytes:(nullable const void *)byteaddr length:(NSUInteger)length
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)encodeBytes:(nullable const uint8_t *)bytesp length:(NSUInteger)lenv forKey:(NSString *)key
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
 @end
 
 
