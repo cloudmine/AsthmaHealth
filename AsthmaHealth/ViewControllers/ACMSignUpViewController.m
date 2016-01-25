@@ -41,7 +41,8 @@
         NSLog(@"Account creation succeeded with code: %ld\nMessages: %@", (long)resultCode, messages);
 
         ACMTaskResultWrapper *resultWrapper = [[ACMTaskResultWrapper alloc] initWithTaskResult:self.consentResults];
-        [resultWrapper save:^(CMObjectUploadResponse *response) {
+
+        [resultWrapper saveWithUser:[CMStore defaultStore].user callback:^(CMObjectUploadResponse *response) {
             NSLog(@"Status: %@", [response.uploadStatuses objectForKey:resultWrapper.objectId]);
         }];
     }];
