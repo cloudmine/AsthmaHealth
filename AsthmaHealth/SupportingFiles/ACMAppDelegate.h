@@ -4,6 +4,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)loadOnboarding;
 
 @end
 

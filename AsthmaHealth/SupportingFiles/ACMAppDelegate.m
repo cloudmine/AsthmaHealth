@@ -9,6 +9,12 @@
 @implementation ACMAppDelegate
 
 
+-(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    return YES;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     CMAPICredentials *credentials = [CMAPICredentials sharedInstance];
@@ -19,6 +25,8 @@
     if (nil != currentUser) {
         NSLog(@"User Logged In: %@", currentUser.email);
     }
+
+    [self loadOnboarding];
 
     return YES;
 }
@@ -41,6 +49,13 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 
+}
+
+- (void)loadOnboarding
+{
+    UIViewController *onboardingVC = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil].instantiateInitialViewController;
+    [self.window setRootViewController:onboardingVC];
+    [self.window makeKeyAndVisible];
 }
 
 @end
