@@ -21,6 +21,7 @@
 		B463CC5E1C4FE13E002B4F9C /* AsthmaHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC5D1C4FE13E002B4F9C /* AsthmaHealthTests.m */; };
 		B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */; };
 		B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */; };
+		B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */; };
 		B4E8DDD81C52CD2E00878DE4 /* ACMTaskResultWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E8DDD71C52CD2E00878DE4 /* ACMTaskResultWrapper.m */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		B463CC5F1C4FE13E002B4F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		B4A9CEC71C57D4CC0073A76F /* ORKResult+CloudMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ORKResult+CloudMine.h"; sourceTree = "<group>"; };
+		B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ORKResult+CloudMine.m"; sourceTree = "<group>"; };
 		B4E8DDD61C52CD2E00878DE4 /* ACMTaskResultWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMTaskResultWrapper.h; sourceTree = "<group>"; };
 		B4E8DDD71C52CD2E00878DE4 /* ACMTaskResultWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMTaskResultWrapper.m; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +131,7 @@
 				B463CC711C4FEBC2002B4F9C /* Models */,
 				B463CC6C1C4FEA9A002B4F9C /* Views */,
 				B463CC6B1C4FEA2E002B4F9C /* ViewControllers */,
+				B4E8DDD91C57D42A00878DE4 /* Categories */,
 				B463CC431C4FE13D002B4F9C /* SupportingFiles */,
 			);
 			path = AsthmaHealth;
@@ -190,6 +194,15 @@
 				B4E8DDD71C52CD2E00878DE4 /* ACMTaskResultWrapper.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B4E8DDD91C57D42A00878DE4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B4A9CEC71C57D4CC0073A76F /* ORKResult+CloudMine.h */,
+				B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +360,7 @@
 			files = (
 				B43ECBDA1C51772300865C5A /* ACMSignUpViewController.m in Sources */,
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
+				B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */,
 				B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */,
 				B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */,
 				B43ECBD41C50027500865C5A /* ACMConsentTask.m in Sources */,
