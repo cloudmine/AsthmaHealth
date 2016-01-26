@@ -1,12 +1,12 @@
-#import "ACMConsentResultWrapper.h"
+#import "ACMConsentTaskResult.h"
 #import <CloudMine/CloudMine.h>
 #import "ORKResult+CloudMine.h"
 
-@interface ACMConsentResultWrapper ()
+@interface ACMConsentTaskResult ()
 @property (nonatomic, nonnull) ORKTaskResult *taskResult;
 @end
 
-@implementation ACMConsentResultWrapper
+@implementation ACMConsentTaskResult
 
 - (nonnull instancetype)initWithTaskResult:(ORKTaskResult * _Nonnull)taskResult
 {
@@ -25,6 +25,10 @@
     // the consent wrapper should not use the would-be-generalized acm_save category method but instead
     // call save internally to implement this method. Actually, are the two mutually exclusive?
 
+
+    // TODO: This is (potentially) where we could do inspection on the ORKTaskResult to ensure
+    // it is a consent task and that the user did consent, although possibly the user abstraction
+    // is actually the better place to handle that, and this class is invisible to users
     self.taskResult = taskResult;
 
     return self;

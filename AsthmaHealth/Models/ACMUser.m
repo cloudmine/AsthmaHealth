@@ -1,5 +1,5 @@
 #import "ACMUser.h"
-#import "ACMConsentResultWrapper.h"
+#import "ACMConsentTaskResult.h"
 
 @interface ACMUser ()
 @property (nonatomic, nullable) ORKTaskResult *consentResult;
@@ -33,7 +33,7 @@
             return;
         }
 
-        ACMConsentResultWrapper *resultWrapper = [[ACMConsentResultWrapper alloc] initWithTaskResult:self.consentResult];
+        ACMConsentTaskResult *resultWrapper = [[ACMConsentTaskResult alloc] initWithTaskResult:self.consentResult];
         [resultWrapper saveWithUser:self callback:^(CMObjectUploadResponse *response) {
             NSLog(@"Status: %@", [response.uploadStatuses objectForKey:resultWrapper.objectId]);
 
