@@ -1,6 +1,5 @@
 #import "ACMSignUpViewController.h"
-#import <Cloudmine/CloudMine.h>
-#import "ACMTaskResultWrapper.h"
+#import "ACMUser.h"
 
 @interface ACMSignUpViewController ()
 
@@ -28,23 +27,17 @@
 
 - (IBAction)nextButtonDidPress:(UIBarButtonItem *)sender
 {
-    CMUser *newUser = [[CMUser alloc] initWithEmail:self.emailTextField.text andPassword:self.passwordTextField.text];
-    [CMStore defaultStore].user = newUser;
+    ACMUser *newUser = [[ACMUser alloc] initWithEmail:self.emailTextField.text
+                                          andPassword:self.passwordTextField.text
+                                     andConsentResult:self.consentResults];
 
-    [newUser createAccountAndLoginWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
-
-        if (CMUserAccountOperationFailed(resultCode)) {
-            NSLog(@"Account Creation Failed with code: %ld\nMessages: %@", (long)resultCode, messages);
+    [newUser createAccountLoginAndUploadConsentWithCompletion:^(NSError * _Nullable error) {
+        if (nil != error) {
+            NSLog(@"Account Creation Failed: %@", error.localizedDescription);
             return;
         }
 
-        NSLog(@"Account creation succeeded with code: %ld\nMessages: %@", (long)resultCode, messages);
-
-        ACMTaskResultWrapper *resultWrapper = [[ACMTaskResultWrapper alloc] initWithTaskResult:self.consentResults];
-
-        [resultWrapper saveWithUser:[CMStore defaultStore].user callback:^(CMObjectUploadResponse *response) {
-            NSLog(@"Status: %@", [response.uploadStatuses objectForKey:resultWrapper.objectId]);
-        }];
+        NSLog(@"Account Created Successfully");
     }];
 }
 

@@ -1,12 +1,12 @@
-#import "ACMTaskResultWrapper.h"
+#import "ACMConsentResultWrapper.h"
 #import <CloudMine/CloudMine.h>
 #import "ORKResult+CloudMine.h"
 
-@interface ACMTaskResultWrapper ()
+@interface ACMConsentResultWrapper ()
 @property (nonatomic, nonnull) ORKTaskResult *taskResult;
 @end
 
-@implementation ACMTaskResultWrapper
+@implementation ACMConsentResultWrapper
 
 - (nonnull instancetype)initWithTaskResult:(ORKTaskResult * _Nonnull)taskResult
 {
