@@ -22,11 +22,11 @@
     credentials.appSecret = ACMAppSecret;
 
     CMUser *currentUser = [CMUser currentUser];
-    if (nil != currentUser) {
-        NSLog(@"User Logged In: %@", currentUser.email);
+    if (nil == currentUser) {
+        [self loadOnboarding];
+    } else {
+        [self loadDashboard];
     }
-
-    [self loadOnboarding];
 
     return YES;
 }
