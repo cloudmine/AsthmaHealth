@@ -54,7 +54,14 @@
 - (void)loadOnboarding
 {
     UIViewController *onboardingVC = [UIStoryboard storyboardWithName:@"Onboarding" bundle:nil].instantiateInitialViewController;
-    [self.window setRootViewController:onboardingVC];
+    self.window.rootViewController = onboardingVC;
+    [self.window makeKeyAndVisible];
+}
+
+- (void)loadDashboard
+{
+    UIViewController *dashboardVC = [UIStoryboard storyboardWithName:@"Dashboard" bundle:nil].instantiateInitialViewController;
+    self.window.rootViewController = dashboardVC;
     [self.window makeKeyAndVisible];
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		394D27665E5672044448CDCF /* libPods-AsthmaHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */; };
+		B403FA9D1C58002300146B3C /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B403FA9C1C58002300146B3C /* Dashboard.storyboard */; };
 		B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */; };
 		B43ECBCE1C4FF9D800865C5A /* ACMOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43ECBCD1C4FF9D800865C5A /* ACMOnboardingViewController.m */; };
 		B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = B43ECBD01C50004A00865C5A /* ACMConsentDocument.m */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsthmaHealth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCA5FDF42D14EBE6C192A99 /* Pods-AsthmaHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.debug.xcconfig"; sourceTree = "<group>"; };
+		B403FA9C1C58002300146B3C /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Consent.storyboard; sourceTree = "<group>"; };
 		B43ECBCC1C4FF9D800865C5A /* ACMOnboardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMOnboardingViewController.h; sourceTree = "<group>"; };
 		B43ECBCD1C4FF9D800865C5A /* ACMOnboardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMOnboardingViewController.m; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */,
 				B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */,
 				B43ECBD61C51709E00865C5A /* SignUp.storyboard */,
+				B403FA9C1C58002300146B3C /* Dashboard.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */,
+				B403FA9D1C58002300146B3C /* Dashboard.storyboard in Resources */,
 				B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */,
 				B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */,
 				B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */,

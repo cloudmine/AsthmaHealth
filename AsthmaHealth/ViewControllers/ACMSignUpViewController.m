@@ -1,5 +1,6 @@
 #import "ACMSignUpViewController.h"
 #import "ACMUser.h"
+#import "ACMAppDelegate.h"
 
 @interface ACMSignUpViewController ()
 
@@ -38,6 +39,10 @@
         }
 
         NSLog(@"Account Created Successfully");
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.appDelegate loadDashboard];
+        });
     }];
 }
 
@@ -65,6 +70,15 @@
 {
     // TODO: real password validation
     return nil != self.passwordTextField.text && self.passwordTextField.text.length > 5;
+}
+
+- (ACMAppDelegate *)appDelegate
+{
+    if (![[UIApplication sharedApplication].delegate isKindOfClass:[ACMAppDelegate class]]) {
+        return nil;
+    }
+
+    return [UIApplication sharedApplication].delegate;
 }
 
 @end
