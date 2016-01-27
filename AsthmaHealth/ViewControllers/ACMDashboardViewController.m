@@ -50,7 +50,7 @@
 - (void)handleSurveyCompleted
 {
     NSAssert([self.presentedViewController isKindOfClass:[ACMSurveyViewController class]],
-             @"Attempted to handle a survey completion when a Survey View Controller was not presented");
+             @"Attempted to handle a survey completion when a ACMSurveyViewController was not presented");
     
     self.surveyResult = ((ACMSurveyViewController *)self.presentedViewController).result;
     [self dismissViewControllerAnimated:YES completion:nil];

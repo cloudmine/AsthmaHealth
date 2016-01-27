@@ -69,7 +69,8 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
 - (void)handleConsentCompleted
 {
-    NSAssert([self.presentedViewController isKindOfClass:[ACMConsentViewController class]], @"Handle Consent Completion");
+    NSAssert([self.presentedViewController isKindOfClass:[ACMConsentViewController class]],
+             @"Attempted -handleConsentCompletd when a ACMConsentViewController was not presented");
 
     self.consentResults = ((ACMConsentViewController *)self.presentedViewController).result;
 
