@@ -1,8 +1,9 @@
 #import "ACMDashboardViewController.h"
 #import <ResearchKit/ResearchKit.h>
+#import "ACMSurveyViewController.h"
 
 @interface ACMDashboardViewController ()<ORKTaskViewControllerDelegate>
-
+@property (nonatomic, nullable) ORKTaskResult *surveyResult;
 @end
 
 @implementation ACMDashboardViewController
@@ -17,7 +18,6 @@
     ((ORKTaskViewController *)segue.destinationViewController).delegate = self;
 }
 
-
 #pragma mark ORKTaskViewControllerDelegate
 
 - (void)taskViewController:(ORKTaskViewController *)taskViewController didFinishWithReason:(ORKTaskViewControllerFinishReason)reason error:(NSError *)error
@@ -29,8 +29,8 @@
 
     switch (reason) {
         case ORKTaskViewControllerFinishReasonCompleted:
-            NSLog(@"Consent Finished");
-            break;
+            [self handleSurveyCompleted];
+            return;
         case ORKTaskViewControllerFinishReasonDiscarded:
             NSLog(@"Consent Discarded");
             break;
@@ -44,6 +44,15 @@
             break;
     }
 
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)handleSurveyCompleted
+{
+    NSAssert([self.presentedViewController isKindOfClass:[ACMSurveyViewController class]],
+             @"Attempted to handle a survey completion when a Survey View Controller was not presented");
+    
+    self.surveyResult = ((ACMSurveyViewController *)self.presentedViewController).result;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
