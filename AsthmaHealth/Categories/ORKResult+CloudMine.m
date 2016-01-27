@@ -1,7 +1,27 @@
 #import "ORKResult+CloudMine.h"
 #import <objc/runtime.h>
+#import "ACMResultWrapper.h"
 
 @implementation ORKResult (CloudMine)
+
+- (void)cm_saveWithCompletion:(_Nullable ACMSaveCompletion)block
+{
+    Class resultWrapperClass = [ACMResultWrapper wrapperClassForResultClass:[self class]];
+    
+    NSAssert([[resultWrapperClass class] isSubclassOfClass:[ACMResultWrapper class]],
+             @"Fatal Error: Result wrapper class not a result of ACMResultWrapper");
+
+    ACMResultWrapper *resultWrapper = [[resultWrapperClass alloc] initWithResult:self];
+    
+    [resultWrapper saveWithUser:[CMStore defaultStore].user callback:^(CMObjectUploadResponse *response) {
+        NSLog(@"Result Save Response: %@", response);
+
+        if (nil != block) {
+            block(nil);
+        }
+    }];
+}
+
 @end
 
 @implementation ORKConsentSignature (CloudMine)

@@ -1,6 +1,8 @@
 #import "ACMDashboardViewController.h"
 #import <ResearchKit/ResearchKit.h>
 #import "ACMSurveyViewController.h"
+#import "ORKResult+CloudMine.h"
+
 
 @interface ACMDashboardViewController ()<ORKTaskViewControllerDelegate>
 @property (nonatomic, nullable) ORKTaskResult *surveyResult;
@@ -53,6 +55,9 @@
              @"Attempted to handle a survey completion when a ACMSurveyViewController was not presented");
     
     self.surveyResult = ((ACMSurveyViewController *)self.presentedViewController).result;
+
+    [self.surveyResult cm_saveWithCompletion:nil];
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

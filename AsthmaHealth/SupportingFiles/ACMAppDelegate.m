@@ -25,6 +25,8 @@
     if (nil == currentUser) {
         [self loadOnboarding];
     } else {
+        NSLog(@"Logged in as %@", [CMUser currentUser].email);
+        [CMStore defaultStore].user = [CMUser currentUser];
         [self loadDashboard];
     }
 
