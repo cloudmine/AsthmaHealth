@@ -4,7 +4,6 @@
 @interface ACMResultWrapper : CMObject
 
 - (_Nonnull instancetype)initWithResult:(ORKResult *_Nonnull)result;
-
-+ (Class)wrapperClassForResultClass:(Class)resultClass;
++ (_Nonnull Class)wrapperClassForResultClass:(_Nonnull Class)resultClass;
 
 @end

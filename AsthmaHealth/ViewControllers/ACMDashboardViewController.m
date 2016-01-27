@@ -56,7 +56,14 @@
     
     self.surveyResult = ((ACMSurveyViewController *)self.presentedViewController).result;
 
-    [self.surveyResult cm_saveWithCompletion:nil];
+    [self.surveyResult cm_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
+        if(nil == uploadStatus) {
+            NSLog(@"Survey upload failed: %@", error.localizedDescription);
+            return;
+        }
+
+        NSLog(@"Survery result upload succeeded with status: %@", uploadStatus);
+    }];
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }

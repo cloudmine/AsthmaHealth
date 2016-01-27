@@ -2,7 +2,7 @@
 #import <ResearchKit/ResearchKit.h>
 #import <CloudMine/CloudMine.h>
 
-typedef void(^ACMSaveCompletion)(NSError *_Nullable error);
+typedef void(^ACMSaveCompletion)(NSString *_Nullable uploadStatus, NSError *_Nullable error);
 
 @interface ORKResult (CloudMine)<CMCoding>
 - (void)cm_saveWithCompletion:(_Nullable ACMSaveCompletion)block;
