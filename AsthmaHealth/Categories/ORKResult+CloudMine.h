@@ -3,6 +3,7 @@
 #import <CloudMine/CloudMine.h>
 
 @interface ORKResult (CloudMine)<CMCoding>
+
 @end
 
 @interface ORKConsentSignature (CloudMine)<CMCoding>
