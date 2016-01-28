@@ -30,7 +30,8 @@
     return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask"
                                                 steps:@[self.ethnicityQuestionStep, self.raceQuestionStep,
                                                         self.incomeQuestionStep, self.educationQuestionStep,
-                                                        self.smokingQuestionStep, self.insuranceQuestionStep,
+                                                        self.smokingQuestionStep, self.cigaretteCountStep,
+                                                        self.smokingYearsStep, self.insuranceQuestionStep,
                                                         self.completionStep]];
 }
 
@@ -114,6 +115,32 @@
                           withKeywords:keywords
                              exclusive:YES
                       includesNoAnswer:NO];
+}
+
++ (ORKQuestionStep *)cigaretteCountStep
+{
+    ORKNumericAnswerFormat *format = [[ORKNumericAnswerFormat alloc] initWithStyle:ORKNumericAnswerStyleInteger
+                                                                              unit:NSLocalizedString(@"Cigarettes", nil)
+                                                                           minimum:@1 maximum:@200];
+    
+    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMAboutYouSurveyCigarettesQuestion"
+                                                                      title:NSLocalizedString(@"On average, how many cigarettes per day did you smoke daily?", nil)
+                                                                       text:nil
+                                                                     answer:format];
+    return question;
+}
+
++ (ORKQuestionStep *)smokingYearsStep
+{
+    ORKNumericAnswerFormat *format = [[ORKNumericAnswerFormat alloc] initWithStyle:ORKNumericAnswerStyleInteger
+                                                                              unit:NSLocalizedString(@"Years", nil)
+                                                                           minimum:@0 maximum:@100];
+
+    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMAboutYouSurveyYearsSmokingQuestion"
+                                                                      title:NSLocalizedString(@"How many years in total did you smoke?", nil)
+                                                                       text:nil
+                                                                     answer:format];
+    return question;
 }
 
 + (ORKQuestionStep *)insuranceQuestionStep
