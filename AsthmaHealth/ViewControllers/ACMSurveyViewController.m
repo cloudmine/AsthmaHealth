@@ -71,26 +71,12 @@
 + (NSArray<ORKTextChoice *> *)raceChoices
 {
     NSArray<NSString *> *races = @[NSLocalizedString(@"Black/African American", nil), NSLocalizedString(@"Asian", nil),
-                       NSLocalizedString(@"American Indian or Alaskan Native", nil), NSLocalizedString(@"Hawaiian or other Pacific Islander", nil),
-                       NSLocalizedString(@"White", nil), NSLocalizedString(@"Other", nil)];
+                                   NSLocalizedString(@"American Indian or Alaskan Native", nil), NSLocalizedString(@"Hawaiian or other Pacific Islander", nil),
+                                   NSLocalizedString(@"White", nil), NSLocalizedString(@"Other", nil)];
 
     NSArray<NSString *> *raceKeywords = @[@"Black", @"Asian", @"NativeAmerican", @"PacificIslander", @"White", @"Other"];
 
-    NSAssert(races.count == raceKeywords.count, @"");
-
-    NSMutableArray<ORKTextChoice *> *mutableChoices = [NSMutableArray new];
-    for (int i = 0; i < races.count; i++) {
-        ORKTextChoice *choice = [[ORKTextChoice alloc] initWithText:races[i]
-                                                        detailText:nil
-                                                             value:[NSString stringWithFormat:@"ACMRace%@Choice", raceKeywords[i]]
-                                                         exclusive:NO];
-
-        [mutableChoices addObject:choice];
-    }
-
-    [mutableChoices addObject:[self noAnswerChoiceForQuestion:@"Race"]];
-
-    return  [mutableChoices copy];
+    return [self questionChoices:races withKeywords:raceKeywords withQuestionIdWord:@"Race" exclusive:NO includesNoAnser:YES];
 }
 
 + (ORKQuestionStep *)incomeQuestionStep
