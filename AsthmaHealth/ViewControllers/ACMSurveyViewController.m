@@ -44,17 +44,10 @@
 
 + (NSArray<ORKTextChoice *> *)ethnicityChoices
 {
-    ORKTextChoice *choice1 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"Hispanic/Latino", nil)
-                                                      detailText:nil
-                                                           value:@"ACMEthnicityHispanicLatinoChoice"
-                                                       exclusive:YES];
+    NSArray<NSString *> *choices = @[NSLocalizedString(@"Hispanic/Latino", nil), NSLocalizedString(@"Non-Hispanic/Latino", nil)];
+    NSArray<NSString *> *keywords = @[@"HispanicLatino", @"NonHispanicLatino"];
 
-    ORKTextChoice *choice2 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"Non-Hispanic/Latino", nil)
-                                                      detailText:nil
-                                                           value:@"ACMEthnicityNonHispanicLatinoChoice"
-                                                       exclusive:YES];
-
-    return @[choice1, choice2, [self noAnswerChoiceForQuestion:@"Ethnicity"]];
+    return [self questionChoices:choices withKeywords:keywords withQuestionIdWord:@"Ethnicity" exclusive:YES includesNoAnser:YES];
 }
 
 + (ORKQuestionStep *)raceQuestionStep
