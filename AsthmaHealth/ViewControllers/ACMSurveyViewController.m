@@ -29,7 +29,8 @@
 {
     return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask"
                                                 steps:@[self.ethnicityQuestionStep, self.raceQuestionStep,
-                                                        self.incomeQuestionStep, self.educationQuestionStep, self.completionStep]];
+                                                        self.incomeQuestionStep, self.educationQuestionStep,
+                                                        self.smokingQuestionStep, self.completionStep]];
 }
 
 # pragma mark Steps
@@ -98,6 +99,20 @@
                           withKeywords:keywords
                              exclusive:YES
                        includesNoAnser:YES];
+}
+
++ (ORKQuestionStep *)smokingQuestionStep
+{
+    NSArray<NSString *> *choices = @[NSLocalizedString(@"Never (<100 Cigarettes in lieftime)", nil),
+                                     NSLocalizedString(@"Current", nil), NSLocalizedString(@"Former", nil)];
+    NSArray<NSString *> *keywords = @[@"Never", @"Current", @"Former"];
+
+    return [self textQuestionWithTitle:NSLocalizedString(@"What is your smoking status?", nil)
+                            withIdWord:@"Smoking"
+                       questionChoices:choices
+                          withKeywords:keywords
+                             exclusive:YES
+                       includesNoAnser:NO];
 }
 
 + (ORKCompletionStep *)completionStep
