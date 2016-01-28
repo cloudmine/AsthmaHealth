@@ -30,7 +30,8 @@
     return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask"
                                                 steps:@[self.ethnicityQuestionStep, self.raceQuestionStep,
                                                         self.incomeQuestionStep, self.educationQuestionStep,
-                                                        self.smokingQuestionStep, self.completionStep]];
+                                                        self.smokingQuestionStep, self.insuranceQuestionStep,
+                                                        self.completionStep]];
 }
 
 # pragma mark Steps
@@ -113,6 +114,22 @@
                           withKeywords:keywords
                              exclusive:YES
                       includesNoAnswer:NO];
+}
+
++ (ORKQuestionStep *)insuranceQuestionStep
+{
+    NSArray<NSString *> *choices = @[NSLocalizedString(@"Private (bought by you or your employer", nil),
+                                     NSLocalizedString(@"Public (Medicare or Medicade", nil),
+                                     NSLocalizedString(@"I have no health insurance", nil)];
+
+    NSArray<NSString *> *keywords = @[@"Private", @"Public", @"NoIsurance"];
+
+    return [self textQuestionWithTitle:NSLocalizedString(@"Do you have health insurance?", nil)
+                            withIdWord:@"Insurance"
+                       questionChoices:choices
+                          withKeywords:keywords
+                             exclusive:YES
+                      includesNoAnswer:YES];
 }
 
 + (ORKCompletionStep *)completionStep
