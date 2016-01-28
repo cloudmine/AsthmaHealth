@@ -34,13 +34,13 @@
             [self handleSurveyCompleted];
             return;
         case ORKTaskViewControllerFinishReasonDiscarded:
-            NSLog(@"Consent Discarded");
+            NSLog(@"Survey Discarded");
             break;
         case ORKTaskViewControllerFinishReasonFailed:
-            NSLog(@"Consent Failed");
+            NSLog(@"Survey Failed");
             break;
         case ORKTaskViewControllerFinishReasonSaved:
-            NSLog(@"Consent Saved");
+            NSLog(@"Survey Saved");
             break;
         default:
             break;
