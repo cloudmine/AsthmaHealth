@@ -27,35 +27,77 @@
 
 + (ORKOrderedTask *)task
 {
-    return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMSurveyTask" steps:@[self.sharingOptionStep, self.completionStep]];
+    return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask" steps:@[self.ethnicityQuestionStep, self.raceQuestionStep, self.completionStep]];
 }
 
-+ (ORKQuestionStep *)sharingOptionStep
++ (ORKQuestionStep *)ethnicityQuestionStep
 {
-    ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleSingleChoice textChoices:self.sharingChoices];
+    ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleSingleChoice textChoices:self.ethnicityChoices];
 
-    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMSurveyQuestionOne"
-                                                                      title:NSLocalizedString(@"Best Survey", nil)
-                                                                       text:NSLocalizedString(@"Is this the best survey ever?", nil)
+    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMAboutYouSurveyEthnicityQuestion"
+                                                                      title:NSLocalizedString(@"Ethnicity", nil)
+                                                                       text:nil
                                                                      answer:format];
-    question.optional = NO;
-
     return question;
 }
 
-+ (NSArray<ORKTextChoice *> *)sharingChoices
++ (NSArray<ORKTextChoice *> *)ethnicityChoices
 {
-    ORKTextChoice *choice1 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"Definitely, I have never taken a better survey", nil)
+    ORKTextChoice *choice1 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"Hispanic/Latino", nil)
                                                       detailText:nil
-                                                           value:@"ACMBestSurveyOptionDefinitely"
+                                                           value:@"ACMEthnicityHispanicLatinoChoice"
                                                        exclusive:YES];
 
-    ORKTextChoice *choice2 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"Absolutely, this is the best survey I've every taken", nil)
+    ORKTextChoice *choice2 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"Non-Hispanic/Latino", nil)
                                                       detailText:nil
-                                                           value:@"ACMBestSurveyOptionAbsolutely"
+                                                           value:@"ACMEthnicityNonHispanicLatinoChoice"
                                                        exclusive:YES];
 
-    return @[choice1, choice2];
+    return @[choice1, choice2, [self noAnswerChoiceForQuestion:@"Ethnicity"]];
+}
+
++ (ORKQuestionStep *)raceQuestionStep
+{
+    ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleMultipleChoice textChoices:self.raceChoices];
+
+    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMAboutYouSurveyRaceQuestion"
+                                                                      title:NSLocalizedString(@"Race", nil)
+                                                                       text:NSLocalizedString(@"(Check all that apply)", nil)
+                                                                     answer:format];
+    return question;
+}
+
++ (NSArray<ORKTextChoice *> *)raceChoices
+{
+    NSArray<NSString *> *races = @[NSLocalizedString(@"Black/African American", nil), NSLocalizedString(@"Asian", nil),
+                       NSLocalizedString(@"American Indian or Alaskan Native", nil), NSLocalizedString(@"Hawaiian or other Pacific Islander", nil),
+                       NSLocalizedString(@"White", nil), NSLocalizedString(@"Other", nil)];
+
+    NSArray<NSString *> *raceKeywords = @[@"Black", @"Asian", @"NativeAmerican", @"PacificIslander", @"White", @"Other"];
+
+    NSAssert(races.count == raceKeywords.count, @"");
+
+    NSMutableArray<ORKTextChoice *> *mutableChoices = [NSMutableArray new];
+    for (int i = 0; i < races.count; i++) {
+        ORKTextChoice *choice = [[ORKTextChoice alloc] initWithText:races[i]
+                                                        detailText:nil
+                                                             value:[NSString stringWithFormat:@"ACMRace%@Choice", raceKeywords[i]]
+                                                         exclusive:NO];
+
+        [mutableChoices addObject:choice];
+    }
+
+    [mutableChoices addObject:[self noAnswerChoiceForQuestion:@"Race"]];
+
+    return  [mutableChoices copy];
+}
+
++ (ORKTextChoice *)noAnswerChoiceForQuestion:(NSString *)questionId
+{
+    return [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"I choose not to answer", nil)
+                             detailText:nil
+                                  value:[NSString stringWithFormat:@"ACM%@ChooseNotToAnswerChoice", questionId]
+                              exclusive:YES];
 }
 
 + (ORKCompletionStep *)completionStep
