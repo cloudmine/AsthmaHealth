@@ -23,7 +23,7 @@
     [super viewDidLoad];
 }
 
-# pragma Task Construction
+# pragma mark Task
 
 + (ORKOrderedTask *)task
 {
@@ -32,23 +32,19 @@
                                                         self.incomeQuestionStep, self.educationQuestionStep, self.completionStep]];
 }
 
+# pragma mark Steps
+
 + (ORKQuestionStep *)ethnicityQuestionStep
-{
-    ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleSingleChoice textChoices:self.ethnicityChoices];
-
-    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMAboutYouSurveyEthnicityQuestion"
-                                                                      title:NSLocalizedString(@"Ethnicity", nil)
-                                                                       text:nil
-                                                                     answer:format];
-    return question;
-}
-
-+ (NSArray<ORKTextChoice *> *)ethnicityChoices
 {
     NSArray<NSString *> *choices = @[NSLocalizedString(@"Hispanic/Latino", nil), NSLocalizedString(@"Non-Hispanic/Latino", nil)];
     NSArray<NSString *> *keywords = @[@"HispanicLatino", @"NonHispanicLatino"];
 
-    return [self questionChoices:choices withKeywords:keywords withQuestionIdWord:@"Ethnicity" exclusive:YES includesNoAnser:YES];
+    return [self textQuestionWithTitle:NSLocalizedString(@"Ethnicity", nil)
+                            withIdWord:@"Ethnicity"
+                       questionChoices:choices
+                          withKeywords:keywords
+                             exclusive:YES
+                       includesNoAnser:YES];
 }
 
 + (ORKQuestionStep *)raceQuestionStep
@@ -104,6 +100,15 @@
                        includesNoAnser:YES];
 }
 
++ (ORKCompletionStep *)completionStep
+{
+    ORKCompletionStep *completion = [[ORKCompletionStep alloc] initWithIdentifier:@"ACMSurveyCompletionIdentifier"];
+    completion.title = NSLocalizedString(@"Complete!", nil);
+    return completion;
+}
+
+#pragma mark Generator Methods
+
 + (ORKQuestionStep *)textQuestionWithTitle:(NSString *)title
                                 withIdWord:(NSString *)qId
                            questionChoices:(NSArray <NSString *> *)choices
@@ -156,13 +161,6 @@
                              detailText:nil
                                   value:[NSString stringWithFormat:@"ACM%@ChooseNotToAnswerChoice", questionId]
                               exclusive:YES];
-}
-
-+ (ORKCompletionStep *)completionStep
-{
-    ORKCompletionStep *completion = [[ORKCompletionStep alloc] initWithIdentifier:@"ACMSurveyCompletionIdentifier"];
-    completion.title = NSLocalizedString(@"Complete!", nil);
-    return completion;
 }
 
 @end
