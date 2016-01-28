@@ -53,24 +53,18 @@
 
 + (ORKQuestionStep *)raceQuestionStep
 {
-    ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleMultipleChoice textChoices:self.raceChoices];
-
-    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMAboutYouSurveyRaceQuestion"
-                                                                      title:NSLocalizedString(@"Race", nil)
-                                                                       text:NSLocalizedString(@"(Check all that apply)", nil)
-                                                                     answer:format];
-    return question;
-}
-
-+ (NSArray<ORKTextChoice *> *)raceChoices
-{
     NSArray<NSString *> *races = @[NSLocalizedString(@"Black/African American", nil), NSLocalizedString(@"Asian", nil),
                                    NSLocalizedString(@"American Indian or Alaskan Native", nil), NSLocalizedString(@"Hawaiian or other Pacific Islander", nil),
                                    NSLocalizedString(@"White", nil), NSLocalizedString(@"Other", nil)];
 
     NSArray<NSString *> *raceKeywords = @[@"Black", @"Asian", @"NativeAmerican", @"PacificIslander", @"White", @"Other"];
 
-    return [self questionChoices:races withKeywords:raceKeywords withQuestionIdWord:@"Race" exclusive:NO includesNoAnser:YES];
+    return [self textQuestionWithTitle:NSLocalizedString(@"Race (Check all that apply)", nil)
+                            withIdWord:@"Race"
+                       questionChoices:races
+                          withKeywords:raceKeywords
+                             exclusive:NO
+                       includesNoAnser:YES];
 }
 
 + (ORKQuestionStep *)incomeQuestionStep
