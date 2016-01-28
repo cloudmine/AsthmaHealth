@@ -27,15 +27,26 @@
 
 + (ORKOrderedTask *)task
 {
-    return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask"
-                                                steps:@[self.ethnicityQuestionStep, self.raceQuestionStep,
-                                                        self.incomeQuestionStep, self.educationQuestionStep,
-                                                        self.smokingQuestionStep, self.cigaretteCountStep,
-                                                        self.smokingYearsStep, self.insuranceQuestionStep,
-                                                        self.completionStep]];
+    ORKNavigableOrderedTask *task = [[ORKNavigableOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask"
+                                                                                  steps:self.steps];
+
+    ORKResultSelector *smokingStatus = [ORKResultSelector selectorWithResultIdentifier:@"ACMAboutYouSurveySmokingQuestion"];
+    NSPredicate *notSmokerPredicate = [ORKResultPredicate predicateForChoiceQuestionResultWithResultSelector:smokingStatus expectedAnswerValues:@[@"ACMSmokingNeverChoice"]];
+
+    ORKPredicateStepNavigationRule *predicateRule = [[ORKPredicateStepNavigationRule alloc] initWithResultPredicates:@[notSmokerPredicate] destinationStepIdentifiers:@[@"ACMAboutYouSurveyInsuranceQuestion"]];
+
+    [task setNavigationRule:predicateRule forTriggerStepIdentifier:@"ACMAboutYouSurveySmokingQuestion"];
+
+    return task;
 }
 
 # pragma mark Steps
+
++ (NSArray<ORKStep *> *)steps
+{
+    return @[self.ethnicityQuestionStep, self.raceQuestionStep, self.incomeQuestionStep, self.educationQuestionStep, self.smokingQuestionStep,
+             self.cigaretteCountStep, self.smokingYearsStep, self.insuranceQuestionStep, self.completionStep];
+}
 
 + (ORKQuestionStep *)ethnicityQuestionStep
 {
@@ -122,7 +133,7 @@
     ORKNumericAnswerFormat *format = [[ORKNumericAnswerFormat alloc] initWithStyle:ORKNumericAnswerStyleInteger
                                                                               unit:NSLocalizedString(@"Cigarettes", nil)
                                                                            minimum:@1 maximum:@200];
-    
+
     ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMAboutYouSurveyCigarettesQuestion"
                                                                       title:NSLocalizedString(@"On average, how many cigarettes per day did you smoke daily?", nil)
                                                                        text:nil
