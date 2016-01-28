@@ -75,25 +75,18 @@
 
 + (ORKQuestionStep *)incomeQuestionStep
 {
-    ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleSingleChoice textChoices:self.incomeChoices];
-
-    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMAboutYouSurveyIncomeQuestion"
-                                                                      title:NSLocalizedString(@"Which of the following best describes the total annual income of all members of your household?", nil)
-                                                                       text:nil
-                                                                     answer:format];
-
-    return question;
-}
-
-+ (NSArray<ORKTextChoice *> *)incomeChoices
-{
     NSArray<NSString *> *choices = @[NSLocalizedString(@"<$14,999", nil), NSLocalizedString(@"$15,000-21,999", nil),
                                      NSLocalizedString(@"$22,000-43,999", nil), NSLocalizedString(@"$44,000-60,000", nil),
                                      NSLocalizedString(@">$60,000", nil), NSLocalizedString(@"I don't know", nil)];
 
     NSArray<NSString *> *keywords = @[@"Tier1", @"Tier2", @"Tier3", @"Tier4", @"Tier5", @"DoNotKnow"];
 
-    return [self questionChoices:choices withKeywords:keywords withQuestionIdWord:@"Income" exclusive:YES includesNoAnser:YES];
+    return [self textQuestionWithTitle:NSLocalizedString(@"Which of the following best describes the total annual income of all members of your household?", nil)
+                            withIdWord:@"Income"
+                       questionChoices:choices
+                          withKeywords:keywords
+                             exclusive:YES
+                       includesNoAnser:YES];
 }
 
 + (ORKQuestionStep *)educationQuestionStep
