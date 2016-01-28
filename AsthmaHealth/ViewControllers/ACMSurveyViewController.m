@@ -28,7 +28,8 @@
 + (ORKOrderedTask *)task
 {
     return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask"
-                                                steps:@[self.ethnicityQuestionStep, self.raceQuestionStep, self.incomeQuestionStep, self.completionStep]];
+                                                steps:@[self.ethnicityQuestionStep, self.raceQuestionStep,
+                                                        self.incomeQuestionStep, self.educationQuestionStep, self.completionStep]];
 }
 
 + (ORKQuestionStep *)ethnicityQuestionStep
@@ -93,6 +94,47 @@
     NSArray<NSString *> *keywords = @[@"Tier1", @"Tier2", @"Tier3", @"Tier4", @"Tier5", @"DoNotKnow"];
 
     return [self questionChoices:choices withKeywords:keywords withQuestionIdWord:@"Income" exclusive:YES includesNoAnser:YES];
+}
+
++ (ORKQuestionStep *)educationQuestionStep
+{
+    NSArray<NSString *> *choices = @[NSLocalizedString(@"8th Grade or Less", nil),
+                                     NSLocalizedString(@"More than 8th grade but did not graduate high school", nil),
+                                     NSLocalizedString(@"High school graduate or equivalent", nil),
+                                     NSLocalizedString(@"Some College", nil),
+                                     NSLocalizedString(@"Graduate of Two Year College or Technical School", nil),
+                                     NSLocalizedString(@"Graduate of Four Year College", nil),
+                                     NSLocalizedString(@"Post Graduate Studies", nil)];
+
+    NSArray<NSString *> *keywords = @[@"NoHighSchool", @"SomeHighSchool", @"HighSchool",
+                                      @"SomeCollege", @"TwoYearCollege", @"FourYearCollege", @"PostGrad"];
+
+    return [self textQuestionWithTitle:NSLocalizedString(@"What is the highest level of education you have completed?", nil)
+                            withIdWord:@"Education"
+                       questionChoices:choices
+                          withKeywords:keywords
+                             exclusive:YES
+                       includesNoAnser:YES];
+}
+
++ (ORKQuestionStep *)textQuestionWithTitle:(NSString *)title
+                                withIdWord:(NSString *)qId
+                           questionChoices:(NSArray <NSString *> *)choices
+                              withKeywords:(NSArray <NSString *> *)keywords
+                                 exclusive:(BOOL)isExclusive
+                           includesNoAnser:(BOOL)includesNo
+{
+    ORKChoiceAnswerStyle style = isExclusive ? ORKChoiceAnswerStyleSingleChoice : ORKChoiceAnswerStyleMultipleChoice;
+
+    NSArray<ORKTextChoice *> *textChoices = [self questionChoices:choices
+                                                 withKeywords:keywords withQuestionIdWord:qId exclusive:isExclusive includesNoAnser:includesNo];
+
+    ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:style textChoices:textChoices];
+    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:[NSString stringWithFormat:@"ACMAboutYouSurvey%@Question", qId]
+                                                                      title:title
+                                                                       text:nil
+                                                                     answer:format];
+    return question;
 }
 
 + (NSArray<ORKTextChoice *> *)questionChoices:(NSArray <NSString *> *)choices
