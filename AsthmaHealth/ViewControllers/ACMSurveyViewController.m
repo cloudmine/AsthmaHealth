@@ -27,7 +27,8 @@
 
 + (ORKOrderedTask *)task
 {
-    return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask" steps:@[self.ethnicityQuestionStep, self.raceQuestionStep, self.completionStep]];
+    return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask"
+                                                steps:@[self.ethnicityQuestionStep, self.raceQuestionStep, self.incomeQuestionStep, self.completionStep]];
 }
 
 + (ORKQuestionStep *)ethnicityQuestionStep
@@ -90,6 +91,55 @@
     [mutableChoices addObject:[self noAnswerChoiceForQuestion:@"Race"]];
 
     return  [mutableChoices copy];
+}
+
++ (ORKQuestionStep *)incomeQuestionStep
+{
+    ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleSingleChoice textChoices:self.incomeChoices];
+
+    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMAboutYouSurveyIncomeQuestion"
+                                                                      title:NSLocalizedString(@"Which of the following best describes the total annual income of all members of your household?", nil)
+                                                                       text:nil
+                                                                     answer:format];
+
+    return question;
+}
+
++ (NSArray<ORKTextChoice *> *)incomeChoices
+{
+    NSArray<NSString *> *choices = @[NSLocalizedString(@"<$14,999", nil), NSLocalizedString(@"$15,000-21,999", nil),
+                                     NSLocalizedString(@"$22,000-43,999", nil), NSLocalizedString(@"$44,000-60,000", nil),
+                                     NSLocalizedString(@">$60,000", nil), NSLocalizedString(@"I don't know", nil)];
+
+    NSArray<NSString *> *keywords = @[@"Tier1", @"Tier2", @"Tier3", @"Tier4", @"Tier5", @"DoNotKnow"];
+
+    return [self questionChoices:choices withKeywords:keywords withQuestionIdWord:@"Income" exclusive:YES includesNoAnser:YES];
+}
+
++ (NSArray<ORKTextChoice *> *)questionChoices:(NSArray <NSString *> *)choices
+                                 withKeywords:(NSArray <NSString *> *)keywords
+                           withQuestionIdWord:(NSString *)qId
+                                    exclusive:(BOOL)isExclusive
+                              includesNoAnser:(BOOL)includesNo
+{
+    NSAssert(choices.count == keywords.count, @"Attempted to generate question text choices without an equal number of keyword IDs");
+
+    NSMutableArray<ORKTextChoice *> *mutableChoices = [NSMutableArray new];
+
+    for (int i = 0; i < choices.count; i++) {
+        ORKTextChoice *choice = [[ORKTextChoice alloc] initWithText:choices[i]
+                                                         detailText:nil
+                                                              value:[NSString stringWithFormat:@"ACM%@%@Choice", qId, keywords[i]]
+                                                          exclusive:isExclusive];
+
+        [mutableChoices addObject:choice];
+    }
+
+    if (includesNo) {
+        [mutableChoices addObject:[self noAnswerChoiceForQuestion:qId]];
+    }
+
+    return [mutableChoices copy];
 }
 
 + (ORKTextChoice *)noAnswerChoiceForQuestion:(NSString *)questionId
