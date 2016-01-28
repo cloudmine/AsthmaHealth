@@ -45,7 +45,7 @@
                        questionChoices:choices
                           withKeywords:keywords
                              exclusive:YES
-                       includesNoAnser:YES];
+                      includesNoAnswer:YES];
 }
 
 + (ORKQuestionStep *)raceQuestionStep
@@ -61,7 +61,7 @@
                        questionChoices:races
                           withKeywords:raceKeywords
                              exclusive:NO
-                       includesNoAnser:YES];
+                      includesNoAnswer:YES];
 }
 
 + (ORKQuestionStep *)incomeQuestionStep
@@ -77,7 +77,7 @@
                        questionChoices:choices
                           withKeywords:keywords
                              exclusive:YES
-                       includesNoAnser:YES];
+                      includesNoAnswer:YES];
 }
 
 + (ORKQuestionStep *)educationQuestionStep
@@ -98,7 +98,7 @@
                        questionChoices:choices
                           withKeywords:keywords
                              exclusive:YES
-                       includesNoAnser:YES];
+                      includesNoAnswer:YES];
 }
 
 + (ORKQuestionStep *)smokingQuestionStep
@@ -112,7 +112,7 @@
                        questionChoices:choices
                           withKeywords:keywords
                              exclusive:YES
-                       includesNoAnser:NO];
+                      includesNoAnswer:NO];
 }
 
 + (ORKCompletionStep *)completionStep
@@ -129,12 +129,12 @@
                            questionChoices:(NSArray <NSString *> *)choices
                               withKeywords:(NSArray <NSString *> *)keywords
                                  exclusive:(BOOL)isExclusive
-                           includesNoAnser:(BOOL)includesNo
+                           includesNoAnswer:(BOOL)includesNo
 {
     ORKChoiceAnswerStyle style = isExclusive ? ORKChoiceAnswerStyleSingleChoice : ORKChoiceAnswerStyleMultipleChoice;
 
     NSArray<ORKTextChoice *> *textChoices = [self questionChoices:choices
-                                                 withKeywords:keywords withQuestionIdWord:qId exclusive:isExclusive includesNoAnser:includesNo];
+                                                 withKeywords:keywords withQuestionIdWord:qId exclusive:isExclusive includesNoAnswer:includesNo];
 
     ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:style textChoices:textChoices];
     ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:[NSString stringWithFormat:@"ACMAboutYouSurvey%@Question", qId]
@@ -148,7 +148,7 @@
                                  withKeywords:(NSArray <NSString *> *)keywords
                            withQuestionIdWord:(NSString *)qId
                                     exclusive:(BOOL)isExclusive
-                              includesNoAnser:(BOOL)includesNo
+                              includesNoAnswer:(BOOL)includesNo
 {
     NSAssert(choices.count == keywords.count, @"Attempted to generate question text choices without an equal number of keyword IDs");
 
