@@ -4,6 +4,7 @@
 @class ACMUserData;
 
 typedef void(^ACMUserAuthCompletion)(NSError * _Nullable error);
+typedef void(^ACMUserLogoutCompletion)(NSError * _Nullable error);
 
 @interface ACMUserController : NSObject
 
@@ -13,6 +14,8 @@ typedef void(^ACMUserAuthCompletion)(NSError * _Nullable error);
                password:(NSString *_Nonnull)password
              andConsent:(ORKTaskResult *_Nonnull)consentResult
          withCompletion:(_Nullable ACMUserAuthCompletion)block;
+
+- (void)logoutWithCompletion:(_Nullable ACMUserLogoutCompletion)block;
 
 @property (nonatomic, nullable, readonly) ACMUserData *userData;
 @property (nonatomic, readonly) BOOL isLoggedIn;

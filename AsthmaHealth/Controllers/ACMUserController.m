@@ -91,6 +91,24 @@
     }];
 }
 
+- (void)logoutWithCompletion:(_Nullable ACMUserLogoutCompletion)block
+{
+    [[CMUser currentUser] logoutWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
+        if (CMUserAccountOperationFailed(resultCode)) {
+            if (nil != block) {
+                NSError *error = [ACMUserController errorWithMessage:NSLocalizedString(@"Failed to logout", nil)  // TODO: different domain?
+                                                             andCode:(100 + resultCode)];
+                block(error);
+            }
+            return;
+        }
+
+        if (nil != block) {
+            block(nil);
+        }
+    }];
+}
+
 - (BOOL)isLoggedIn
 {
     return nil != [CMUser currentUser] && [CMUser currentUser].isLoggedIn;
