@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ERU-gY-uZ7">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="hkn-cq-o7x">
+            <objects>
+                <navigationController id="ERU-gY-uZ7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="arrowRight" id="0RM-sk-B8x"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n6T-GP-XVH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Dgh-54-Glc" kind="relationship" relationship="rootViewController" id="BeK-zr-zwd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJR-Bm-ydI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="65" y="389"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Iir-kl-UmQ">
+            <objects>
+                <viewController id="Dgh-54-Glc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I8E-pF-TLT"/>
+                        <viewControllerLayoutGuide type="bottom" id="fPo-vX-pGm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vyT-Lp-cP9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLQ-kC-G48">
+                                <rect key="frame" x="20" y="104" width="54" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="someone@somewhere.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwv-dn-2Tb">
+                                <rect key="frame" x="82" y="108" width="498" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGE-1X-bRb">
+                                <rect key="frame" x="273" y="178.5" width="55" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aLQ-kC-G48" firstAttribute="top" secondItem="I8E-pF-TLT" secondAttribute="bottom" constant="40" id="4VF-aD-Fhy"/>
+                            <constraint firstItem="aLQ-kC-G48" firstAttribute="leading" secondItem="vyT-Lp-cP9" secondAttribute="leading" constant="20" id="Ck5-WT-Ujh"/>
+                            <constraint firstItem="iGE-1X-bRb" firstAttribute="top" secondItem="bwv-dn-2Tb" secondAttribute="bottom" constant="50" id="Rvg-qf-dBT"/>
+                            <constraint firstItem="iGE-1X-bRb" firstAttribute="centerX" secondItem="vyT-Lp-cP9" secondAttribute="centerX" id="UKF-Oq-gFC"/>
+                            <constraint firstItem="bwv-dn-2Tb" firstAttribute="leading" secondItem="aLQ-kC-G48" secondAttribute="trailing" constant="8" id="YZB-tm-d0z"/>
+                            <constraint firstItem="bwv-dn-2Tb" firstAttribute="bottom" secondItem="aLQ-kC-G48" secondAttribute="bottom" id="auI-Hq-IHc"/>
+                            <constraint firstAttribute="trailing" secondItem="bwv-dn-2Tb" secondAttribute="trailing" constant="20" symbolic="YES" id="icL-Y3-nwA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="e7j-he-fI9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xse-hz-cpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="389"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowRight" width="10" height="18"/>
+    </resources>
+</document>
