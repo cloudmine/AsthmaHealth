@@ -1,7 +1,6 @@
 #import "ACMUserController.h"
 #import "ACMUserData.h"
 #import <CloudMine/CloudMine.h>
-#import "ACMConsentTaskResult.h"
 #import "ORKResult+CloudMine.h"
 
 @interface ACMUserData ()
