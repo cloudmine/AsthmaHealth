@@ -2,6 +2,7 @@
 #import "ACMUserData.h"
 #import <CloudMine/CloudMine.h>
 #import "ACMConsentTaskResult.h"
+#import "ORKResult+CloudMine.h"
 
 @interface ACMUserData ()
 - (instancetype)initWithCMUser:(CMUser *)user; // In an SDK this would likely go in a private/internal header file
@@ -46,7 +47,8 @@
     return _sharedInstance;
 }
 
-// This is nice and easy from a consumption standpoint, but could leave the user in a weird place if account creation succeeds
+
+// TODO: Ponder: this is nice from a consumption standpoint, but could leave the user in a weird place if account creation succeeds
 // but uploading consent fails. Need to think more broadly about what the SDK will actually provide in terms of consent flows.
 // Somehow this probably needs to be seperated into two steps: signup, upload consent.
 - (void)signUpWithEmail:(NSString *_Nonnull)email
@@ -56,6 +58,8 @@
 {
     CMUser *newUser = [[CMUser alloc] initWithEmail:email andPassword:password];
     [CMStore defaultStore].user = newUser;
+
+    // TODO: Somewhere, we need to verify the ORKTaskResult is a consent result and the user actually consented
 
     [newUser createAccountAndLoginWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
         if (CMUserAccountOperationFailed(resultCode)) {
@@ -67,18 +71,15 @@
             return;
         }
 
-        ACMConsentTaskResult *resultWrapper = [[ACMConsentTaskResult alloc] initWithTaskResult:consentResult];
-        [resultWrapper saveWithUser:newUser callback:^(CMObjectUploadResponse *response) {
-            NSLog(@"Status: %@", [response.uploadStatuses objectForKey:resultWrapper.objectId]);
-
-            NSString *status = [response.uploadStatuses objectForKey:resultWrapper.objectId];
-            if (![@"created" isEqualToString:status]) {
+        [consentResult cm_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
+            if (nil == uploadStatus) {
                 if (nil != block) {
-                    NSString *uploadErrorMessage = [NSString localizedStringWithFormat:@"Failed to create consent object, status: %@", status];
+                    NSString *uploadErrorMessage = [NSString localizedStringWithFormat:@"Failed to create consent object; %@", error.localizedDescription];
                     NSError *error = [ACMUserController errorWithMessage:uploadErrorMessage
-                                                                 andCode:200];
+                                                                 andCode:error.code];
                     block(error);
                 }
+
                 return;
             }
 

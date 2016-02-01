@@ -26,7 +26,6 @@
 		B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */; };
 		B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */; };
 		B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */; };
-		B4A9CED01C57E6910073A76F /* ACMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A9CECF1C57E6910073A76F /* ACMUser.m */; };
 		B4B6F4931C5C05A3002EB098 /* ACMUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F4921C5C05A3002EB098 /* ACMUserController.m */; };
 		B4B6F4961C5C081B002EB098 /* ACMUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F4951C5C081B002EB098 /* ACMUserData.m */; };
 		B4E8DDD81C52CD2E00878DE4 /* ACMConsentTaskResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E8DDD71C52CD2E00878DE4 /* ACMConsentTaskResult.m */; };
@@ -78,8 +77,6 @@
 		B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		B4A9CEC71C57D4CC0073A76F /* ORKResult+CloudMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ORKResult+CloudMine.h"; sourceTree = "<group>"; };
 		B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ORKResult+CloudMine.m"; sourceTree = "<group>"; };
-		B4A9CECE1C57E6910073A76F /* ACMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMUser.h; sourceTree = "<group>"; };
-		B4A9CECF1C57E6910073A76F /* ACMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMUser.m; sourceTree = "<group>"; };
 		B4B6F4911C5C05A3002EB098 /* ACMUserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMUserController.h; sourceTree = "<group>"; };
 		B4B6F4921C5C05A3002EB098 /* ACMUserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMUserController.m; sourceTree = "<group>"; };
 		B4B6F4941C5C081B002EB098 /* ACMUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMUserData.h; sourceTree = "<group>"; };
@@ -218,8 +215,6 @@
 				B43ECBD31C50027500865C5A /* ACMConsentTask.m */,
 				B4E8DDD61C52CD2E00878DE4 /* ACMConsentTaskResult.h */,
 				B4E8DDD71C52CD2E00878DE4 /* ACMConsentTaskResult.m */,
-				B4A9CECE1C57E6910073A76F /* ACMUser.h */,
-				B4A9CECF1C57E6910073A76F /* ACMUser.m */,
 				B403FAA41C59338300146B3C /* ACMResultWrapper.h */,
 				B403FAA51C59338300146B3C /* ACMResultWrapper.m */,
 				B4B6F4941C5C081B002EB098 /* ACMUserData.h */,
@@ -400,7 +395,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A9CED01C57E6910073A76F /* ACMUser.m in Sources */,
 				B43ECBDA1C51772300865C5A /* ACMSignUpViewController.m in Sources */,
 				B403FAA01C5806E400146B3C /* ACMSurveyViewController.m in Sources */,
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
