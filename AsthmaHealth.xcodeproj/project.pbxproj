@@ -28,6 +28,7 @@
 		B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */; };
 		B4B6F4931C5C05A3002EB098 /* ACMUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F4921C5C05A3002EB098 /* ACMUserController.m */; };
 		B4B6F4961C5C081B002EB098 /* ACMUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F4951C5C081B002EB098 /* ACMUserData.m */; };
+		B4B6F4981C5FD760002EB098 /* MainPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		B4B6F4921C5C05A3002EB098 /* ACMUserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMUserController.m; sourceTree = "<group>"; };
 		B4B6F4941C5C081B002EB098 /* ACMUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMUserData.h; sourceTree = "<group>"; };
 		B4B6F4951C5C081B002EB098 /* ACMUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMUserData.m; sourceTree = "<group>"; };
+		B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPanel.storyboard; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +201,7 @@
 				B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */,
 				B43ECBD61C51709E00865C5A /* SignUp.storyboard */,
 				B403FA9C1C58002300146B3C /* Dashboard.storyboard */,
+				B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			files = (
 				B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */,
 				B403FA9D1C58002300146B3C /* Dashboard.storyboard in Resources */,
+				B4B6F4981C5FD760002EB098 /* MainPanel.storyboard in Resources */,
 				B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */,
 				B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */,
 				B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */,

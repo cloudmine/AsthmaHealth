@@ -40,7 +40,7 @@
         NSLog(@"Account Created Successfully");
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.appDelegate loadDashboard];
+            [self.appDelegate loadMainPanel];
         });
     }];
 }

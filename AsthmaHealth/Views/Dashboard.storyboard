@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Dashboard View Controller-->
+        <!--Activities-->
         <scene sceneID="GoJ-KK-G6M">
             <objects>
                 <viewController id="xtc-RP-TUh" customClass="ACMDashboardViewController" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJH-Js-Id0">
-                                <rect key="frame" x="276" y="550" width="48" height="30"/>
+                                <rect key="frame" x="276" y="501" width="48" height="30"/>
                                 <state key="normal" title="Survey"/>
                                 <connections>
                                     <segue destination="TEW-gq-6NV" kind="presentation" id="kMQ-82-gWl"/>
@@ -38,6 +38,8 @@
                             <constraint firstItem="HJH-Js-Id0" firstAttribute="centerX" secondItem="Zwk-1k-gOH" secondAttribute="centerX" id="sTh-Bh-SEc"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Activities" image="checkmark" id="BoG-Rs-5gi"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDU-Rb-MM1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,4 +64,7 @@
             <point key="canvasLocation" x="1127" y="392"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkmark" width="17" height="13"/>
+    </resources>
 </document>

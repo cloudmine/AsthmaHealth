@@ -25,7 +25,7 @@
 
     if ([ACMUserController currentUser].isLoggedIn) {
         NSLog(@"Logged in as %@", [ACMUserController currentUser].userData.email);
-        [self loadDashboard];
+        [self loadMainPanel];
     } else {
         [self loadOnboarding];
     }
@@ -60,9 +60,9 @@
     [self.window makeKeyAndVisible];
 }
 
-- (void)loadDashboard
+- (void)loadMainPanel
 {
-    UIViewController *dashboardVC = [UIStoryboard storyboardWithName:@"Dashboard" bundle:nil].instantiateInitialViewController;
+    UIViewController *dashboardVC = [UIStoryboard storyboardWithName:@"MainPanel" bundle:nil].instantiateInitialViewController;
     self.window.rootViewController = dashboardVC;
     [self.window makeKeyAndVisible];
 }
