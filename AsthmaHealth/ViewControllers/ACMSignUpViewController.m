@@ -1,6 +1,6 @@
 #import "ACMSignUpViewController.h"
-#import "ACMUser.h"
 #import "ACMAppDelegate.h"
+#import "ACMUserController.h"
 
 @interface ACMSignUpViewController ()
 
@@ -28,11 +28,10 @@
 
 - (IBAction)nextButtonDidPress:(UIBarButtonItem *)sender
 {
-    ACMUser *newUser = [[ACMUser alloc] initWithEmail:self.emailTextField.text
-                                          andPassword:self.passwordTextField.text
-                                     andConsentResult:self.consentResults];
-
-    [newUser createAccountLoginAndUploadConsentWithCompletion:^(NSError * _Nullable error) {
+    [ACMUserController.currentUser signUpWithEmail:self.emailTextField.text
+                                          password:self.passwordTextField.text
+                                        andConsent:self.consentResults
+                                    withCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
             NSLog(@"Account Creation Failed: %@", error.localizedDescription);
             return;
