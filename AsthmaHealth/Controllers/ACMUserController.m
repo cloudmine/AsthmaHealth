@@ -70,6 +70,8 @@
             return;
         }
 
+        self.userData = [[ACMUserData alloc] initWithCMUser:[CMUser currentUser]];
+
         [consentResult cm_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
             if (nil == uploadStatus) {
                 if (nil != block) {
