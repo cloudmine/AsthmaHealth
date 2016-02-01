@@ -4,11 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Dashboard-->
+        <!--Activities-->
         <scene sceneID="EDe-yT-fiz">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" id="8YK-cr-AAK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Activities (set in destination)" id="brm-yr-kfT"/>
+                <viewControllerPlaceholder storyboardName="Activities" id="8YK-cr-AAK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Set in Dest (Activities)" id="brm-yr-kfT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drC-OV-jVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
