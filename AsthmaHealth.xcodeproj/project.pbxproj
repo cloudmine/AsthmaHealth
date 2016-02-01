@@ -30,6 +30,7 @@
 		B4B6F4961C5C081B002EB098 /* ACMUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F4951C5C081B002EB098 /* ACMUserData.m */; };
 		B4B6F4981C5FD760002EB098 /* MainPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */; };
 		B4B6F49A1C5FECE7002EB098 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B6F4991C5FECE7002EB098 /* Profile.storyboard */; };
+		B4B6F49D1C5FEFF3002EB098 /* ACMProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		B4B6F4951C5C081B002EB098 /* ACMUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMUserData.m; sourceTree = "<group>"; };
 		B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPanel.storyboard; sourceTree = "<group>"; };
 		B4B6F4991C5FECE7002EB098 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		B4B6F49B1C5FEFF3002EB098 /* ACMProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMProfileViewController.h; sourceTree = "<group>"; };
+		B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMProfileViewController.m; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +193,8 @@
 				B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */,
 				B403FA9E1C5806E400146B3C /* ACMSurveyViewController.h */,
 				B403FA9F1C5806E400146B3C /* ACMSurveyViewController.m */,
+				B4B6F49B1C5FEFF3002EB098 /* ACMProfileViewController.h */,
+				B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 				B403FAA01C5806E400146B3C /* ACMSurveyViewController.m in Sources */,
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
 				B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */,
+				B4B6F49D1C5FEFF3002EB098 /* ACMProfileViewController.m in Sources */,
 				B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */,
 				B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */,
 				B403FAA31C58097600146B3C /* ACMActivitiesViewController.m in Sources */,
