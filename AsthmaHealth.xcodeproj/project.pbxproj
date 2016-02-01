@@ -10,7 +10,7 @@
 		394D27665E5672044448CDCF /* libPods-AsthmaHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */; };
 		B403FA9D1C58002300146B3C /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B403FA9C1C58002300146B3C /* Activities.storyboard */; };
 		B403FAA01C5806E400146B3C /* ACMSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FA9F1C5806E400146B3C /* ACMSurveyViewController.m */; };
-		B403FAA31C58097600146B3C /* ACMDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FAA21C58097600146B3C /* ACMDashboardViewController.m */; };
+		B403FAA31C58097600146B3C /* ACMActivitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */; };
 		B403FAA61C59338300146B3C /* ACMResultWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FAA51C59338300146B3C /* ACMResultWrapper.m */; };
 		B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */; };
 		B43ECBCE1C4FF9D800865C5A /* ACMOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B43ECBCD1C4FF9D800865C5A /* ACMOnboardingViewController.m */; };
@@ -47,8 +47,8 @@
 		B403FA9C1C58002300146B3C /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
 		B403FA9E1C5806E400146B3C /* ACMSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSurveyViewController.h; sourceTree = "<group>"; };
 		B403FA9F1C5806E400146B3C /* ACMSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSurveyViewController.m; sourceTree = "<group>"; };
-		B403FAA11C58097600146B3C /* ACMDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMDashboardViewController.h; sourceTree = "<group>"; };
-		B403FAA21C58097600146B3C /* ACMDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMDashboardViewController.m; sourceTree = "<group>"; };
+		B403FAA11C58097600146B3C /* ACMActivitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMActivitiesViewController.h; sourceTree = "<group>"; };
+		B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMActivitiesViewController.m; sourceTree = "<group>"; };
 		B403FAA41C59338300146B3C /* ACMResultWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMResultWrapper.h; sourceTree = "<group>"; };
 		B403FAA51C59338300146B3C /* ACMResultWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMResultWrapper.m; sourceTree = "<group>"; };
 		B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Consent.storyboard; sourceTree = "<group>"; };
@@ -184,8 +184,8 @@
 				B463CC4A1C4FE13D002B4F9C /* ACMConsentViewController.m */,
 				B43ECBD81C51772300865C5A /* ACMSignUpViewController.h */,
 				B43ECBD91C51772300865C5A /* ACMSignUpViewController.m */,
-				B403FAA11C58097600146B3C /* ACMDashboardViewController.h */,
-				B403FAA21C58097600146B3C /* ACMDashboardViewController.m */,
+				B403FAA11C58097600146B3C /* ACMActivitiesViewController.h */,
+				B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */,
 				B403FA9E1C5806E400146B3C /* ACMSurveyViewController.h */,
 				B403FA9F1C5806E400146B3C /* ACMSurveyViewController.m */,
 			);
@@ -400,7 +400,7 @@
 				B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */,
 				B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */,
 				B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */,
-				B403FAA31C58097600146B3C /* ACMDashboardViewController.m in Sources */,
+				B403FAA31C58097600146B3C /* ACMActivitiesViewController.m in Sources */,
 				B4B6F4961C5C081B002EB098 /* ACMUserData.m in Sources */,
 				B43ECBD41C50027500865C5A /* ACMConsentTask.m in Sources */,
 				B403FAA61C59338300146B3C /* ACMResultWrapper.m in Sources */,

@@ -62,8 +62,8 @@
 
 - (void)loadMainPanel
 {
-    UIViewController *dashboardVC = [UIStoryboard storyboardWithName:@"MainPanel" bundle:nil].instantiateInitialViewController;
-    self.window.rootViewController = dashboardVC;
+    UIViewController *mainPanelVC = [UIStoryboard storyboardWithName:@"MainPanel" bundle:nil].instantiateInitialViewController;
+    self.window.rootViewController = mainPanelVC;
     [self.window makeKeyAndVisible];
 }
 

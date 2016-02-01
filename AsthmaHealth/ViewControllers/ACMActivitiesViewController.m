@@ -1,14 +1,14 @@
-#import "ACMDashboardViewController.h"
+#import "ACMActivitiesViewController.h"
 #import <ResearchKit/ResearchKit.h>
 #import "ACMSurveyViewController.h"
 #import "ORKResult+CloudMine.h"
 
 
-@interface ACMDashboardViewController ()<ORKTaskViewControllerDelegate>
+@interface ACMActivitiesViewController ()<ORKTaskViewControllerDelegate>
 @property (nonatomic, nullable) ORKTaskResult *surveyResult;
 @end
 
-@implementation ACMDashboardViewController
+@implementation ACMActivitiesViewController
 
 - (void)viewDidLoad
 {
