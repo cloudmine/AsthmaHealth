@@ -7,15 +7,14 @@
 
 @implementation ACMSurveyViewController
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)init
 {
-    self = [super initWithCoder:aDecoder];
+    self = [super init];
     if (nil == self) return nil;
 
     self.task = ACMSurveyViewController.task;
 
     return self;
-
 }
 
 - (void)viewDidLoad

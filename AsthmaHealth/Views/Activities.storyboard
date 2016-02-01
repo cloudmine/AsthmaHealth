@@ -8,36 +8,41 @@
         <scene sceneID="GoJ-KK-G6M">
             <objects>
                 <viewController id="xtc-RP-TUh" customClass="ACMActivitiesViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5SJ-lK-nrg"/>
-                        <viewControllerLayoutGuide type="bottom" id="YFf-77-iIg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zwk-1k-gOH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wpH-KC-83B">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACG-go-IW8">
-                                <rect key="frame" x="265.5" y="290.5" width="69.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJH-Js-Id0">
-                                <rect key="frame" x="254" y="501" width="92" height="30"/>
-                                <state key="normal" title="Demo Survey"/>
-                                <connections>
-                                    <segue destination="TEW-gq-6NV" kind="presentation" id="kMQ-82-gWl"/>
-                                </connections>
-                            </button>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ACG-go-IW8" firstAttribute="centerY" secondItem="Zwk-1k-gOH" secondAttribute="centerY" id="DTG-R5-wQi"/>
-                            <constraint firstItem="YFf-77-iIg" firstAttribute="top" secondItem="HJH-Js-Id0" secondAttribute="bottom" constant="20" id="esd-F7-N7e"/>
-                            <constraint firstItem="ACG-go-IW8" firstAttribute="centerX" secondItem="Zwk-1k-gOH" secondAttribute="centerX" id="fM9-Nw-NvO"/>
-                            <constraint firstItem="HJH-Js-Id0" firstAttribute="centerX" secondItem="Zwk-1k-gOH" secondAttribute="centerX" id="sTh-Bh-SEc"/>
-                        </constraints>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCell" textLabel="WEK-hs-gaF" detailTextLabel="utL-5T-DEE" style="IBUITableViewCellStyleSubtitle" id="MLL-Td-4Sz">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MLL-Td-4Sz" id="Trh-1o-Gl7">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About You" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WEK-hs-gaF">
+                                            <rect key="frame" x="15" y="6" width="75" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="8 Questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="utL-5T-DEE">
+                                            <rect key="frame" x="15" y="25.5" width="63.5" height="13.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xtc-RP-TUh" id="1sO-BR-oyl"/>
+                            <outlet property="delegate" destination="xtc-RP-TUh" id="6JO-iJ-gWW"/>
+                        </connections>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Activities" image="checkmark" id="BoG-Rs-5gi"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>

@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
-@interface ACMActivitiesViewController : UIViewController
+@interface ACMActivitiesViewController : UITableViewController
 
 @end

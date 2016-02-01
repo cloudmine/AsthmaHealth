@@ -15,9 +15,32 @@
     [super viewDidLoad];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    ((ORKTaskViewController *)segue.destinationViewController).delegate = self;
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
+    return cell;
+}
+
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ACMSurveyViewController *surveyVC = [[ACMSurveyViewController alloc] init];
+    surveyVC.delegate = self;
+
+    [self presentViewController:surveyVC animated:YES completion:nil];
 }
 
 #pragma mark ORKTaskViewControllerDelegate
