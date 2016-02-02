@@ -16,45 +16,102 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6r-PS-q4U">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6r-PS-q4U" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpW-eT-KFo" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="107"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owT-YQ-FQb" userLabel="Email Container">
                                                 <rect key="frame" x="0.0" y="23" width="600" height="64"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-K9-YNM">
-                                                        <rect key="frame" x="20" y="21.5" width="41" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="20" y="22" width="39" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dls-ra-9Vu">
-                                                        <rect key="frame" x="93" y="17" width="491" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dls-ra-9Vu">
+                                                        <rect key="frame" x="106" y="21" width="477.5" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="dls-ra-9Vu" secondAttribute="trailing" constant="16" id="FyZ-8p-GQ1"/>
-                                                    <constraint firstItem="dls-ra-9Vu" firstAttribute="leading" secondItem="kcT-K9-YNM" secondAttribute="trailing" constant="32" id="Wff-vE-DpC"/>
                                                     <constraint firstItem="dls-ra-9Vu" firstAttribute="centerY" secondItem="owT-YQ-FQb" secondAttribute="centerY" id="XGs-cW-28Z"/>
-                                                    <constraint firstItem="kcT-K9-YNM" firstAttribute="leading" secondItem="owT-YQ-FQb" secondAttribute="leading" constant="20" symbolic="YES" id="YjT-TA-RiY"/>
                                                     <constraint firstItem="kcT-K9-YNM" firstAttribute="centerY" secondItem="owT-YQ-FQb" secondAttribute="centerY" id="gO0-bD-F42"/>
                                                     <constraint firstAttribute="height" constant="64" id="uUW-RK-OPQ"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9XG-si-UAi" userLabel="Seperator">
+                                                <rect key="frame" x="20" y="86" width="580" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="vDB-OG-MM4"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2KQ-Sf-biL" userLabel="Password Container">
+                                                <rect key="frame" x="0.0" y="87" width="600" height="64"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuw-em-Upg">
+                                                        <rect key="frame" x="20" y="22" width="70" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vW2-Fm-lIU">
+                                                        <rect key="frame" x="106" y="21" width="477.5" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="vW2-Fm-lIU" secondAttribute="trailing" constant="16" id="04J-H1-jiI"/>
+                                                    <constraint firstItem="nuw-em-Upg" firstAttribute="centerY" secondItem="2KQ-Sf-biL" secondAttribute="centerY" id="FTi-ad-Mvq"/>
+                                                    <constraint firstItem="vW2-Fm-lIU" firstAttribute="centerY" secondItem="2KQ-Sf-biL" secondAttribute="centerY" id="Rd4-uA-m0I"/>
+                                                    <constraint firstAttribute="height" constant="64" id="Y6V-cW-Ovm"/>
+                                                    <constraint firstItem="nuw-em-Upg" firstAttribute="leading" secondItem="2KQ-Sf-biL" secondAttribute="leading" constant="20" symbolic="YES" id="cbO-83-Lx5"/>
+                                                    <constraint firstItem="vW2-Fm-lIU" firstAttribute="leading" secondItem="nuw-em-Upg" secondAttribute="trailing" constant="16" id="hbc-2l-avG"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Y6V-cW-Ovm"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFg-kE-Y6g">
+                                                <rect key="frame" x="213" y="167" width="175" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Forgot your Password?"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="2KQ-Sf-biL" firstAttribute="trailing" secondItem="owT-YQ-FQb" secondAttribute="trailing" id="0pg-ul-X2N"/>
                                             <constraint firstAttribute="trailing" secondItem="owT-YQ-FQb" secondAttribute="trailing" id="3HW-y8-w8E"/>
+                                            <constraint firstAttribute="bottom" secondItem="hFg-kE-Y6g" secondAttribute="bottom" constant="16" id="50j-1c-Rd2"/>
+                                            <constraint firstItem="dls-ra-9Vu" firstAttribute="leading" secondItem="vW2-Fm-lIU" secondAttribute="leading" id="5ek-58-SRA"/>
+                                            <constraint firstItem="2KQ-Sf-biL" firstAttribute="top" secondItem="owT-YQ-FQb" secondAttribute="bottom" id="7Dy-cQ-LTZ"/>
                                             <constraint firstAttribute="bottom" secondItem="owT-YQ-FQb" secondAttribute="bottom" constant="20" symbolic="YES" id="Bcq-mr-If9"/>
+                                            <constraint firstItem="2KQ-Sf-biL" firstAttribute="leading" secondItem="owT-YQ-FQb" secondAttribute="leading" id="IMv-ly-CTW"/>
                                             <constraint firstItem="owT-YQ-FQb" firstAttribute="top" secondItem="bpW-eT-KFo" secondAttribute="top" constant="23" id="JHL-7X-F7R"/>
+                                            <constraint firstItem="9XG-si-UAi" firstAttribute="leading" secondItem="nuw-em-Upg" secondAttribute="leading" id="JOS-qj-wGM"/>
+                                            <constraint firstAttribute="trailing" secondItem="9XG-si-UAi" secondAttribute="trailing" id="PZE-W7-9EI"/>
+                                            <constraint firstItem="hFg-kE-Y6g" firstAttribute="top" secondItem="2KQ-Sf-biL" secondAttribute="bottom" constant="16" id="gl0-ME-Pyb"/>
+                                            <constraint firstItem="9XG-si-UAi" firstAttribute="bottom" secondItem="owT-YQ-FQb" secondAttribute="bottom" id="ows-Ld-XBC"/>
+                                            <constraint firstItem="2KQ-Sf-biL" firstAttribute="height" secondItem="owT-YQ-FQb" secondAttribute="height" id="pKB-2O-BZJ"/>
                                             <constraint firstItem="owT-YQ-FQb" firstAttribute="leading" secondItem="bpW-eT-KFo" secondAttribute="leading" id="rdO-ZQ-xeH"/>
+                                            <constraint firstItem="hFg-kE-Y6g" firstAttribute="centerX" secondItem="bpW-eT-KFo" secondAttribute="centerX" id="s3a-Px-3hE"/>
+                                            <constraint firstItem="kcT-K9-YNM" firstAttribute="leading" secondItem="nuw-em-Upg" secondAttribute="leading" id="xG6-jE-xmD"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Bcq-mr-If9"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
