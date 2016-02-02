@@ -1,4 +1,5 @@
 #import "ACMLoginViewController.h"
+#import "ACMValidators.h"
 
 @interface ACMLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -25,30 +26,34 @@
 #pragma mark Target-Action
 - (IBAction)doneButtonDidPress:(UIBarButtonItem *)sender
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSString *invalidEmailMessage = [ACMValidators localizedValidationErrorMessageForEmail:self.emailTextField.text];
+
+    if (nil != invalidEmailMessage) {
+        NSLog(@"%@", invalidEmailMessage);
+    }
 }
 
 #pragma mark Notifications
 
 - (void)handleTextChange
 {
-    self.doneButton.enabled = self.isValidInput;
+    self.doneButton.enabled = self.hasEnteredInputs;
 }
 
 #pragma mark Private Helpers
 
-- (BOOL)isValidInput
+- (BOOL)hasEnteredInputs
 {
-    return self.enteredValidEmail && self.enteredValidPassword;
+    return self.hasEnteredEmailText && self.hasEnteredPasswordText;
 }
 
-- (BOOL)enteredValidEmail
+- (BOOL)hasEnteredEmailText
 {
     // TODO: real email validation
     return nil != self.emailTextField.text && self.emailTextField.text.length > 3;
 }
 
-- (BOOL)enteredValidPassword
+- (BOOL)hasEnteredPasswordText
 {
     // TODO: real password validation
     return nil != self.passwordTextField.text && self.passwordTextField.text.length > 5;
