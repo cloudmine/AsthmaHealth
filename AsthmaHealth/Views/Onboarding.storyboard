@@ -59,6 +59,9 @@
                                 <state key="normal" title="Already Participating?">
                                     <color key="titleColor" red="0.098039215690000001" green="0.054901960780000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="xBC-Si-tHR" kind="show" id="tNe-0u-nkC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,7 +99,15 @@
                 <viewControllerPlaceholder storyboardName="Consent" id="PYp-zM-MVy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNH-WP-agK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956.5" y="630"/>
+            <point key="canvasLocation" x="1038.5" y="438"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="soQ-V2-YMM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="xBC-Si-tHR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7iX-Q4-vEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030" y="483"/>
         </scene>
     </scenes>
 </document>
