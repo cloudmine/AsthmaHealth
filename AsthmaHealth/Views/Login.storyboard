@@ -7,7 +7,7 @@
         <!--Sign In-->
         <scene sceneID="BRg-dM-abN">
             <objects>
-                <viewController id="tri-7L-OCB" sceneMemberID="viewController">
+                <viewController id="tri-7L-OCB" customClass="ACMLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wRQ-wD-Y6Y"/>
                         <viewControllerLayoutGuide type="bottom" id="wft-N2-aVB"/>
@@ -139,8 +139,17 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="Z9T-Yj-k3h">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="lum-lb-Bbv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="lum-lb-Bbv">
+                            <connections>
+                                <action selector="doneButtonDidPress:" destination="tri-7L-OCB" id="1iV-4t-upV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="lum-lb-Bbv" id="ydd-BV-Yoh"/>
+                        <outlet property="emailTextField" destination="dls-ra-9Vu" id="iH9-s7-eEd"/>
+                        <outlet property="passwordTextField" destination="vW2-Fm-lIU" id="ag3-pT-Zte"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVh-oq-xfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
