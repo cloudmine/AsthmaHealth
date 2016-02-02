@@ -7,6 +7,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 @interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate>
 
 @property (nonatomic, nullable) ORKTaskResult* consentResults;
+@property (weak, nonatomic) IBOutlet UIButton *joinStudyButton;
 
 @end
 
@@ -15,13 +16,11 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self removeNavigationBarDropShadow];
 
-    // Remove navigation bar drop shadow
-    UINavigationBar *navigationBar = self.navigationController.navigationBar;
-    [navigationBar setBackgroundImage:[UIImage new]
-                       forBarPosition:UIBarPositionAny
-                           barMetrics:UIBarMetricsDefault];
-    [navigationBar setShadowImage:[UIImage new]];
+    self.joinStudyButton.layer.borderColor = self.joinStudyButton.titleLabel.textColor.CGColor;
+    self.joinStudyButton.layer.borderWidth = 1.0f;
+    self.joinStudyButton.layer.cornerRadius = 4.0f;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -76,6 +75,15 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
     [self dismissViewControllerAnimated:YES completion:nil];
     [self performSegueWithIdentifier:ACMSignUpSegueIdentifier sender:self];
+}
+
+- (void)removeNavigationBarDropShadow
+{
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    [navigationBar setBackgroundImage:[UIImage new]
+                       forBarPosition:UIBarPositionAny
+                           barMetrics:UIBarMetricsDefault];
+    [navigationBar setShadowImage:[UIImage new]];
 }
 
 @end

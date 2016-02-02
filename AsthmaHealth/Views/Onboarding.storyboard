@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-211" y="414"/>
         </scene>
-        <!--Onboarding View Controller-->
+        <!--Asthma-->
         <scene sceneID="Bg5-A2-kop">
             <objects>
                 <viewController id="OwB-5f-5u0" customClass="ACMOnboardingViewController" sceneMemberID="viewController">
@@ -34,23 +34,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqH-dx-qG6">
-                                <rect key="frame" x="249" y="486" width="102" height="30"/>
-                                <state key="normal" title="Demo Consent"/>
+                                <rect key="frame" x="217" y="442" width="166" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Tfs-WX-cIO"/>
+                                    <constraint firstAttribute="height" constant="44" id="UsM-zP-bYs"/>
+                                    <constraint firstAttribute="width" constant="132" id="z9I-rs-L83"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Join Study">
+                                    <color key="titleColor" red="0.098039215686274508" green="0.054901960784313725" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UsM-zP-bYs"/>
+                                        <exclude reference="z9I-rs-L83"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="PYp-zM-MVy" kind="presentation" id="da0-uY-f0w"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STH-ku-Hkn">
+                                <rect key="frame" x="225" y="498" width="150" height="30"/>
+                                <state key="normal" title="Already Participating?">
+                                    <color key="titleColor" red="0.098039215690000001" green="0.054901960780000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="99l-n4-wle" firstAttribute="top" secondItem="VqH-dx-qG6" secondAttribute="bottom" constant="20" id="cBm-aK-bpa"/>
+                            <constraint firstItem="99l-n4-wle" firstAttribute="top" secondItem="STH-ku-Hkn" secondAttribute="bottom" constant="8" symbolic="YES" id="YmA-wY-BuT"/>
+                            <constraint firstItem="VqH-dx-qG6" firstAttribute="width" secondItem="STH-ku-Hkn" secondAttribute="width" constant="16" id="cvI-Ql-t1a"/>
                             <constraint firstItem="VqH-dx-qG6" firstAttribute="centerX" secondItem="wVg-iM-6LI" secondAttribute="centerX" id="eDM-cd-p3F"/>
+                            <constraint firstItem="STH-ku-Hkn" firstAttribute="top" secondItem="VqH-dx-qG6" secondAttribute="bottom" constant="8" symbolic="YES" id="ich-Yo-9oI"/>
+                            <constraint firstItem="STH-ku-Hkn" firstAttribute="centerX" secondItem="wVg-iM-6LI" secondAttribute="centerX" id="pzD-rg-xYD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6nM-9s-Uij">
+                    <navigationItem key="navigationItem" title="Asthma" id="6nM-9s-Uij">
                         <barButtonItem key="backBarButtonItem" title="  " id="dRE-KO-6UW"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="joinStudyButton" destination="VqH-dx-qG6" id="nKm-t8-pnb"/>
                         <segue destination="4FL-vY-gdg" kind="show" identifier="ACMSignUpSegue" id="1yr-Yz-fXh"/>
                     </connections>
                 </viewController>
