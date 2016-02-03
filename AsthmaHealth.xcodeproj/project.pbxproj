@@ -35,6 +35,7 @@
 		B4F208F01C615C9800F81180 /* ACMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208EF1C615C9800F81180 /* ACMLoginViewController.m */; };
 		B4F208F31C615F6E00F81180 /* ACMValidators.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F21C615F6E00F81180 /* ACMValidators.m */; };
 		B4F208F61C6246C100F81180 /* ACMAlerter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F51C6246C100F81180 /* ACMAlerter.m */; };
+		B4F209071C62A2CE00F81180 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209061C62A2CE00F81180 /* Dashboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		B4F208F21C615F6E00F81180 /* ACMValidators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMValidators.m; sourceTree = "<group>"; };
 		B4F208F41C6246C100F81180 /* ACMAlerter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMAlerter.h; sourceTree = "<group>"; };
 		B4F208F51C6246C100F81180 /* ACMAlerter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMAlerter.m; sourceTree = "<group>"; };
+		B4F209061C62A2CE00F81180 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,10 +222,11 @@
 				B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */,
 				B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */,
 				B43ECBD61C51709E00865C5A /* SignUp.storyboard */,
+				B4F208EC1C6152BB00F81180 /* Login.storyboard */,
 				B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */,
 				B403FA9C1C58002300146B3C /* Activities.storyboard */,
 				B4B6F4991C5FECE7002EB098 /* Profile.storyboard */,
-				B4F208EC1C6152BB00F81180 /* Login.storyboard */,
+				B4F209061C62A2CE00F81180 /* Dashboard.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */,
+				B4F209071C62A2CE00F81180 /* Dashboard.storyboard in Resources */,
 				B403FA9D1C58002300146B3C /* Activities.storyboard in Resources */,
 				B4B6F49A1C5FECE7002EB098 /* Profile.storyboard in Resources */,
 				B4B6F4981C5FD760002EB098 /* MainPanel.storyboard in Resources */,
