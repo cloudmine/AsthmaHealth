@@ -36,6 +36,7 @@
 		B4F208F31C615F6E00F81180 /* ACMValidators.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F21C615F6E00F81180 /* ACMValidators.m */; };
 		B4F208F61C6246C100F81180 /* ACMAlerter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F51C6246C100F81180 /* ACMAlerter.m */; };
 		B4F209071C62A2CE00F81180 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209061C62A2CE00F81180 /* Dashboard.storyboard */; };
+		B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		B4F208F41C6246C100F81180 /* ACMAlerter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMAlerter.h; sourceTree = "<group>"; };
 		B4F208F51C6246C100F81180 /* ACMAlerter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMAlerter.m; sourceTree = "<group>"; };
 		B4F209061C62A2CE00F81180 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		B4F209081C62A5D400F81180 /* ACMDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMDashboardViewController.h; sourceTree = "<group>"; };
+		B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMDashboardViewController.m; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +213,8 @@
 				B403FA9F1C5806E400146B3C /* ACMSurveyViewController.m */,
 				B4B6F49B1C5FEFF3002EB098 /* ACMProfileViewController.h */,
 				B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */,
+				B4F209081C62A5D400F81180 /* ACMDashboardViewController.h */,
+				B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 				B4B6F4961C5C081B002EB098 /* ACMUserData.m in Sources */,
 				B43ECBD41C50027500865C5A /* ACMConsentTask.m in Sources */,
 				B403FAA61C59338300146B3C /* ACMResultWrapper.m in Sources */,
+				B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */,
 				B4F208F01C615C9800F81180 /* ACMLoginViewController.m in Sources */,
 				B4B6F4931C5C05A3002EB098 /* ACMUserController.m in Sources */,
 				B463CC451C4FE13D002B4F9C /* main.m in Sources */,

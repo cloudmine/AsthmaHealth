@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="264" y="492"/>
         </scene>
-        <!--View Controller-->
+        <!--Dashboard View Controller-->
         <scene sceneID="dMV-vN-SUm">
             <objects>
-                <viewController id="bFb-Ot-mXW" sceneMemberID="viewController">
+                <viewController id="bFb-Ot-mXW" customClass="ACMDashboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lMs-tP-zGX"/>
                         <viewControllerLayoutGuide type="bottom" id="RJ7-TV-dra"/>
@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b62-va-eDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="492"/>
+            <point key="canvasLocation" x="1012" y="492"/>
         </scene>
     </scenes>
     <resources>
