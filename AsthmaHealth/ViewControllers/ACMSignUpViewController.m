@@ -1,6 +1,8 @@
 #import "ACMSignUpViewController.h"
 #import "ACMAppDelegate.h"
 #import "ACMUserController.h"
+#import "ACMValidators.h"
+#import "ACMAlerter.h"
 
 @interface ACMSignUpViewController ()
 
@@ -28,6 +30,13 @@
 
 - (IBAction)nextButtonDidPress:(UIBarButtonItem *)sender
 {
+    NSString *invalidEmailMessage = [ACMValidators localizedValidationErrorMessageForEmail:self.emailTextField.text];
+
+    if (nil != invalidEmailMessage) {
+        [ACMAlerter displayAlertWithTitle:nil andMessage:invalidEmailMessage inViewController:self];
+        return;
+    }
+
     [ACMUserController.currentUser signUpWithEmail:self.emailTextField.text
                                           password:self.passwordTextField.text
                                         andConsent:self.consentResults
@@ -49,25 +58,23 @@
 
 - (void)handleTextChange
 {
-    self.nextButton.enabled = self.isValidInput;
+    self.nextButton.enabled = self.hasEnteredInputs;
 }
 
 #pragma mark Private Helpers
 
-- (BOOL)isValidInput
+- (BOOL)hasEnteredInputs
 {
-    return self.enteredValidEmail && self.enteredValidPassword;
+    return self.hasEnteredEmailText && self.hasEnteredPasswordText;
 }
 
-- (BOOL)enteredValidEmail
+- (BOOL)hasEnteredEmailText
 {
-    // TODO: real email validation
-    return nil != self.emailTextField.text && self.emailTextField.text.length > 3;
+    return nil != self.emailTextField.text && self.emailTextField.text.length > 4;
 }
 
-- (BOOL)enteredValidPassword
+- (BOOL)hasEnteredPasswordText
 {
-    // TODO: real password validation
     return nil != self.passwordTextField.text && self.passwordTextField.text.length > 5;
 }
 

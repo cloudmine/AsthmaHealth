@@ -51,7 +51,7 @@
 
 - (BOOL)hasEnteredEmailText
 {
-    return nil != self.emailTextField.text && self.emailTextField.text.length > 3;
+    return nil != self.emailTextField.text && self.emailTextField.text.length > 4;
 }
 
 - (BOOL)hasEnteredPasswordText
