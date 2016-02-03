@@ -15,6 +15,10 @@ typedef void(^ACMUserLogoutCompletion)(NSError * _Nullable error);
              andConsent:(ORKTaskResult *_Nonnull)consentResult
          withCompletion:(_Nullable ACMUserAuthCompletion)block;
 
+- (void)loginWithEmail:(NSString *_Nonnull)email
+              password:(NSString *_Nonnull)password
+         andCompletion:(_Nullable ACMUserAuthCompletion)block;
+
 - (void)logoutWithCompletion:(_Nullable ACMUserLogoutCompletion)block;
 
 @property (nonatomic, nullable, readonly) ACMUserData *userData;

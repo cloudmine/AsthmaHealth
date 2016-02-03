@@ -1,6 +1,8 @@
 #import "ACMLoginViewController.h"
 #import "ACMValidators.h"
 #import "ACMAlerter.h"
+#import "ACMUserController.h"
+#import "ACMAppDelegate.h"
 
 @interface ACMLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -33,6 +35,21 @@
         [ACMAlerter displayAlertWithTitle:nil andMessage:invalidEmailMessage inViewController:self];
         return;
     }
+
+    [ACMUserController.currentUser loginWithEmail:self.emailTextField.text password:self.passwordTextField.text andCompletion:^(NSError * _Nullable error) {
+        if (nil != error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign In Failure", nil)
+                                       andMessage:[NSString localizedStringWithFormat:@"Sign in failed, please try again. %@", error.localizedDescription]
+                                 inViewController:self];
+            });
+            return;
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.appDelegate loadMainPanel];
+        });
+    }];
 }
 
 #pragma mark Notifications
@@ -57,6 +74,15 @@
 - (BOOL)hasEnteredPasswordText
 {
     return nil != self.passwordTextField.text && self.passwordTextField.text.length > 5;
+}
+
+- (ACMAppDelegate *)appDelegate
+{
+    if (![[UIApplication sharedApplication].delegate isKindOfClass:[ACMAppDelegate class]]) {
+        return nil;
+    }
+
+    return [UIApplication sharedApplication].delegate;
 }
 
 @end

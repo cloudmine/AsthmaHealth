@@ -55,6 +55,7 @@
              andConsent:(ORKTaskResult *_Nonnull)consentResult
          withCompletion:(_Nullable ACMUserAuthCompletion)block
 {
+    self.userData = nil;
     CMUser *newUser = [[CMUser alloc] initWithEmail:email andPassword:password];
     [CMStore defaultStore].user = newUser;
 
@@ -91,6 +92,35 @@
     }];
 }
 
+- (void)loginWithEmail:(NSString *_Nonnull)email
+              password:(NSString *_Nonnull)password
+         andCompletion:(_Nullable ACMUserAuthCompletion)block
+{
+    NSAssert(nil != email, @"ACMUserController: Attempted to login with nil email");
+    NSAssert(nil != password, @"ACMUserController: Attempted to login with nil password");
+
+    self.userData = nil;
+    CMUser *user = [[CMUser alloc] initWithEmail:email andPassword:password];
+    [CMStore defaultStore].user = user;
+
+    [user loginWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
+        if (CMUserAccountOperationFailed(resultCode)) {
+            if (nil != block) {
+                NSError *error = [ACMUserController errorWithMessage:NSLocalizedString(@"Failed to log in", nil)  // TODO: different domain?
+                                                             andCode:(100 + resultCode)];
+                block(error);
+            }
+            return;
+        }
+
+        self.userData = [[ACMUserData alloc] initWithCMUser:[CMUser currentUser]];
+
+        if (nil != block) {
+            block(nil);
+        }
+    }];
+}
+
 - (void)logoutWithCompletion:(_Nullable ACMUserLogoutCompletion)block
 {
     [[CMUser currentUser] logoutWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
@@ -102,6 +132,8 @@
             }
             return;
         }
+
+        self.userData = nil;
 
         if (nil != block) {
             block(nil);
