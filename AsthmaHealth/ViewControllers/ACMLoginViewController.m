@@ -1,5 +1,6 @@
 #import "ACMLoginViewController.h"
 #import "ACMValidators.h"
+#import "ACMAlerter.h"
 
 @interface ACMLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -29,7 +30,8 @@
     NSString *invalidEmailMessage = [ACMValidators localizedValidationErrorMessageForEmail:self.emailTextField.text];
 
     if (nil != invalidEmailMessage) {
-        NSLog(@"%@", invalidEmailMessage);
+        [ACMAlerter displayAlertWithTitle:nil andMessage:invalidEmailMessage inViewController:self];
+        return;
     }
 }
 
@@ -49,13 +51,11 @@
 
 - (BOOL)hasEnteredEmailText
 {
-    // TODO: real email validation
     return nil != self.emailTextField.text && self.emailTextField.text.length > 3;
 }
 
 - (BOOL)hasEnteredPasswordText
 {
-    // TODO: real password validation
     return nil != self.passwordTextField.text && self.passwordTextField.text.length > 5;
 }
 

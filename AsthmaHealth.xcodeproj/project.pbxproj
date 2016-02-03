@@ -34,6 +34,7 @@
 		B4F208ED1C6152BB00F81180 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F208EC1C6152BB00F81180 /* Login.storyboard */; };
 		B4F208F01C615C9800F81180 /* ACMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208EF1C615C9800F81180 /* ACMLoginViewController.m */; };
 		B4F208F31C615F6E00F81180 /* ACMValidators.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F21C615F6E00F81180 /* ACMValidators.m */; };
+		B4F208F61C6246C100F81180 /* ACMAlerter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F51C6246C100F81180 /* ACMAlerter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		B4F208EF1C615C9800F81180 /* ACMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMLoginViewController.m; sourceTree = "<group>"; };
 		B4F208F11C615F6E00F81180 /* ACMValidators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMValidators.h; sourceTree = "<group>"; };
 		B4F208F21C615F6E00F81180 /* ACMValidators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMValidators.m; sourceTree = "<group>"; };
+		B4F208F41C6246C100F81180 /* ACMAlerter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMAlerter.h; sourceTree = "<group>"; };
+		B4F208F51C6246C100F81180 /* ACMAlerter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMAlerter.m; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,6 +250,8 @@
 				B4B6F4921C5C05A3002EB098 /* ACMUserController.m */,
 				B4F208F11C615F6E00F81180 /* ACMValidators.h */,
 				B4F208F21C615F6E00F81180 /* ACMValidators.m */,
+				B4F208F41C6246C100F81180 /* ACMAlerter.h */,
+				B4F208F51C6246C100F81180 /* ACMAlerter.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				B403FAA01C5806E400146B3C /* ACMSurveyViewController.m in Sources */,
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
 				B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */,
+				B4F208F61C6246C100F81180 /* ACMAlerter.m in Sources */,
 				B4F208F31C615F6E00F81180 /* ACMValidators.m in Sources */,
 				B4B6F49D1C5FEFF3002EB098 /* ACMProfileViewController.m in Sources */,
 				B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */,
