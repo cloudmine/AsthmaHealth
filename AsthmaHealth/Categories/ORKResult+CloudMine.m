@@ -66,6 +66,28 @@ void acm_swizzle(Class class, SEL originalSelector, SEL swizzledSelector)
     }];
 }
 
++ (void)cm_fetchUserResultsWithCompletion:(_Nullable ACMFetchCompletion)block;
+{
+    Class wrapperClass = [ACMResultWrapper wrapperClassForResultClass:[self class]];
+    NSString *queryString = [NSString stringWithFormat:@"[%@ = \"%@\"]", CMInternalClassStorageKey, [self class]];
+
+    [[CMStore defaultStore] searchUserObjects:queryString
+                            additionalOptions:nil
+                                     callback:^(CMObjectFetchResponse *response)
+    {
+        NSMutableArray *mutableResults = [NSMutableArray new];
+        for (id object in response.objects) {
+            if ([object class] != wrapperClass || ![[object wrappedResult] isKindOfClass:[self class]]) {
+                continue;
+            }
+
+            [mutableResults addObject:[object wrappedResult]];
+        }
+
+        block([mutableResults copy], nil);
+    }];
+}
+
 # pragma mark Private
 
 + (NSError * _Nullable)errorWithMessage:(NSString * _Nonnull)message andCode:(NSInteger)code
