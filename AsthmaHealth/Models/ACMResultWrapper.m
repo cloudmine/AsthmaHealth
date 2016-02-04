@@ -3,7 +3,6 @@
 
 @interface ACMResultWrapper ()
 @property (nonatomic, nonnull) ORKResult *result;
-
 @end
 
 @implementation ACMResultWrapper
@@ -13,14 +12,36 @@
     self = [super init];
     if (nil == self) return nil;
 
+    NSAssert([ACMResultWrapper class] != [self class], @"Attempted to called initWithResult: directly on ACMResultWrapper. Only sublcasses returned by wrapperClassForResultClass: should be used.");
+
     self.result = result;
+
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (nil == self) return nil;
+
+    NSAssert([ACMResultWrapper class] != [self class], @"Attempted to called initWithCoder: directly on ACMResultWrapper. Only sublcasses returned by wrapperClassForResultClass: should be used.");
+
+    Class runtimeClass = NSClassFromString([[self class] className]);
+    self.result = [[runtimeClass alloc] initWithCoder:aDecoder];
 
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
+    NSAssert([ACMResultWrapper class] != [self class], @"Attempted to called encodeWithCoder: directly on ACMResultWrapper. Only sublcasses returned by wrapperClassForResultClass: should be used.");
+
     [self.result encodeWithCoder:aCoder];
+}
+
+- (ORKResult *)wrappedResult
+{
+    return self.result;
 }
 
 // Returns the name of the wrapped class, rather than the wrapper class name itself

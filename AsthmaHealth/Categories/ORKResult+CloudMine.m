@@ -108,8 +108,12 @@
     dispatch_once(&onceToken, ^{
         Class class = [self class];
 
-        SEL originalSelector = @selector(encodeWithCoder:);
-        SEL swizzledSelector = @selector(acm_encodeWithCoder:);
+//        SEL originalSelector = @selector(encodeWithCoder:);
+//        SEL swizzledSelector = @selector(acm_encodeWithCoder:);
+
+        SEL originalSelector = @selector(initWithCoder:);
+        SEL swizzledSelector = @selector(initWithCoder_acm:);
+
 
         Method originalMethod = class_getInstanceMethod(class, originalSelector);
         Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
@@ -139,6 +143,17 @@
     }
 
     [self acm_encodeWithCoder:aCoder];
+}
+
+- (instancetype)initWithCoder_acm:(NSCoder *)decoder
+{
+    if ([decoder isKindOfClass:[CMObjectDecoder class]]) {
+        NSLog(@"WE SWIZZLED DECODING!");
+        self = [[NSUUID alloc] initWithUUIDString:[decoder decodeObjectForKey:@"UUIDString"]];
+        return self;
+    }
+
+    return [self initWithCoder_acm:decoder];
 }
 
 // TODO: Swizzle decodeWithCoder
