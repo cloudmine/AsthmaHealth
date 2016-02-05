@@ -128,13 +128,13 @@
         <!--Survey Details-->
         <scene sceneID="aEj-kM-Pfm">
             <objects>
-                <tableViewController id="fE1-Uo-66e" sceneMemberID="viewController">
+                <tableViewController id="fE1-Uo-66e" customClass="ACMDashSurveysViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="beM-RO-Xh7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="IKe-n7-vbW" detailTextLabel="eq1-w4-XZ5" style="IBUITableViewCellStyleValue1" id="p3a-Wg-bxF">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SurveyDetailCell" textLabel="IKe-n7-vbW" detailTextLabel="eq1-w4-XZ5" style="IBUITableViewCellStyleValue1" id="p3a-Wg-bxF">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p3a-Wg-bxF" id="E4X-hN-pbH">

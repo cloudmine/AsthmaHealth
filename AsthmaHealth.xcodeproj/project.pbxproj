@@ -37,6 +37,7 @@
 		B4F208F61C6246C100F81180 /* ACMAlerter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F51C6246C100F81180 /* ACMAlerter.m */; };
 		B4F209071C62A2CE00F81180 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209061C62A2CE00F81180 /* Dashboard.storyboard */; };
 		B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */; };
+		B4F209191C650F9600F81180 /* ACMDashSurveysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209181C650F9600F81180 /* ACMDashSurveysViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		B4F209061C62A2CE00F81180 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		B4F209081C62A5D400F81180 /* ACMDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMDashboardViewController.h; sourceTree = "<group>"; };
 		B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMDashboardViewController.m; sourceTree = "<group>"; };
+		B4F209171C650F9600F81180 /* ACMDashSurveysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMDashSurveysViewController.h; sourceTree = "<group>"; };
+		B4F209181C650F9600F81180 /* ACMDashSurveysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMDashSurveysViewController.m; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +218,8 @@
 				B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */,
 				B4F209081C62A5D400F81180 /* ACMDashboardViewController.h */,
 				B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */,
+				B4F209171C650F9600F81180 /* ACMDashSurveysViewController.h */,
+				B4F209181C650F9600F81180 /* ACMDashSurveysViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B43ECBDA1C51772300865C5A /* ACMSignUpViewController.m in Sources */,
+				B4F209191C650F9600F81180 /* ACMDashSurveysViewController.m in Sources */,
 				B403FAA01C5806E400146B3C /* ACMSurveyViewController.m in Sources */,
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
 				B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */,

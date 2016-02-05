@@ -3,6 +3,7 @@
 #import <ResearchKit/ResearchKit.h>
 #import "ACMResultWrapper.h"
 #import "ORKResult+CloudMine.h"
+#import "ACMDashSurveysViewController.h"
 
 @interface ACMDashboardViewController ()
 @property (nonatomic, nullable) ORKTaskResult *consentResult;
@@ -56,6 +57,14 @@
 
         [self refreshUI];
     }];
+}
+
+#pragma mark Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[ACMDashSurveysViewController class]]) {
+        ((ACMDashSurveysViewController *)segue.destinationViewController).surveyResults = self.surveyResults;
+    }
 }
 
 #pragma mark Target-Action
