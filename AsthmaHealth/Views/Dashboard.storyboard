@@ -115,7 +115,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="mBV-gR-DBZ"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="mBV-gR-DBZ">
+                        <barButtonItem key="backBarButtonItem" title=" " id="iIg-NR-1yh"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="consentDateLabel" destination="ncD-A0-pKG" id="CJN-Ta-qLW"/>
                         <outlet property="surveyCountLabel" destination="eOk-yf-Y3R" id="YOs-Jb-xas"/>
@@ -164,9 +166,7 @@
                             <outlet property="delegate" destination="fE1-Uo-66e" id="53L-HN-mRB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Survey Details" id="MwE-Rz-HsY">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="OjJ-nV-B1y"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Survey Details" id="MwE-Rz-HsY"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6b-el-yPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
