@@ -45,7 +45,7 @@
 #pragma mark "Daily" Steps
 + (NSArray<ORKStep *> *)dailySteps
 {
-    return @[self.daytimeQuestion, self.nighttimeQuestion];
+    return @[self.daytimeQuestion, self.nighttimeQuestion, self.inhalerQuestion, self.puffsQuestion];
 }
 
 + (ORKQuestionStep *)daytimeQuestion
@@ -62,6 +62,27 @@
                                                  title:NSLocalizedString(@"In the last 24 hours, did you have any nighttime waking from asthma symptoms (cough, wheeze, shortness of breath or chest tightness)?", nil)
                                                   text:@""
                                                 answer:[ORKBooleanAnswerFormat new]];
+}
+
++ (ORKQuestionStep *)inhalerQuestion
+{
+    return [ORKQuestionStep questionStepWithIdentifier:@"ACMDailySurveyInhalerQuestion"
+                                                 title:NSLocalizedString(@"Did you use your quick relief inhaler in the last 24 hours, except before exercise?", nil)
+                                                  text:@""
+                                                answer:[ORKBooleanAnswerFormat new]];
+}
+
++ (ORKQuestionStep *)puffsQuestion
+{
+    ORKNumericAnswerFormat *format = [[ORKNumericAnswerFormat alloc] initWithStyle:ORKNumericAnswerStyleInteger
+                                                                              unit:NSLocalizedString(@"Puffs", nil)
+                                                                           minimum:@0 maximum:@20];
+
+    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMDailyPuffsQuestion"
+                                                                      title:NSLocalizedString(@"Except for use before exercise, how many total puffs of your quick relief medicine did you take over the past 24 hours?", nil)
+                                                                       text:nil
+                                                                     answer:format];
+    return question;
 }
 
 # pragma mark "About You" Steps
