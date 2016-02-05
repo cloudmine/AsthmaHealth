@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="264" y="492"/>
         </scene>
-        <!--Dashboard View Controller-->
+        <!--Dashboard-->
         <scene sceneID="dMV-vN-SUm">
             <objects>
                 <viewController id="bFb-Ot-mXW" customClass="ACMDashboardViewController" sceneMemberID="viewController">
@@ -34,36 +34,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncD-A0-pKG">
-                                <rect key="frame" x="20" y="108" width="560" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consent Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ncD-A0-pKG">
+                                <rect key="frame" x="190" y="160" width="104.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOk-yf-Y3R">
-                                <rect key="frame" x="20" y="165" width="560" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CloudMine Asthma Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="kx8-Qv-MiK">
+                                <rect key="frame" x="20" y="89" width="560" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Joined Study On:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyI-4c-foZ">
+                                <rect key="frame" x="42" y="160" width="131.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Surveys Completed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="us9-gF-aak">
+                                <rect key="frame" x="20" y="220" width="154" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOk-yf-Y3R">
+                                <rect key="frame" x="190" y="220" width="12.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjq-dW-etg">
+                                <rect key="frame" x="517" y="509" width="63" height="34"/>
+                                <state key="normal" title="Refresh">
+                                    <color key="titleColor" red="0.098039215690000001" green="0.054901960780000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshButtonDidPress:" destination="bFb-Ot-mXW" eventType="touchUpInside" id="Fyi-Qi-7IX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eOk-yf-Y3R" firstAttribute="top" secondItem="ncD-A0-pKG" secondAttribute="bottom" constant="36.5" id="0dh-yQ-kBd"/>
+                            <constraint firstAttribute="trailing" secondItem="kx8-Qv-MiK" secondAttribute="trailing" constant="20" symbolic="YES" id="0ap-8J-CfI"/>
+                            <constraint firstItem="ncD-A0-pKG" firstAttribute="centerY" secondItem="lyI-4c-foZ" secondAttribute="centerY" id="3PM-DE-3Pk"/>
+                            <constraint firstAttribute="trailing" secondItem="vjq-dW-etg" secondAttribute="trailing" constant="20" id="3rN-a1-ng4"/>
                             <constraint firstItem="eOk-yf-Y3R" firstAttribute="leading" secondItem="ncD-A0-pKG" secondAttribute="leading" id="7FJ-Di-7v9"/>
+                            <constraint firstItem="lyI-4c-foZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jbz-3g-bHC" secondAttribute="leading" constant="20" id="I7D-mE-Akb"/>
                             <constraint firstItem="eOk-yf-Y3R" firstAttribute="trailing" secondItem="ncD-A0-pKG" secondAttribute="trailing" id="IKh-8i-P6I"/>
-                            <constraint firstItem="ncD-A0-pKG" firstAttribute="top" secondItem="lMs-tP-zGX" secondAttribute="bottom" constant="44" id="PCW-aP-5oC"/>
+                            <constraint firstItem="us9-gF-aak" firstAttribute="trailing" secondItem="lyI-4c-foZ" secondAttribute="trailing" id="L1y-Mg-ck6"/>
+                            <constraint firstItem="eOk-yf-Y3R" firstAttribute="centerY" secondItem="us9-gF-aak" secondAttribute="centerY" id="XG7-s2-YZq"/>
                             <constraint firstItem="ncD-A0-pKG" firstAttribute="centerY" secondItem="jbz-3g-bHC" secondAttribute="centerY" id="fcS-TG-b1N"/>
                             <constraint firstAttribute="trailing" secondItem="ncD-A0-pKG" secondAttribute="trailing" constant="20" symbolic="YES" id="h3f-JY-HT5"/>
+                            <constraint firstItem="kx8-Qv-MiK" firstAttribute="leading" secondItem="jbz-3g-bHC" secondAttribute="leading" constant="20" symbolic="YES" id="iCi-cA-UxQ"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eOk-yf-Y3R" secondAttribute="trailing" constant="20" symbolic="YES" id="ixi-P0-tbD"/>
+                            <constraint firstItem="us9-gF-aak" firstAttribute="top" secondItem="lyI-4c-foZ" secondAttribute="bottom" constant="40" id="mCL-1S-LlY"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ncD-A0-pKG" secondAttribute="trailing" constant="20" symbolic="YES" id="n0O-7H-AuY"/>
+                            <constraint firstItem="RJ7-TV-dra" firstAttribute="top" secondItem="vjq-dW-etg" secondAttribute="bottom" constant="8" id="n9t-fW-kGO"/>
+                            <constraint firstItem="kx8-Qv-MiK" firstAttribute="top" secondItem="lMs-tP-zGX" secondAttribute="bottom" constant="25" id="rj6-fB-O0Q"/>
+                            <constraint firstItem="us9-gF-aak" firstAttribute="leading" secondItem="jbz-3g-bHC" secondAttribute="leading" constant="20" id="teZ-qB-Tmq"/>
                             <constraint firstItem="ncD-A0-pKG" firstAttribute="leading" secondItem="jbz-3g-bHC" secondAttribute="leading" constant="20" symbolic="YES" id="tlZ-k3-nwl"/>
+                            <constraint firstItem="lyI-4c-foZ" firstAttribute="top" secondItem="kx8-Qv-MiK" secondAttribute="bottom" constant="42" id="vRB-au-PVM"/>
+                            <constraint firstItem="ncD-A0-pKG" firstAttribute="leading" secondItem="lyI-4c-foZ" secondAttribute="trailing" constant="16" id="yrW-g9-5Rj"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="fcS-TG-b1N"/>
+                                <exclude reference="h3f-JY-HT5"/>
+                                <exclude reference="tlZ-k3-nwl"/>
+                                <exclude reference="IKh-8i-P6I"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="mBV-gR-DBZ"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="mBV-gR-DBZ"/>
                     <connections>
                         <outlet property="consentDateLabel" destination="ncD-A0-pKG" id="CJN-Ta-qLW"/>
                         <outlet property="surveyCountLabel" destination="eOk-yf-Y3R" id="YOs-Jb-xas"/>

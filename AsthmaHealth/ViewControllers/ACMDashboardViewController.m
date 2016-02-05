@@ -18,22 +18,9 @@
     [super viewDidLoad];
 
     // TODO: Loading status
+
     [self resetUI];
-
-    [ORKTaskResult cm_fetchUserResultsWithCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
-        if (nil == results) { // TODO: real error handling
-            NSLog(@"%@", error.localizedDescription);
-            return;
-        }
-
-        self.consentResult = (ORKTaskResult *)[ACMDashboardViewController resultsWithIdentifier:@"ACMParticipantConsentTask" fromResults:results].firstObject;
-
-        NSMutableArray *mutableResults = [results mutableCopy];
-        [mutableResults removeObject:self.consentResult];
-        self.surveyResults = [mutableResults copy];
-
-        [self refreshUI];
-    }];
+    [self fetchData];
 }
 
 - (void)resetUI
@@ -51,6 +38,30 @@
         self.consentDateLabel.text = consentDate;
         self.surveyCountLabel.text = surveyCount;
     });
+}
+
+- (void)fetchData
+{
+    [ORKTaskResult cm_fetchUserResultsWithCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
+        if (nil == results) { // TODO: real error handling
+            NSLog(@"%@", error.localizedDescription);
+            return;
+        }
+
+        self.consentResult = (ORKTaskResult *)[ACMDashboardViewController resultsWithIdentifier:@"ACMParticipantConsentTask" fromResults:results].firstObject;
+
+        NSMutableArray *mutableResults = [results mutableCopy];
+        [mutableResults removeObject:self.consentResult];
+        self.surveyResults = [mutableResults copy];
+
+        [self refreshUI];
+    }];
+}
+
+#pragma mark Target-Action
+- (IBAction)refreshButtonDidPress:(UIButton *)sender
+{
+    [self fetchData];
 }
 
 #pragma mark Presentation
