@@ -71,8 +71,10 @@
         return @"Never";
     }
 
-    //TODO: Real date formatting
-    return [NSString stringWithFormat:@"%@", date];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"MMM dd, yyyy";
+
+    return [formatter stringFromDate:date];
 }
 
 #pragma mark Private
