@@ -12,7 +12,10 @@
     self = [super init];
     if (nil == self) return nil;
 
-    self.surveyList = @[ [[ACMSurveyMetaData alloc] initWithName:NSLocalizedString(@"About You", nil) identifier:@"ACMAboutYouSurveyTask"] ];
+    self.surveyList = @[ [[ACMSurveyMetaData alloc] initWithName:NSLocalizedString(@"About You", nil)
+                                                      identifier:@"ACMAboutYouSurveyTask"
+                                                andQuestionCount:@8]
+                       ];
 
     return self;
 }

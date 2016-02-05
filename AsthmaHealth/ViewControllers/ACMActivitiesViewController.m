@@ -41,7 +41,7 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
     cell.textLabel.text = surveyData.displayName;
-    
+    cell.detailTextLabel.text = [NSString localizedStringWithFormat:@"%@ Questions", surveyData.questionCount.stringValue];
     return cell;
 }
 
