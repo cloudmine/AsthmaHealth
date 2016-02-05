@@ -7,6 +7,8 @@
 @interface ACMDashboardViewController ()
 @property (nonatomic, nullable) ORKTaskResult *consentResult;
 @property (nonatomic, nullable) NSArray <ORKTaskResult *> *surveyResults;
+@property (weak, nonatomic) IBOutlet UILabel *consentDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *surveyCountLabel;
 @end
 
 @implementation ACMDashboardViewController
@@ -15,18 +17,51 @@
 {
     [super viewDidLoad];
 
+    // TODO: Loading status
+    [self resetUI];
+
     [ORKTaskResult cm_fetchUserResultsWithCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
-        if (nil == results) {
+        if (nil == results) { // TODO: real error handling
             NSLog(@"%@", error.localizedDescription);
             return;
         }
 
-        ORKResult *possibleConsent = (ORKTaskResult *)[ACMDashboardViewController resultsWithIdentifier:@"ACMParticipantConsentTask" fromResults:results].firstObject;
+        self.consentResult = (ORKTaskResult *)[ACMDashboardViewController resultsWithIdentifier:@"ACMParticipantConsentTask" fromResults:results].firstObject;
 
         NSMutableArray *mutableResults = [results mutableCopy];
         [mutableResults removeObject:self.consentResult];
         self.surveyResults = [mutableResults copy];
+
+        [self refreshUI];
     }];
+}
+
+- (void)resetUI
+{
+    self.consentDateLabel.text = @"";
+    self.surveyCountLabel.text = @"";
+}
+
+- (void)refreshUI
+{
+    NSString *consentDate = [ACMDashboardViewController consentDateStringForDate:self.consentResult.endDate];
+    NSString *surveyCount = [NSString stringWithFormat:@"%li", (long)self.surveyResults.count];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.consentDateLabel.text = consentDate;
+        self.surveyCountLabel.text = surveyCount;
+    });
+}
+
+#pragma mark Presentation
++ (NSString *_Nonnull)consentDateStringForDate:(NSDate *_Nullable)date
+{
+    if (nil == date) {
+        return @"Never";
+    }
+
+    //TODO: Real date formatting
+    return [NSString stringWithFormat:@"%@", date];
 }
 
 #pragma mark Private
