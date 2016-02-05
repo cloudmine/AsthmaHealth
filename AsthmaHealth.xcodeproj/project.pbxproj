@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		394D27665E5672044448CDCF /* libPods-AsthmaHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */; };
 		B403FA9D1C58002300146B3C /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B403FA9C1C58002300146B3C /* Activities.storyboard */; };
-		B403FAA01C5806E400146B3C /* ACMSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FA9F1C5806E400146B3C /* ACMSurveyViewController.m */; };
+		B403FAA01C5806E400146B3C /* ACMSurveyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FA9F1C5806E400146B3C /* ACMSurveyFactory.m */; };
 		B403FAA31C58097600146B3C /* ACMActivitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */; };
 		B403FAA61C59338300146B3C /* ACMResultWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FAA51C59338300146B3C /* ACMResultWrapper.m */; };
 		B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */; };
@@ -56,8 +56,8 @@
 		4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsthmaHealth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCA5FDF42D14EBE6C192A99 /* Pods-AsthmaHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.debug.xcconfig"; sourceTree = "<group>"; };
 		B403FA9C1C58002300146B3C /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
-		B403FA9E1C5806E400146B3C /* ACMSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSurveyViewController.h; sourceTree = "<group>"; };
-		B403FA9F1C5806E400146B3C /* ACMSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSurveyViewController.m; sourceTree = "<group>"; };
+		B403FA9E1C5806E400146B3C /* ACMSurveyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSurveyFactory.h; sourceTree = "<group>"; };
+		B403FA9F1C5806E400146B3C /* ACMSurveyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSurveyFactory.m; sourceTree = "<group>"; };
 		B403FAA11C58097600146B3C /* ACMActivitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMActivitiesViewController.h; sourceTree = "<group>"; };
 		B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMActivitiesViewController.m; sourceTree = "<group>"; };
 		B403FAA41C59338300146B3C /* ACMResultWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMResultWrapper.h; sourceTree = "<group>"; };
@@ -218,8 +218,8 @@
 				B4F208EF1C615C9800F81180 /* ACMLoginViewController.m */,
 				B403FAA11C58097600146B3C /* ACMActivitiesViewController.h */,
 				B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */,
-				B403FA9E1C5806E400146B3C /* ACMSurveyViewController.h */,
-				B403FA9F1C5806E400146B3C /* ACMSurveyViewController.m */,
+				B403FA9E1C5806E400146B3C /* ACMSurveyFactory.h */,
+				B403FA9F1C5806E400146B3C /* ACMSurveyFactory.m */,
 				B4B6F49B1C5FEFF3002EB098 /* ACMProfileViewController.h */,
 				B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */,
 				B4F209081C62A5D400F81180 /* ACMDashboardViewController.h */,
@@ -448,7 +448,7 @@
 			files = (
 				B43ECBDA1C51772300865C5A /* ACMSignUpViewController.m in Sources */,
 				B4F209191C650F9600F81180 /* ACMDashSurveysViewController.m in Sources */,
-				B403FAA01C5806E400146B3C /* ACMSurveyViewController.m in Sources */,
+				B403FAA01C5806E400146B3C /* ACMSurveyFactory.m in Sources */,
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
 				B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */,
 				B4F208F61C6246C100F81180 /* ACMAlerter.m in Sources */,

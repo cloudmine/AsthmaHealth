@@ -1,10 +1,9 @@
 #import "ACMActivitiesViewController.h"
 #import <ResearchKit/ResearchKit.h>
-#import "ACMSurveyViewController.h"
 #import "ORKResult+CloudMine.h"
 #import "ACMSurveyCollection.h"
 #import "ACMSurveyMetaData.h"
-
+#import "ACMSurveyFactory.h"
 
 @interface ACMActivitiesViewController ()<ORKTaskViewControllerDelegate>
 @property (nonatomic, nullable) ORKTaskResult *surveyResult;
@@ -49,7 +48,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ACMSurveyViewController *surveyVC = [[ACMSurveyViewController alloc] init];
+    ACMSurveyMetaData *surveyData = [self.surveys metaDataForSurveyAtIndex:indexPath.row];
+    ORKTaskViewController *surveyVC = [ACMSurveyFactory surveyViewControllerForIdentifier:surveyData.rkIdentifier];
+    NSAssert(nil != surveyVC, @"ACMActivitiesViewController: Requested survey with unknown identifier %@", surveyData.rkIdentifier);
     surveyVC.delegate = self;
 
     [self presentViewController:surveyVC animated:YES completion:nil];
@@ -86,10 +87,10 @@
 
 - (void)handleSurveyCompleted
 {
-    NSAssert([self.presentedViewController isKindOfClass:[ACMSurveyViewController class]],
+    NSAssert([self.presentedViewController isKindOfClass:[ORKTaskViewController class]],
              @"Attempted to handle a survey completion when a ACMSurveyViewController was not presented");
     
-    self.surveyResult = ((ACMSurveyViewController *)self.presentedViewController).result;
+    self.surveyResult = ((ORKTaskViewController *)self.presentedViewController).result;
 
     [self.surveyResult cm_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
         if(nil == uploadStatus) {

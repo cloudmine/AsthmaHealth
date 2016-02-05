@@ -1,30 +1,24 @@
-#import "ACMSurveyViewController.h"
+#import "ACMSurveyFactory.h"
 #import <ResearchKit/ORKCompletionStep.h>
 
-@interface ACMSurveyViewController ()
+@implementation ACMSurveyFactory
 
-@end
-
-@implementation ACMSurveyViewController
-
-- (instancetype)init
++ (ORKTaskViewController *_Nullable)surveyViewControllerForIdentifier:(NSString *_Nullable)surveyIdentifier
 {
-    self = [super init];
-    if (nil == self) return nil;
+    if (nil == surveyIdentifier) {
+        return nil;
+    }
 
-    self.task = ACMSurveyViewController.task;
+    if ([@"ACMAboutYouSurveyTask" isEqualToString:surveyIdentifier]) {
+        return [[ORKTaskViewController alloc] initWithTask:self.aboutYouTask taskRunUUID:nil];
+    }
 
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+    return nil;
 }
 
 # pragma mark Task
 
-+ (ORKOrderedTask *)task
++ (ORKOrderedTask *)aboutYouTask
 {
     ORKNavigableOrderedTask *task = [[ORKNavigableOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask"
                                                                                   steps:self.steps];
