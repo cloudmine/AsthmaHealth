@@ -38,6 +38,8 @@
 		B4F209071C62A2CE00F81180 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209061C62A2CE00F81180 /* Dashboard.storyboard */; };
 		B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */; };
 		B4F209191C650F9600F81180 /* ACMDashSurveysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209181C650F9600F81180 /* ACMDashSurveysViewController.m */; };
+		B4F2091C1C65440900F81180 /* ACMSurveyMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F2091B1C65440900F81180 /* ACMSurveyMetaData.m */; };
+		B4F2091F1C65458300F81180 /* ACMSurveyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F2091E1C65458300F81180 /* ACMSurveyCollection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,10 @@
 		B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMDashboardViewController.m; sourceTree = "<group>"; };
 		B4F209171C650F9600F81180 /* ACMDashSurveysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMDashSurveysViewController.h; sourceTree = "<group>"; };
 		B4F209181C650F9600F81180 /* ACMDashSurveysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMDashSurveysViewController.m; sourceTree = "<group>"; };
+		B4F2091A1C65440900F81180 /* ACMSurveyMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSurveyMetaData.h; sourceTree = "<group>"; };
+		B4F2091B1C65440900F81180 /* ACMSurveyMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSurveyMetaData.m; sourceTree = "<group>"; };
+		B4F2091D1C65458300F81180 /* ACMSurveyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSurveyCollection.h; sourceTree = "<group>"; };
+		B4F2091E1C65458300F81180 /* ACMSurveyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSurveyCollection.m; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +258,10 @@
 				B403FAA51C59338300146B3C /* ACMResultWrapper.m */,
 				B4B6F4941C5C081B002EB098 /* ACMUserData.h */,
 				B4B6F4951C5C081B002EB098 /* ACMUserData.m */,
+				B4F2091A1C65440900F81180 /* ACMSurveyMetaData.h */,
+				B4F2091B1C65440900F81180 /* ACMSurveyMetaData.m */,
+				B4F2091D1C65458300F81180 /* ACMSurveyCollection.h */,
+				B4F2091E1C65458300F81180 /* ACMSurveyCollection.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -446,6 +456,7 @@
 				B4B6F49D1C5FEFF3002EB098 /* ACMProfileViewController.m in Sources */,
 				B463CC481C4FE13D002B4F9C /* ACMAppDelegate.m in Sources */,
 				B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */,
+				B4F2091C1C65440900F81180 /* ACMSurveyMetaData.m in Sources */,
 				B403FAA31C58097600146B3C /* ACMActivitiesViewController.m in Sources */,
 				B4B6F4961C5C081B002EB098 /* ACMUserData.m in Sources */,
 				B43ECBD41C50027500865C5A /* ACMConsentTask.m in Sources */,
@@ -453,6 +464,7 @@
 				B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */,
 				B4F208F01C615C9800F81180 /* ACMLoginViewController.m in Sources */,
 				B4B6F4931C5C05A3002EB098 /* ACMUserController.m in Sources */,
+				B4F2091F1C65458300F81180 /* ACMSurveyCollection.m in Sources */,
 				B463CC451C4FE13D002B4F9C /* main.m in Sources */,
 				B43ECBCE1C4FF9D800865C5A /* ACMOnboardingViewController.m in Sources */,
 			);

@@ -2,10 +2,13 @@
 #import <ResearchKit/ResearchKit.h>
 #import "ACMSurveyViewController.h"
 #import "ORKResult+CloudMine.h"
+#import "ACMSurveyCollection.h"
+#import "ACMSurveyMetaData.h"
 
 
 @interface ACMActivitiesViewController ()<ORKTaskViewControllerDelegate>
 @property (nonatomic, nullable) ORKTaskResult *surveyResult;
+@property (nonatomic, nonnull) ACMSurveyCollection *surveys;
 @end
 
 @implementation ACMActivitiesViewController
@@ -24,7 +27,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return self.surveys.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -34,7 +37,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ACMSurveyMetaData *surveyData = [self.surveys metaDataForSurveyAtIndex:indexPath.row];
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
+    cell.textLabel.text = surveyData.displayName;
+    
     return cell;
 }
 
@@ -96,6 +103,14 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark Getter-Setters
+- (ACMSurveyCollection *)surveys
+{
+    if (nil == _surveys) {
+        _surveys = [ACMSurveyCollection new];
+    }
 
+    return _surveys;
+}
 
 @end
