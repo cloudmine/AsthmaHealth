@@ -11,17 +11,26 @@
 
     if ([@"ACMAboutYouSurveyTask" isEqualToString:surveyIdentifier]) {
         return [[ORKTaskViewController alloc] initWithTask:self.aboutYouTask taskRunUUID:nil];
+    } else if([@"ACMDailySurveyTask" isEqualToString:surveyIdentifier]) {
+        return [[ORKTaskViewController alloc] initWithTask:self.dailyTask taskRunUUID:nil];
     }
 
     return nil;
 }
 
-# pragma mark Task
+# pragma mark "Daily" Task
+
++ (ORKOrderedTask *)dailyTask
+{
+    return [[ORKOrderedTask alloc] initWithIdentifier:@"ACMDailySurveyTask" steps:self.dailySteps];
+}
+
+# pragma mark "About You" Task
 
 + (ORKOrderedTask *)aboutYouTask
 {
     ORKNavigableOrderedTask *task = [[ORKNavigableOrderedTask alloc] initWithIdentifier:@"ACMAboutYouSurveyTask"
-                                                                                  steps:self.steps];
+                                                                                  steps:self.aboutYouSteps];
 
     ORKResultSelector *smokingStatus = [ORKResultSelector selectorWithResultIdentifier:@"ACMAboutYouSurveySmokingQuestion"];
     NSPredicate *notSmokerPredicate = [ORKResultPredicate predicateForChoiceQuestionResultWithResultSelector:smokingStatus expectedAnswerValues:@[@"ACMSmokingNeverChoice"]];
@@ -33,9 +42,23 @@
     return task;
 }
 
-# pragma mark Steps
+#pragma mark "Daily" Steps
++ (NSArray<ORKStep *> *)dailySteps
+{
+    return @[self.daytimeQuestion];
+}
 
-+ (NSArray<ORKStep *> *)steps
++ (ORKQuestionStep *)daytimeQuestion
+{
+    return [ORKQuestionStep questionStepWithIdentifier:@"ACMDailySurveyDaytimeQuestion"
+                                                 title:NSLocalizedString(@"In the last 24 hours, did you have any daytime asthma symptoms (cough, wheeze, shortness of breath or chest tightness)?", nil)
+                                                  text:@""
+                                                answer:[ORKBooleanAnswerFormat new]];
+}
+
+# pragma mark "About You" Steps
+
++ (NSArray<ORKStep *> *)aboutYouSteps
 {
     return @[self.ethnicityQuestionStep, self.raceQuestionStep, self.incomeQuestionStep, self.educationQuestionStep, self.smokingQuestionStep,
              self.cigaretteCountStep, self.smokingYearsStep, self.insuranceQuestionStep, self.completionStep];
