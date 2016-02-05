@@ -45,13 +45,21 @@
 #pragma mark "Daily" Steps
 + (NSArray<ORKStep *> *)dailySteps
 {
-    return @[self.daytimeQuestion];
+    return @[self.daytimeQuestion, self.nighttimeQuestion];
 }
 
 + (ORKQuestionStep *)daytimeQuestion
 {
     return [ORKQuestionStep questionStepWithIdentifier:@"ACMDailySurveyDaytimeQuestion"
                                                  title:NSLocalizedString(@"In the last 24 hours, did you have any daytime asthma symptoms (cough, wheeze, shortness of breath or chest tightness)?", nil)
+                                                  text:@""
+                                                answer:[ORKBooleanAnswerFormat new]];
+}
+
++ (ORKQuestionStep *)nighttimeQuestion
+{
+    return [ORKQuestionStep questionStepWithIdentifier:@"ACMDailySurveyNighttimeQuestion"
+                                                 title:NSLocalizedString(@"In the last 24 hours, did you have any nighttime waking from asthma symptoms (cough, wheeze, shortness of breath or chest tightness)?", nil)
                                                   text:@""
                                                 answer:[ORKBooleanAnswerFormat new]];
 }
