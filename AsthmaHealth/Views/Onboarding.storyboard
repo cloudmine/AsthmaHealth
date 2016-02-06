@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N1v-xX-svH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -21,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-211" y="414"/>
         </scene>
-        <!--Asthma-->
+        <!--Onboarding View Controller-->
         <scene sceneID="Bg5-A2-kop">
             <objects>
                 <viewController id="OwB-5f-5u0" customClass="ACMOnboardingViewController" sceneMemberID="viewController">
@@ -63,17 +65,60 @@
                                     <segue destination="xBC-Si-tHR" kind="show" id="tNe-0u-nkC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asthma" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOr-VQ-HZ9">
+                                <rect key="frame" x="260" y="9.5" width="79.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQX-xR-T4U">
+                                <rect key="frame" x="0.0" y="44" width="600" height="1"/>
+                                <color key="backgroundColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="HUY-EA-7VR"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Our Asthma Research Study" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaA-7d-8xk">
+                                <rect key="frame" x="20" y="250" width="560" height="91"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="38"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThinLungs" translatesAutoresizingMaskIntoConstraints="NO" id="PJc-Cy-1A7">
+                                <rect key="frame" x="240" y="110" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PJc-Cy-1A7" secondAttribute="height" multiplier="1:1" id="tUa-qI-Req"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="CaA-7d-8xk" firstAttribute="leading" secondItem="wVg-iM-6LI" secondAttribute="leading" constant="20" symbolic="YES" id="Cdu-qt-VnV"/>
+                            <constraint firstItem="gQX-xR-T4U" firstAttribute="top" secondItem="LOr-VQ-HZ9" secondAttribute="bottom" constant="8" id="D34-E8-FWj"/>
+                            <constraint firstAttribute="trailing" secondItem="CaA-7d-8xk" secondAttribute="trailing" constant="20" symbolic="YES" id="ETh-vw-B22"/>
+                            <constraint firstItem="PJc-Cy-1A7" firstAttribute="centerX" secondItem="wVg-iM-6LI" secondAttribute="centerX" id="HK8-hu-xle"/>
+                            <constraint firstItem="gQX-xR-T4U" firstAttribute="top" secondItem="6BN-5i-5n8" secondAttribute="bottom" constant="44" id="Lfz-ce-H47"/>
+                            <constraint firstItem="VqH-dx-qG6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CaA-7d-8xk" secondAttribute="bottom" constant="8" symbolic="YES" id="MaP-5g-rg2"/>
+                            <constraint firstItem="CaA-7d-8xk" firstAttribute="top" secondItem="PJc-Cy-1A7" secondAttribute="bottom" constant="20" id="OGs-Wi-iGS"/>
+                            <constraint firstItem="PJc-Cy-1A7" firstAttribute="top" secondItem="gQX-xR-T4U" secondAttribute="bottom" constant="65" id="P7S-Q1-yWU"/>
+                            <constraint firstAttribute="trailing" secondItem="gQX-xR-T4U" secondAttribute="trailing" id="Paj-Lp-nfA"/>
+                            <constraint firstItem="PJc-Cy-1A7" firstAttribute="centerY" secondItem="wVg-iM-6LI" secondAttribute="centerY" id="StB-8G-h4E"/>
+                            <constraint firstItem="LOr-VQ-HZ9" firstAttribute="centerX" secondItem="wVg-iM-6LI" secondAttribute="centerX" id="Xtb-FT-fH9"/>
                             <constraint firstItem="99l-n4-wle" firstAttribute="top" secondItem="STH-ku-Hkn" secondAttribute="bottom" constant="8" symbolic="YES" id="YmA-wY-BuT"/>
                             <constraint firstItem="VqH-dx-qG6" firstAttribute="width" secondItem="STH-ku-Hkn" secondAttribute="width" constant="16" id="cvI-Ql-t1a"/>
                             <constraint firstItem="VqH-dx-qG6" firstAttribute="centerX" secondItem="wVg-iM-6LI" secondAttribute="centerX" id="eDM-cd-p3F"/>
                             <constraint firstItem="STH-ku-Hkn" firstAttribute="top" secondItem="VqH-dx-qG6" secondAttribute="bottom" constant="8" symbolic="YES" id="ich-Yo-9oI"/>
+                            <constraint firstItem="gQX-xR-T4U" firstAttribute="leading" secondItem="wVg-iM-6LI" secondAttribute="leading" id="jbQ-mR-fkS"/>
+                            <constraint firstItem="PJc-Cy-1A7" firstAttribute="width" secondItem="wVg-iM-6LI" secondAttribute="width" multiplier="1/5" id="mq8-Q5-KgF"/>
                             <constraint firstItem="STH-ku-Hkn" firstAttribute="centerX" secondItem="wVg-iM-6LI" secondAttribute="centerX" id="pzD-rg-xYD"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="StB-8G-h4E"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Asthma" id="6nM-9s-Uij">
+                    <navigationItem key="navigationItem" id="6nM-9s-Uij">
                         <barButtonItem key="backBarButtonItem" title="  " id="dRE-KO-6UW"/>
                     </navigationItem>
                     <connections>
@@ -110,4 +155,7 @@
             <point key="canvasLocation" x="1030" y="483"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ThinLungs" width="273" height="224"/>
+    </resources>
 </document>
