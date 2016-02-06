@@ -12,7 +12,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drC-OV-jVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="219"/>
+            <point key="canvasLocation" x="394.5" y="260"/>
         </scene>
         <!--Profile-->
         <scene sceneID="PmK-xt-Enm">
@@ -22,7 +22,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sp5-g6-8lo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="387" y="315"/>
+            <point key="canvasLocation" x="381" y="597"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="dTv-Yo-CoO">
@@ -32,7 +32,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWm-Fl-32K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="394.5" y="429"/>
+            <point key="canvasLocation" x="399.5" y="371"/>
+        </scene>
+        <!--Learn-->
+        <scene sceneID="6pR-ys-SGC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Learn" id="GCn-XR-ogh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="(Learn)" id="n2t-nI-yzA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z43-vl-Pbu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="378.5" y="489"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7Lz-lV-MWF">
@@ -46,6 +56,7 @@
                     <connections>
                         <segue destination="8YK-cr-AAK" kind="relationship" relationship="viewControllers" id="5Lv-gS-eOG"/>
                         <segue destination="5FG-MJ-bnY" kind="relationship" relationship="viewControllers" id="GFY-xn-Xbb"/>
+                        <segue destination="GCn-XR-ogh" kind="relationship" relationship="viewControllers" id="48r-Sc-yp3"/>
                         <segue destination="3KL-Ux-5Oq" kind="relationship" relationship="viewControllers" id="KbA-GJ-Suq"/>
                     </connections>
                 </tabBarController>

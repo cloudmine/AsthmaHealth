@@ -40,6 +40,7 @@
 		B4F209191C650F9600F81180 /* ACMDashSurveysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209181C650F9600F81180 /* ACMDashSurveysViewController.m */; };
 		B4F2091C1C65440900F81180 /* ACMSurveyMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F2091B1C65440900F81180 /* ACMSurveyMetaData.m */; };
 		B4F2091F1C65458300F81180 /* ACMSurveyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F2091E1C65458300F81180 /* ACMSurveyCollection.m */; };
+		B4F209211C65B38800F81180 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209201C65B38800F81180 /* Learn.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		B4F2091B1C65440900F81180 /* ACMSurveyMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSurveyMetaData.m; sourceTree = "<group>"; };
 		B4F2091D1C65458300F81180 /* ACMSurveyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSurveyCollection.h; sourceTree = "<group>"; };
 		B4F2091E1C65458300F81180 /* ACMSurveyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSurveyCollection.m; sourceTree = "<group>"; };
+		B4F209201C65B38800F81180 /* Learn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,8 +243,9 @@
 				B4F208EC1C6152BB00F81180 /* Login.storyboard */,
 				B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */,
 				B403FA9C1C58002300146B3C /* Activities.storyboard */,
-				B4B6F4991C5FECE7002EB098 /* Profile.storyboard */,
 				B4F209061C62A2CE00F81180 /* Dashboard.storyboard */,
+				B4F209201C65B38800F81180 /* Learn.storyboard */,
+				B4B6F4991C5FECE7002EB098 /* Profile.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				B4B6F49A1C5FECE7002EB098 /* Profile.storyboard in Resources */,
 				B4B6F4981C5FD760002EB098 /* MainPanel.storyboard in Resources */,
 				B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */,
+				B4F209211C65B38800F81180 /* Learn.storyboard in Resources */,
 				B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */,
 				B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */,
 				B43ECBD71C51709E00865C5A /* SignUp.storyboard in Resources */,
