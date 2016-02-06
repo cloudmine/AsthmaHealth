@@ -16,11 +16,16 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self removeNavigationBarDropShadow];
 
     self.joinStudyButton.layer.borderColor = self.joinStudyButton.titleLabel.textColor.CGColor;
     self.joinStudyButton.layer.borderWidth = 1.0f;
     self.joinStudyButton.layer.cornerRadius = 4.0f;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self removeNavigationBarDropShadow];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -84,6 +89,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
                        forBarPosition:UIBarPositionAny
                            barMetrics:UIBarMetricsDefault];
     [navigationBar setShadowImage:[UIImage new]];
+
 }
 
 @end
