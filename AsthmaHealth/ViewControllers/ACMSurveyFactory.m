@@ -45,7 +45,8 @@
 #pragma mark "Daily" Steps
 + (NSArray<ORKStep *> *)dailySteps
 {
-    return @[self.daytimeQuestion, self.nighttimeQuestion, self.inhalerQuestion, self.puffsQuestion, self.causesQuestion];
+    return @[self.daytimeQuestion, self.nighttimeQuestion, self.inhalerQuestion,
+             self.puffsQuestion, self.causesQuestion, self.flowQuestion, self.medicineQuestion];
 }
 
 + (ORKQuestionStep *)daytimeQuestion
@@ -111,6 +112,34 @@
                        questionChoices:choices
                           withKeywords:keywords
                              exclusive:NO
+                      includesNoAnswer:NO];
+}
+
++ (ORKQuestionStep *)flowQuestion
+{
+    ORKNumericAnswerFormat *format = [[ORKNumericAnswerFormat alloc] initWithStyle:ORKNumericAnswerStyleInteger
+                                                                              unit:NSLocalizedString(@"L/min", nil)
+                                                                           minimum:@60 maximum:@900];
+
+    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:@"ACMDailyPeaksQuestion"
+                                                                      title:NSLocalizedString(@"Enter your peak flow today? (L/min)", nil)
+                                                                       text:nil
+                                                                     answer:format];
+    return question;
+}
+
++ (ORKQuestionStep *)medicineQuestion
+{
+    NSArray<NSString *> *choices = @[NSLocalizedString(@"Yes, all of my prescribed doses", nil), NSLocalizedString(@"Yes, some but not all of my prescribed doses", nil),
+                                     NSLocalizedString(@"No, I did not take them", nil), NSLocalizedString(@"I'm not sure", nil)];
+    NSArray<NSString *> *keywords = @[@"YesAllDoses", @"YesNotAllDoses", @"No", @"NotSure"];
+
+    return [self textQuestionWithTitle:NSLocalizedString(@"Did you take your asthma control medicine in the last 24 hours?", nil)
+                          withSurveyId:@"Daily"
+                            withIdWord:@"Medicine"
+                       questionChoices:choices
+                          withKeywords:keywords
+                             exclusive:YES
                       includesNoAnswer:NO];
 }
 
