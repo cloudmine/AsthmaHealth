@@ -45,7 +45,7 @@
 #pragma mark "Daily" Steps
 + (NSArray<ORKStep *> *)dailySteps
 {
-    return @[self.daytimeQuestion, self.nighttimeQuestion, self.inhalerQuestion, self.puffsQuestion];
+    return @[self.daytimeQuestion, self.nighttimeQuestion, self.inhalerQuestion, self.puffsQuestion, self.causesQuestion];
 }
 
 + (ORKQuestionStep *)daytimeQuestion
@@ -85,6 +85,35 @@
     return question;
 }
 
++ (ORKQuestionStep *)causesQuestion
+{
+    NSArray<NSString *> *choices = @[NSLocalizedString(@"A Cold", nil), NSLocalizedString(@"Exercise", nil),
+                                     NSLocalizedString(@"Being more active than usual (walking, running, climbing stairs)", nil), NSLocalizedString(@"Strong smells (perfume, chemicals, sprays, paint)", nil),
+                                     NSLocalizedString(@"Exhaust fumes", nil), NSLocalizedString(@"House dust", nil),
+                                     NSLocalizedString(@"Dogs", nil), NSLocalizedString(@"Cats", nil),
+                                     NSLocalizedString(@"Other furry/feathered animals", nil), NSLocalizedString(@"Mold", nil),
+                                     NSLocalizedString(@"Pollen from trees, grass or weeds", nil), NSLocalizedString(@"Extreme heat", nil),
+                                     NSLocalizedString(@"Extreme cold", nil), NSLocalizedString(@"Changes in weather", nil),
+                                     NSLocalizedString(@"Period", nil), NSLocalizedString(@"Poor air quality", nil),
+                                     NSLocalizedString(@"Someone smoking near me", nil), NSLocalizedString(@"Stress", nil),
+                                     NSLocalizedString(@"Feeling sad, angry, excited, tense", nil), NSLocalizedString(@"Laughter", nil),
+                                     NSLocalizedString(@"I don't know what triggers my asthma", nil), NSLocalizedString(@"None of these things trigger my asthma", nil)];
+
+    NSArray<NSString *> *keywords = @[@"Cold", @"Exercise", @"Activity", @"Smells",
+                                      @"Exhaust", @"Dust", @"Dogs", @"Cats", @"OtherAnimals",
+                                      @"Mold", @"Pollen", @"Heat", @"Cold", @"Weather",
+                                      @"Around the time of my period", @"AirQuality", @"Smoke",
+                                      @"Stress", @"Emotion", @"Laughter", @"DoNotKnow", @"None"];
+
+    return [self textQuestionWithTitle:NSLocalizedString(@"", nil)
+                          withSurveyId:@"Daily"
+                            withIdWord:@"Causes"
+                       questionChoices:choices
+                          withKeywords:keywords
+                             exclusive:NO
+                      includesNoAnswer:NO];
+}
+
 # pragma mark "About You" Steps
 
 + (NSArray<ORKStep *> *)aboutYouSteps
@@ -99,6 +128,7 @@
     NSArray<NSString *> *keywords = @[@"HispanicLatino", @"NonHispanicLatino"];
 
     return [self textQuestionWithTitle:NSLocalizedString(@"Ethnicity", nil)
+                          withSurveyId:@"AboutYou"
                             withIdWord:@"Ethnicity"
                        questionChoices:choices
                           withKeywords:keywords
@@ -115,6 +145,7 @@
     NSArray<NSString *> *raceKeywords = @[@"Black", @"Asian", @"NativeAmerican", @"PacificIslander", @"White", @"Other"];
 
     return [self textQuestionWithTitle:NSLocalizedString(@"Race (Check all that apply)", nil)
+                          withSurveyId:@"AboutYou"
                             withIdWord:@"Race"
                        questionChoices:races
                           withKeywords:raceKeywords
@@ -131,6 +162,7 @@
     NSArray<NSString *> *keywords = @[@"Tier1", @"Tier2", @"Tier3", @"Tier4", @"Tier5", @"DoNotKnow"];
 
     return [self textQuestionWithTitle:NSLocalizedString(@"Which of the following best describes the total annual income of all members of your household?", nil)
+                          withSurveyId:@"AboutYou"
                             withIdWord:@"Income"
                        questionChoices:choices
                           withKeywords:keywords
@@ -152,6 +184,7 @@
                                       @"SomeCollege", @"TwoYearCollege", @"FourYearCollege", @"PostGrad"];
 
     return [self textQuestionWithTitle:NSLocalizedString(@"What is the highest level of education you have completed?", nil)
+                          withSurveyId:@"AboutYou"
                             withIdWord:@"Education"
                        questionChoices:choices
                           withKeywords:keywords
@@ -166,6 +199,7 @@
     NSArray<NSString *> *keywords = @[@"Never", @"Current", @"Former"];
 
     return [self textQuestionWithTitle:NSLocalizedString(@"What is your smoking status?", nil)
+                          withSurveyId:@"AboutYou"
                             withIdWord:@"Smoking"
                        questionChoices:choices
                           withKeywords:keywords
@@ -208,6 +242,7 @@
     NSArray<NSString *> *keywords = @[@"Private", @"Public", @"NoIsurance"];
 
     return [self textQuestionWithTitle:NSLocalizedString(@"Do you have health insurance?", nil)
+                          withSurveyId:@"AboutYou"
                             withIdWord:@"Insurance"
                        questionChoices:choices
                           withKeywords:keywords
@@ -225,6 +260,7 @@
 #pragma mark Generator Methods
 
 + (ORKQuestionStep *)textQuestionWithTitle:(NSString *)title
+                              withSurveyId:(NSString *)sId
                                 withIdWord:(NSString *)qId
                            questionChoices:(NSArray <NSString *> *)choices
                               withKeywords:(NSArray <NSString *> *)keywords
@@ -237,7 +273,7 @@
                                                  withKeywords:keywords withQuestionIdWord:qId exclusive:isExclusive includesNoAnswer:includesNo];
 
     ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:style textChoices:textChoices];
-    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:[NSString stringWithFormat:@"ACMAboutYouSurvey%@Question", qId]
+    ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:[NSString stringWithFormat:@"ACM%@Survey%@Question", sId, qId]
                                                                       title:title
                                                                        text:nil
                                                                      answer:format];
