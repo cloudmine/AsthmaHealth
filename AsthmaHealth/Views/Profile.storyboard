@@ -8,7 +8,7 @@
         <scene sceneID="hkn-cq-o7x">
             <objects>
                 <navigationController id="ERU-gY-uZ7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="arrowRight" id="0RM-sk-B8x"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileIcon" selectedImage="ProfileIconSelected" id="0RM-sk-B8x"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n6T-GP-XVH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -37,7 +37,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLQ-kC-G48">
                                 <rect key="frame" x="20" y="104" width="54" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="someone@somewhere.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwv-dn-2Tb">
@@ -76,6 +76,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowRight" width="10" height="18"/>
+        <image name="ProfileIcon" width="24" height="24"/>
+        <image name="ProfileIconSelected" width="24" height="24"/>
     </resources>
 </document>

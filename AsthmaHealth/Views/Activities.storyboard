@@ -8,7 +8,7 @@
         <scene sceneID="hlI-Tp-Vhn">
             <objects>
                 <navigationController id="XJV-bU-uu2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Activities" image="checkmark" id="BoG-Rs-5gi"/>
+                    <tabBarItem key="tabBarItem" title="Activities" image="ActivitiesIcon" selectedImage="ActivitiesIconSelected" id="BoG-Rs-5gi"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WF9-ri-UdR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -70,6 +70,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark" width="17" height="13"/>
+        <image name="ActivitiesIcon" width="23" height="23"/>
+        <image name="ActivitiesIconSelected" width="23" height="23"/>
     </resources>
 </document>
