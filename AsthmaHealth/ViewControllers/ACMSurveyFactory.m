@@ -1,5 +1,4 @@
 #import "ACMSurveyFactory.h"
-#import <ResearchKit/ORKCompletionStep.h>
 
 @implementation ACMSurveyFactory
 
@@ -148,7 +147,7 @@
 + (NSArray<ORKStep *> *)aboutYouSteps
 {
     return @[self.ethnicityQuestionStep, self.raceQuestionStep, self.incomeQuestionStep, self.educationQuestionStep, self.smokingQuestionStep,
-             self.cigaretteCountStep, self.smokingYearsStep, self.insuranceQuestionStep, self.completionStep];
+             self.cigaretteCountStep, self.smokingYearsStep, self.insuranceQuestionStep];
 }
 
 + (ORKQuestionStep *)ethnicityQuestionStep
@@ -277,13 +276,6 @@
                           withKeywords:keywords
                              exclusive:YES
                       includesNoAnswer:YES];
-}
-
-+ (ORKCompletionStep *)completionStep
-{
-    ORKCompletionStep *completion = [[ORKCompletionStep alloc] initWithIdentifier:@"ACMSurveyCompletionIdentifier"];
-    completion.title = NSLocalizedString(@"Complete!", nil);
-    return completion;
 }
 
 #pragma mark Generator Methods
