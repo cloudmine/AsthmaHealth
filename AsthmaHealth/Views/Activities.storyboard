@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XJV-bU-uu2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Activities-->
@@ -31,29 +33,58 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCell" textLabel="WEK-hs-gaF" detailTextLabel="utL-5T-DEE" rowHeight="72" style="IBUITableViewCellStyleSubtitle" id="MLL-Td-4Sz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="72" id="MLL-Td-4Sz" customClass="ACMActivityCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MLL-Td-4Sz" id="Trh-1o-Gl7">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="71.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Survey Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WEK-hs-gaF">
-                                            <rect key="frame" x="15" y="16" width="105.5" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="5cx-OU-bR3">
+                                            <rect key="frame" x="16" y="24" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="Myp-4j-dJq"/>
+                                                <constraint firstAttribute="width" secondItem="5cx-OU-bR3" secondAttribute="height" multiplier="1:1" id="mJh-he-eym"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buk-Iq-Udb">
+                                            <rect key="frame" x="0.0" y="0.0" width="4" height="71.5"/>
+                                            <color key="backgroundColor" red="0.49803921568627452" green="0.086274509803921567" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="4" id="Zeq-BQ-Qeo"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="RsP-5a-VON">
+                                            <rect key="frame" x="56" y="15" width="84.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="N Questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="utL-5T-DEE">
-                                            <rect key="frame" x="15" y="40" width="79.5" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="iMr-RJ-9UW">
+                                            <rect key="frame" x="56" y="35.5" width="84.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="buk-Iq-Udb" firstAttribute="leading" secondItem="Trh-1o-Gl7" secondAttribute="leading" id="F55-AK-xXX"/>
+                                        <constraint firstItem="5cx-OU-bR3" firstAttribute="leading" secondItem="Trh-1o-Gl7" secondAttribute="leading" constant="16" id="FMb-Wd-lD4"/>
+                                        <constraint firstItem="RsP-5a-VON" firstAttribute="leading" secondItem="5cx-OU-bR3" secondAttribute="trailing" constant="16" id="G0c-t2-NSf"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iMr-RJ-9UW" secondAttribute="trailing" constant="8" id="LGA-sX-CPS"/>
+                                        <constraint firstItem="iMr-RJ-9UW" firstAttribute="top" secondItem="RsP-5a-VON" secondAttribute="bottom" id="MK4-gr-oPs"/>
+                                        <constraint firstItem="RsP-5a-VON" firstAttribute="bottom" secondItem="Trh-1o-Gl7" secondAttribute="centerY" id="QtI-VA-ylA"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RsP-5a-VON" secondAttribute="trailing" constant="8" id="UcN-KB-QLm"/>
+                                        <constraint firstItem="5cx-OU-bR3" firstAttribute="centerY" secondItem="Trh-1o-Gl7" secondAttribute="centerY" id="Ybx-cc-Fig"/>
+                                        <constraint firstAttribute="bottom" secondItem="buk-Iq-Udb" secondAttribute="bottom" id="gSG-WY-U4p"/>
+                                        <constraint firstItem="iMr-RJ-9UW" firstAttribute="leading" secondItem="RsP-5a-VON" secondAttribute="leading" id="ocF-bZ-iw2"/>
+                                        <constraint firstItem="buk-Iq-Udb" firstAttribute="top" secondItem="Trh-1o-Gl7" secondAttribute="top" id="yF9-SO-z9C"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="RsP-5a-VON" id="eHg-E4-f82"/>
+                                    <outlet property="questionCountLabel" destination="iMr-RJ-9UW" id="Izu-05-f8w"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -72,5 +103,6 @@
     <resources>
         <image name="ActivitiesIcon" width="23" height="23"/>
         <image name="ActivitiesIconSelected" width="23" height="23"/>
+        <image name="CheckMark" width="44" height="44"/>
     </resources>
 </document>

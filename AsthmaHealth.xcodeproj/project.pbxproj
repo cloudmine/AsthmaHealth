@@ -43,6 +43,7 @@
 		B4F209211C65B38800F81180 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209201C65B38800F81180 /* Learn.storyboard */; };
 		B4F209241C66EB7100F81180 /* ACMMainPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209231C66EB7100F81180 /* ACMMainPanelViewController.m */; };
 		B4F209271C66F29F00F81180 /* UIViewController+ACM.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209261C66F29F00F81180 /* UIViewController+ACM.m */; };
+		B4F2092A1C67002600F81180 /* ACMActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209291C67002600F81180 /* ACMActivityCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		B4F209231C66EB7100F81180 /* ACMMainPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMMainPanelViewController.m; sourceTree = "<group>"; };
 		B4F209251C66F29F00F81180 /* UIViewController+ACM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ACM.h"; sourceTree = "<group>"; };
 		B4F209261C66F29F00F81180 /* UIViewController+ACM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ACM.m"; sourceTree = "<group>"; };
+		B4F209281C67002600F81180 /* ACMActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMActivityCell.h; sourceTree = "<group>"; };
+		B4F209291C67002600F81180 /* ACMActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMActivityCell.m; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +254,8 @@
 				B4F208EC1C6152BB00F81180 /* Login.storyboard */,
 				B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */,
 				B403FA9C1C58002300146B3C /* Activities.storyboard */,
+				B4F209281C67002600F81180 /* ACMActivityCell.h */,
+				B4F209291C67002600F81180 /* ACMActivityCell.m */,
 				B4F209061C62A2CE00F81180 /* Dashboard.storyboard */,
 				B4F209201C65B38800F81180 /* Learn.storyboard */,
 				B4B6F4991C5FECE7002EB098 /* Profile.storyboard */,
@@ -478,6 +483,7 @@
 				B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */,
 				B4F209241C66EB7100F81180 /* ACMMainPanelViewController.m in Sources */,
 				B4F208F01C615C9800F81180 /* ACMLoginViewController.m in Sources */,
+				B4F2092A1C67002600F81180 /* ACMActivityCell.m in Sources */,
 				B4B6F4931C5C05A3002EB098 /* ACMUserController.m in Sources */,
 				B4F2091F1C65458300F81180 /* ACMSurveyCollection.m in Sources */,
 				B463CC451C4FE13D002B4F9C /* main.m in Sources */,

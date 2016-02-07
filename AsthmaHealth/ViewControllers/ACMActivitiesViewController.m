@@ -4,6 +4,7 @@
 #import "ACMSurveyCollection.h"
 #import "ACMSurveyMetaData.h"
 #import "ACMSurveyFactory.h"
+#import "ACMActivityCell.h"
 
 @interface ACMActivitiesViewController ()<ORKTaskViewControllerDelegate>
 @property (nonatomic, nullable) ORKTaskResult *surveyResult;
@@ -38,9 +39,10 @@
 {
     ACMSurveyMetaData *surveyData = [self.surveys metaDataForSurveyAtIndex:indexPath.row];
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
-    cell.textLabel.text = surveyData.displayName;
-    cell.detailTextLabel.text = [NSString localizedStringWithFormat:@"%@ Questions", surveyData.questionCount.stringValue];
+    ACMActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
+    NSAssert([cell isKindOfClass:[ACMActivityCell class]], @"ACMActivitiesViewController: Expected an ACMActivityCell, but received %@", [cell class]);
+    [cell configureWithMetaData:surveyData];
+
     return cell;
 }
 
