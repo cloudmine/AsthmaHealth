@@ -14,10 +14,12 @@
 
     self.surveyList = @[ [[ACMSurveyMetaData alloc] initWithName:NSLocalizedString(@"About You", nil)
                                                       identifier:@"ACMAboutYouSurveyTask"
+                                                       frequency:ACMSurveyFrequencyOnce
                                                 andQuestionCount:@8],
 
                          [[ACMSurveyMetaData alloc] initWithName:NSLocalizedString(@"Daily Survey", nil)
                                                       identifier:@"ACMDailySurveyTask"
+                                                       frequency:ACMSurveyFrequencyDaily
                                                 andQuestionCount:@8]
                        ];
 
