@@ -64,20 +64,18 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjq-dW-etg">
-                                <rect key="frame" x="521" y="509" width="63" height="34"/>
-                                <state key="normal" title="Refresh">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="refreshButtonDidPress:" destination="bFb-Ot-mXW" eventType="touchUpInside" id="Fyi-Qi-7IX"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTb-tI-VTK">
                                 <rect key="frame" x="218.5" y="215" width="61" height="30"/>
                                 <state key="normal" title="Details &gt;"/>
                                 <connections>
                                     <segue destination="fE1-Uo-66e" kind="show" id="MIO-Dq-HLc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0r-73-pV7">
+                                <rect key="frame" x="527" y="513" width="53" height="30"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshButtonDidPress:" destination="bFb-Ot-mXW" eventType="touchUpInside" id="fe1-zc-KGf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,19 +84,19 @@
                             <constraint firstAttribute="trailing" secondItem="kx8-Qv-MiK" secondAttribute="trailing" constant="20" symbolic="YES" id="0ap-8J-CfI"/>
                             <constraint firstItem="eTb-tI-VTK" firstAttribute="centerY" secondItem="eOk-yf-Y3R" secondAttribute="centerY" id="2FA-80-3DZ"/>
                             <constraint firstItem="ncD-A0-pKG" firstAttribute="centerY" secondItem="lyI-4c-foZ" secondAttribute="centerY" id="3PM-DE-3Pk"/>
-                            <constraint firstAttribute="trailing" secondItem="vjq-dW-etg" secondAttribute="trailing" constant="16" id="3rN-a1-ng4"/>
                             <constraint firstItem="eOk-yf-Y3R" firstAttribute="leading" secondItem="ncD-A0-pKG" secondAttribute="leading" id="7FJ-Di-7v9"/>
                             <constraint firstItem="lyI-4c-foZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jbz-3g-bHC" secondAttribute="leading" constant="20" id="I7D-mE-Akb"/>
                             <constraint firstItem="eTb-tI-VTK" firstAttribute="leading" secondItem="eOk-yf-Y3R" secondAttribute="trailing" constant="16" id="IIO-3l-2r9"/>
                             <constraint firstItem="eOk-yf-Y3R" firstAttribute="trailing" secondItem="ncD-A0-pKG" secondAttribute="trailing" id="IKh-8i-P6I"/>
                             <constraint firstItem="us9-gF-aak" firstAttribute="trailing" secondItem="lyI-4c-foZ" secondAttribute="trailing" id="L1y-Mg-ck6"/>
+                            <constraint firstItem="RJ7-TV-dra" firstAttribute="top" secondItem="k0r-73-pV7" secondAttribute="bottom" constant="8" id="VKu-oC-dKe"/>
                             <constraint firstItem="eOk-yf-Y3R" firstAttribute="centerY" secondItem="us9-gF-aak" secondAttribute="centerY" id="XG7-s2-YZq"/>
+                            <constraint firstAttribute="trailing" secondItem="k0r-73-pV7" secondAttribute="trailing" constant="20" id="aqO-ug-KzI"/>
                             <constraint firstItem="ncD-A0-pKG" firstAttribute="centerY" secondItem="jbz-3g-bHC" secondAttribute="centerY" id="fcS-TG-b1N"/>
                             <constraint firstAttribute="trailing" secondItem="ncD-A0-pKG" secondAttribute="trailing" constant="20" symbolic="YES" id="h3f-JY-HT5"/>
                             <constraint firstItem="kx8-Qv-MiK" firstAttribute="leading" secondItem="jbz-3g-bHC" secondAttribute="leading" constant="20" symbolic="YES" id="iCi-cA-UxQ"/>
                             <constraint firstItem="us9-gF-aak" firstAttribute="top" secondItem="lyI-4c-foZ" secondAttribute="bottom" constant="40" id="mCL-1S-LlY"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ncD-A0-pKG" secondAttribute="trailing" constant="20" symbolic="YES" id="n0O-7H-AuY"/>
-                            <constraint firstItem="RJ7-TV-dra" firstAttribute="top" secondItem="vjq-dW-etg" secondAttribute="bottom" constant="8" id="n9t-fW-kGO"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eTb-tI-VTK" secondAttribute="trailing" constant="20" id="pUu-ve-doT"/>
                             <constraint firstItem="kx8-Qv-MiK" firstAttribute="top" secondItem="lMs-tP-zGX" secondAttribute="bottom" constant="25" id="rj6-fB-O0Q"/>
                             <constraint firstItem="us9-gF-aak" firstAttribute="leading" secondItem="jbz-3g-bHC" secondAttribute="leading" constant="20" id="teZ-qB-Tmq"/>

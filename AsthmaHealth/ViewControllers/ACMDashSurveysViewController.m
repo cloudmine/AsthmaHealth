@@ -1,4 +1,6 @@
 #import "ACMDashSurveysViewController.h"
+#import "ACMMainPanelViewController.h"
+#import "UIViewController+ACM.h"
 
 @interface ACMDashSurveysViewController ()
 @property (nonatomic, nonnull) NSDictionary<NSString *, NSNumber *> *surveyCounts;
@@ -9,7 +11,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.surveyCounts = [ACMDashSurveysViewController surveyCountsForResults:self.surveyResults];
+    self.surveyCounts = [ACMDashSurveysViewController surveyCountsForResults:self.acm_mainPanel.surveyResults];
 }
 
 #pragma mark UITableViewDataSource

@@ -41,6 +41,8 @@
 		B4F2091C1C65440900F81180 /* ACMSurveyMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F2091B1C65440900F81180 /* ACMSurveyMetaData.m */; };
 		B4F2091F1C65458300F81180 /* ACMSurveyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F2091E1C65458300F81180 /* ACMSurveyCollection.m */; };
 		B4F209211C65B38800F81180 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209201C65B38800F81180 /* Learn.storyboard */; };
+		B4F209241C66EB7100F81180 /* ACMMainPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209231C66EB7100F81180 /* ACMMainPanelViewController.m */; };
+		B4F209271C66F29F00F81180 /* UIViewController+ACM.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209261C66F29F00F81180 /* UIViewController+ACM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,10 @@
 		B4F2091D1C65458300F81180 /* ACMSurveyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSurveyCollection.h; sourceTree = "<group>"; };
 		B4F2091E1C65458300F81180 /* ACMSurveyCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSurveyCollection.m; sourceTree = "<group>"; };
 		B4F209201C65B38800F81180 /* Learn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
+		B4F209221C66EB7100F81180 /* ACMMainPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMMainPanelViewController.h; sourceTree = "<group>"; };
+		B4F209231C66EB7100F81180 /* ACMMainPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMMainPanelViewController.m; sourceTree = "<group>"; };
+		B4F209251C66F29F00F81180 /* UIViewController+ACM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ACM.h"; sourceTree = "<group>"; };
+		B4F209261C66F29F00F81180 /* UIViewController+ACM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ACM.m"; sourceTree = "<group>"; };
 		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -218,6 +224,8 @@
 				B43ECBD91C51772300865C5A /* ACMSignUpViewController.m */,
 				B4F208EE1C615C9800F81180 /* ACMLoginViewController.h */,
 				B4F208EF1C615C9800F81180 /* ACMLoginViewController.m */,
+				B4F209221C66EB7100F81180 /* ACMMainPanelViewController.h */,
+				B4F209231C66EB7100F81180 /* ACMMainPanelViewController.m */,
 				B403FAA11C58097600146B3C /* ACMActivitiesViewController.h */,
 				B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */,
 				B403FA9E1C5806E400146B3C /* ACMSurveyFactory.h */,
@@ -287,6 +295,8 @@
 			children = (
 				B4A9CEC71C57D4CC0073A76F /* ORKResult+CloudMine.h */,
 				B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */,
+				B4F209251C66F29F00F81180 /* UIViewController+ACM.h */,
+				B4F209261C66F29F00F81180 /* UIViewController+ACM.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -466,10 +476,12 @@
 				B43ECBD41C50027500865C5A /* ACMConsentTask.m in Sources */,
 				B403FAA61C59338300146B3C /* ACMResultWrapper.m in Sources */,
 				B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */,
+				B4F209241C66EB7100F81180 /* ACMMainPanelViewController.m in Sources */,
 				B4F208F01C615C9800F81180 /* ACMLoginViewController.m in Sources */,
 				B4B6F4931C5C05A3002EB098 /* ACMUserController.m in Sources */,
 				B4F2091F1C65458300F81180 /* ACMSurveyCollection.m in Sources */,
 				B463CC451C4FE13D002B4F9C /* main.m in Sources */,
+				B4F209271C66F29F00F81180 /* UIViewController+ACM.m in Sources */,
 				B43ECBCE1C4FF9D800865C5A /* ACMOnboardingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

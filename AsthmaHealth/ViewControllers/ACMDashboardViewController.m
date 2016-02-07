@@ -4,10 +4,10 @@
 #import "ACMResultWrapper.h"
 #import "ORKResult+CloudMine.h"
 #import "ACMDashSurveysViewController.h"
+#import "ACMMainPanelViewController.h"
+#import "UIViewController+ACM.h"
 
 @interface ACMDashboardViewController ()
-@property (nonatomic, nullable) ORKTaskResult *consentResult;
-@property (nonatomic, nullable) NSArray <ORKTaskResult *> *surveyResults;
 @property (weak, nonatomic) IBOutlet UILabel *consentDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *surveyCountLabel;
 @end
@@ -18,22 +18,17 @@
 {
     [super viewDidLoad];
 
-    // TODO: Loading status
+    [NSNotificationCenter.defaultCenter addObserverForName:ACMSurveyDataNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [self refreshUI];
+    }];
 
-    [self resetUI];
-    [self fetchData];
-}
-
-- (void)resetUI
-{
-    self.consentDateLabel.text = @"";
-    self.surveyCountLabel.text = @"";
+    [self refreshUI];
 }
 
 - (void)refreshUI
 {
-    NSString *consentDate = [ACMDashboardViewController consentDateStringForDate:self.consentResult.endDate];
-    NSString *surveyCount = [NSString stringWithFormat:@"%li", (long)self.surveyResults.count];
+    NSString *consentDate = [ACMDashboardViewController consentDateStringForDate:self.acm_mainPanel.consentResult.endDate];
+    NSString *surveyCount = [NSString stringWithFormat:@"%li", (long)self.acm_mainPanel.surveyResults.count];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         self.consentDateLabel.text = consentDate;
@@ -41,36 +36,9 @@
     });
 }
 
-- (void)fetchData
-{
-    [ORKTaskResult cm_fetchUserResultsWithCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
-        if (nil == results) { // TODO: real error handling
-            NSLog(@"%@", error.localizedDescription);
-            return;
-        }
-
-        self.consentResult = (ORKTaskResult *)[ACMDashboardViewController resultsWithIdentifier:@"ACMParticipantConsentTask" fromResults:results].firstObject;
-
-        NSMutableArray *mutableResults = [results mutableCopy];
-        [mutableResults removeObject:self.consentResult];
-        self.surveyResults = [mutableResults copy];
-
-        [self refreshUI];
-    }];
-}
-
-#pragma mark Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.destinationViewController isKindOfClass:[ACMDashSurveysViewController class]]) {
-        ((ACMDashSurveysViewController *)segue.destinationViewController).surveyResults = self.surveyResults;
-    }
-}
-
-#pragma mark Target-Action
 - (IBAction)refreshButtonDidPress:(UIButton *)sender
 {
-    [self fetchData];
+    [self.acm_mainPanel refreshData];
 }
 
 #pragma mark Presentation
@@ -84,27 +52,6 @@
     formatter.dateFormat = @"MMM dd, yyyy";
 
     return [formatter stringFromDate:date];
-}
-
-#pragma mark Private
-
-+ (NSArray<ORKResult *> *_Nonnull)resultsWithIdentifier:(NSString *_Nonnull)identifier fromResults:(NSArray<ORKResult *> *_Nullable)fullResults
-{
-    if (nil == fullResults) {
-        return @[];
-    }
-
-    NSMutableArray *mutableFilteredResults = [NSMutableArray new];
-
-    for (ORKResult *aResult in fullResults) {
-        if (![aResult.identifier isEqualToString:identifier]) {
-            continue;
-        }
-
-        [mutableFilteredResults addObject:aResult];
-    }
-
-    return [mutableFilteredResults copy];
 }
 
 @end
