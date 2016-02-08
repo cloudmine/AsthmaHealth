@@ -14,8 +14,25 @@
 
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-    
+
     self.surveyCounts = [ACMDashSurveysViewController surveyCountsForResults:self.acm_mainPanel.surveyResults];
+
+    __weak typeof(self) weakSelf = self;
+    [NSNotificationCenter.defaultCenter addObserverForName:ACMSurveyDataNotification
+                                                    object:nil
+                                                     queue:nil
+                                                usingBlock:^(NSNotification * _Nonnull note) {
+
+        weakSelf.surveyCounts = [ACMDashSurveysViewController surveyCountsForResults:weakSelf.acm_mainPanel.surveyResults];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+        });
+    }];
+}
+
+- (void)dealloc
+{
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark UITableViewDataSource
