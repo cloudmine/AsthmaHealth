@@ -5,8 +5,8 @@
 
 @interface CRKUser : CMUser
 
-@property (nonatomic) NSString *firstName;
-@property (nonatomic) NSString *lastName;
+@property (nonatomic) NSString *givenName;
+@property (nonatomic) NSString *familyName;
 
 @end
 
@@ -17,8 +17,8 @@
     self = [super initWithCoder:aDecoder];
     if (nil == self) return nil;
 
-    self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
-    self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
+    self.givenName = [aDecoder decodeObjectForKey:@"givenName"];
+    self.familyName = [aDecoder decodeObjectForKey:@"familyName"];
 
     return self;
 }
@@ -27,12 +27,12 @@
 {
     [super encodeWithCoder:aCoder];
 
-    if (nil != self.firstName) {
-        [aCoder encodeObject:self.firstName forKey:@"firstName"];
+    if (nil != self.givenName) {
+        [aCoder encodeObject:self.givenName forKey:@"givenName"];
     }
 
-    if (nil != self.lastName) {
-        [aCoder encodeObject:self.lastName forKey:@"lastName"];
+    if (nil != self.familyName) {
+        [aCoder encodeObject:self.familyName forKey:@"familyName"];
     }
 }
 
@@ -92,11 +92,12 @@
 {
     self.userData = nil;
     CRKUser *newUser = [[CRKUser alloc] initWithEmail:email andPassword:password];
-    newUser.firstName = @"TestFirst";
-    newUser.lastName = @"TestLast";
     [CMStore defaultStore].user = newUser;
 
     // TODO: Somewhere, we need to verify the ORKTaskResult is a consent result and the user actually consented
+    ORKConsentSignatureResult *signatureResult = [ACMUserController signatureInResults:consentResult.results];
+    newUser.familyName = signatureResult.signature.familyName;
+    newUser.givenName = signatureResult.signature.givenName;
 
     [newUser createAccountAndLoginWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
         if (CMUserAccountOperationFailed(resultCode)) {
@@ -184,6 +185,34 @@
 }
 
 # pragma mark Private
+
++ (ORKConsentSignatureResult *_Nullable)signatureInResults:(NSArray<ORKResult *> *_Nullable)results
+{
+    if (nil == results) {
+        return nil;
+    }
+
+    // Check these results
+    for (ORKResult *aResult in results) {
+        if ([aResult isKindOfClass:[ORKConsentSignatureResult class]]) {
+            return (ORKConsentSignatureResult *)aResult;
+        }
+    }
+
+    // Recusrively check results of results
+    for (ORKResult *aResult in results) {
+        if (![aResult respondsToSelector:@selector(results)]) {
+            continue;
+        }
+
+        ORKConsentSignatureResult *recusrivResult = [self signatureInResults:[aResult performSelector:@selector(results)]];
+        if (nil != recusrivResult) {
+            return recusrivResult;
+        }
+    }
+
+    return nil;
+}
 
 + (NSError * _Nullable)errorWithMessage:(NSString * _Nonnull)message andCode:(NSInteger)code
 {
