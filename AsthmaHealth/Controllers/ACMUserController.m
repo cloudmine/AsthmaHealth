@@ -12,6 +12,11 @@
 
 @implementation CRKUser
 
++ (instancetype)currentUser
+{
+    return [super currentUser];
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -79,7 +84,7 @@
         // Need to think more carefully about this. It probably doesn't belong here, but I think
         // a goal should be to hide the sense of a "store" from the SDK consumer. We need to perform
         // this side effect somewhere, but where?
-        [CMStore defaultStore].user = [CMUser currentUser];
+        [CMStore defaultStore].user = [CRKUser currentUser];
     });
 
     return _sharedInstance;
@@ -142,7 +147,7 @@
     NSAssert(nil != password, @"ACMUserController: Attempted to login with nil password");
 
     self.userData = nil;
-    CMUser *user = [[CMUser alloc] initWithEmail:email andPassword:password];
+    CRKUser *user = [[CRKUser alloc] initWithEmail:email andPassword:password];
     [CMStore defaultStore].user = user;
 
     [user loginWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
@@ -165,7 +170,7 @@
 
 - (void)logoutWithCompletion:(_Nullable ACMUserLogoutCompletion)block
 {
-    [[CMUser currentUser] logoutWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
+    [[CRKUser currentUser] logoutWithCallback:^(CMUserAccountResult resultCode, NSArray *messages) {
         if (CMUserAccountOperationFailed(resultCode)) {
             if (nil != block) {
                 NSError *error = [ACMUserController errorWithMessage:NSLocalizedString(@"Failed to logout", nil)  // TODO: different domain?
@@ -185,7 +190,7 @@
 
 - (BOOL)isLoggedIn
 {
-    return nil != [CMUser currentUser] && [CMUser currentUser].isLoggedIn;
+    return nil != [CRKUser currentUser] && [CRKUser currentUser].isLoggedIn;
 }
 
 # pragma mark Private
