@@ -3,6 +3,41 @@
 #import <CloudMine/CloudMine.h>
 #import "ORKResult+CloudMine.h"
 
+@interface CRKUser : CMUser
+
+@property (nonatomic) NSString *firstName;
+@property (nonatomic) NSString *lastName;
+
+@end
+
+@implementation CRKUser
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (nil == self) return nil;
+
+    self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
+    self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+
+    if (nil != self.firstName) {
+        [aCoder encodeObject:self.firstName forKey:@"firstName"];
+    }
+
+    if (nil != self.lastName) {
+        [aCoder encodeObject:self.lastName forKey:@"lastName"];
+    }
+}
+
+@end
+
 @interface ACMUserData ()
 - (instancetype)initWithCMUser:(CMUser *)user; // In an SDK this would likely go in a private/internal header file
 @property (nonatomic, nonnull, readwrite) NSString *email;
@@ -56,7 +91,9 @@
          withCompletion:(_Nullable ACMUserAuthCompletion)block
 {
     self.userData = nil;
-    CMUser *newUser = [[CMUser alloc] initWithEmail:email andPassword:password];
+    CRKUser *newUser = [[CRKUser alloc] initWithEmail:email andPassword:password];
+    newUser.firstName = @"TestFirst";
+    newUser.lastName = @"TestLast";
     [CMStore defaultStore].user = newUser;
 
     // TODO: Somewhere, we need to verify the ORKTaskResult is a consent result and the user actually consented
