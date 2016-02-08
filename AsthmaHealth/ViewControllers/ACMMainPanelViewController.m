@@ -1,5 +1,6 @@
 #import "ACMMainPanelViewController.h"
 #import "ORKResult+CloudMine.h"
+#import "NSDate+ACM.h"
 
 @interface ACMMainPanelViewController ()
 @property (nonatomic, nullable) UIView *loadingOverlay;
@@ -39,14 +40,52 @@
     }];
 }
 
+- (void)uploadResult:(ORKResult *_Nonnull)surveyResult;
+{
+    [self showLoading:YES];
+
+    [surveyResult cm_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
+        if (nil == uploadStatus) {
+            // TODO: reall error handling
+            NSLog(@"Survey upload failed: %@", error.localizedDescription);
+            return;
+        }
+
+        [self refreshData];
+        NSLog(@"Survery result upload succeeded with status: %@", uploadStatus);
+    }];
+}
+
 - (NSInteger)countOfSurveyResultsWithIdentifier:(NSString *_Nonnull)identifier
 {
     return [ACMMainPanelViewController resultsWithIdentifier:identifier fromResults:self.surveyResults].count;
 }
 
+- (NSInteger)countOfSurveyResultsWithIdentifier:(NSString *_Nonnull)identifier onCalendarDay:(NSDate *_Nonnull)day
+{
+    NSArray<ORKResult *> *surveyResults = [ACMMainPanelViewController resultsWithIdentifier:identifier fromResults:self.surveyResults];
+    NSMutableArray *surveyResultsOnDay = [NSMutableArray new];
+
+    for (ORKResult *result in surveyResults) {
+        if (result.endDate.isToday) {
+            [surveyResultsOnDay addObject:result];
+        }
+    }
+
+    return surveyResultsOnDay.count;
+}
+
 #pragma mark Private
 - (void)showLoading:(BOOL)isLoading
 {
+    if (isLoading && [self.loadingOverlay isDescendantOfView:self.view]) { // already showing
+        return;
+    }
+
+    if (!isLoading && ![self.loadingOverlay isDescendantOfView:self.view]) { // already not showing
+        return;
+    }
+
     if([NSOperationQueue currentQueue] != [NSOperationQueue mainQueue]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self _showLoading:isLoading];

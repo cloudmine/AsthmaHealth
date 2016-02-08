@@ -25,6 +25,7 @@
 		B463CC5E1C4FE13E002B4F9C /* AsthmaHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B463CC5D1C4FE13E002B4F9C /* AsthmaHealthTests.m */; };
 		B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */; };
 		B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */; };
+		B4A367371C684DA10093A429 /* NSDate+ACM.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A367361C684DA10093A429 /* NSDate+ACM.m */; };
 		B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */; };
 		B4B6F4931C5C05A3002EB098 /* ACMUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F4921C5C05A3002EB098 /* ACMUserController.m */; };
 		B4B6F4961C5C081B002EB098 /* ACMUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F4951C5C081B002EB098 /* ACMUserData.m */; };
@@ -90,6 +91,8 @@
 		B463CC5F1C4FE13E002B4F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		B4A367351C684DA10093A429 /* NSDate+ACM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ACM.h"; sourceTree = "<group>"; };
+		B4A367361C684DA10093A429 /* NSDate+ACM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ACM.m"; sourceTree = "<group>"; };
 		B4A9CEC71C57D4CC0073A76F /* ORKResult+CloudMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ORKResult+CloudMine.h"; sourceTree = "<group>"; };
 		B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ORKResult+CloudMine.m"; sourceTree = "<group>"; };
 		B4B6F4911C5C05A3002EB098 /* ACMUserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMUserController.h; sourceTree = "<group>"; };
@@ -302,6 +305,8 @@
 				B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */,
 				B4F209251C66F29F00F81180 /* UIViewController+ACM.h */,
 				B4F209261C66F29F00F81180 /* UIViewController+ACM.m */,
+				B4A367351C684DA10093A429 /* NSDate+ACM.h */,
+				B4A367361C684DA10093A429 /* NSDate+ACM.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A367371C684DA10093A429 /* NSDate+ACM.m in Sources */,
 				B43ECBDA1C51772300865C5A /* ACMSignUpViewController.m in Sources */,
 				B4F209191C650F9600F81180 /* ACMDashSurveysViewController.m in Sources */,
 				B403FAA01C5806E400146B3C /* ACMSurveyFactory.m in Sources */,

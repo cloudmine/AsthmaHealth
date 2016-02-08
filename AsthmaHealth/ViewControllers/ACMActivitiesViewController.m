@@ -9,7 +9,6 @@
 #import "ACMMainPanelViewController.h"
 
 @interface ACMActivitiesViewController ()<ORKTaskViewControllerDelegate>
-@property (nonatomic, nullable) ORKTaskResult *surveyResult;
 @property (nonatomic, nonnull) ACMSurveyCollection *surveys;
 @end
 
@@ -65,9 +64,9 @@
 {
     switch (surveyData.frequency) {
         case ACMSurveyFrequencyOnce:
-            return 1 < [self.acm_mainPanel countOfSurveyResultsWithIdentifier:surveyData.rkIdentifier];
+            return 0 < [self.acm_mainPanel countOfSurveyResultsWithIdentifier:surveyData.rkIdentifier];
         case ACMSurveyFrequencyDaily:
-            // TODO: logic for daily
+            return 0 < [self.acm_mainPanel countOfSurveyResultsWithIdentifier:surveyData.rkIdentifier onCalendarDay:[NSDate new]];
         default:
             return NO;
     }
@@ -119,16 +118,8 @@
     NSAssert([self.presentedViewController isKindOfClass:[ORKTaskViewController class]],
              @"Attempted to handle a survey completion when a ACMSurveyViewController was not presented");
     
-    self.surveyResult = ((ORKTaskViewController *)self.presentedViewController).result;
-
-    [self.surveyResult cm_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
-        if(nil == uploadStatus) {
-            NSLog(@"Survey upload failed: %@", error.localizedDescription);
-            return;
-        }
-
-        NSLog(@"Survery result upload succeeded with status: %@", uploadStatus);
-    }];
+    ORKTaskResult *result = ((ORKTaskViewController *)self.presentedViewController).result;
+    [self.acm_mainPanel uploadResult:result];
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
