@@ -38,19 +38,23 @@
 
 @end
 
-@interface ACMUserData ()
-- (instancetype)initWithCMUser:(CMUser *)user; // In an SDK this would likely go in a private/internal header file
+@interface ACMUserData () // In an SDK this would likely go in a private/internal header file
+- (instancetype)initWithCRKUser:(CRKUser *)user;
 @property (nonatomic, nonnull, readwrite) NSString *email;
+@property (nonatomic, nullable, readwrite) NSString *familyName;
+@property (nonatomic, nullable, readwrite) NSString *givenName;
 @end
 
 @implementation ACMUserData
 
-- (instancetype)initWithCMUser:(CMUser *)user
+- (instancetype)initWithCRKUser:(CRKUser *)user
 {
     self = [super init];
     if (nil == self || nil == user) return nil;
 
     self.email = user.email;
+    self.familyName = user.familyName;
+    self.givenName = user.givenName;
 
     return self;
 }
@@ -70,7 +74,7 @@
 
     dispatch_once(&oncePredicate, ^{
         _sharedInstance = [ACMUserController new];
-        _sharedInstance.userData = [[ACMUserData alloc] initWithCMUser:[CMUser currentUser]];
+        _sharedInstance.userData = [[ACMUserData alloc] initWithCRKUser:[CRKUser currentUser]];
 
         // Need to think more carefully about this. It probably doesn't belong here, but I think
         // a goal should be to hide the sense of a "store" from the SDK consumer. We need to perform
@@ -109,7 +113,7 @@
             return;
         }
 
-        self.userData = [[ACMUserData alloc] initWithCMUser:[CMUser currentUser]];
+        self.userData = [[ACMUserData alloc] initWithCRKUser:[CRKUser currentUser]];
 
         [consentResult cm_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
             if (nil == uploadStatus) {
@@ -151,7 +155,7 @@
             return;
         }
 
-        self.userData = [[ACMUserData alloc] initWithCMUser:[CMUser currentUser]];
+        self.userData = [[ACMUserData alloc] initWithCRKUser:[CRKUser currentUser]];
 
         if (nil != block) {
             block(nil);

@@ -25,6 +25,7 @@
 - (void)configureWithUserData:(ACMUserData *)userData
 {
     self.emailLabel.text = userData.email;
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", userData.givenName, userData.familyName];
 }
 
 #pragma mark Target-Action
