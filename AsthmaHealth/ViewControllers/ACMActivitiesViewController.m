@@ -17,6 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+
     [NSNotificationCenter.defaultCenter addObserverForName:ACMSurveyDataNotification
                                                     object:nil
                                                      queue:[NSOperationQueue mainQueue]
@@ -28,6 +32,13 @@
 - (void)dealloc
 {
     [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
+#pragma mark Target-Action
+- (void)refresh:(UIRefreshControl *)sender
+{
+    [sender endRefreshing];
+    [self.acm_mainPanel refreshData];
 }
 
 #pragma mark UITableViewDataSource

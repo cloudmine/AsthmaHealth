@@ -11,6 +11,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    
     self.surveyCounts = [ACMDashSurveysViewController surveyCountsForResults:self.acm_mainPanel.surveyResults];
 }
 
@@ -35,6 +39,13 @@
     cell.detailTextLabel.text = self.surveyCounts[sortedKeys[indexPath.row]].stringValue;
 
     return cell;
+}
+
+#pragma mark Target-Action
+- (void)refresh:(UIRefreshControl *)sender
+{
+    [sender endRefreshing];
+    [self.acm_mainPanel refreshData];
 }
 
 #pragma mark Getters-Setters
