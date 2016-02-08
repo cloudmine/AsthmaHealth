@@ -13,10 +13,7 @@
 {
     [super viewDidLoad];
 
-    self.loadingOverlay = [[UIView alloc] initWithFrame:self.view.frame];
-    self.loadingOverlay.backgroundColor = [UIColor blackColor];
-    self.loadingOverlay.alpha = 0.2f;
-
+    self.loadingOverlay = [ACMMainPanelViewController loadingIndicatorWithFrame:self.view.frame];
     [self refreshData];
 }
 
@@ -63,6 +60,21 @@
         [UIApplication.sharedApplication endIgnoringInteractionEvents];
         [self.loadingOverlay removeFromSuperview];
     }
+}
+
++ (UIView *_Nonnull)loadingIndicatorWithFrame:(CGRect)frame
+{
+    UIView *loadingOverlay = [[UIView alloc] initWithFrame:frame];
+    loadingOverlay.backgroundColor = [UIColor blackColor];
+    loadingOverlay.alpha = 0.2f;
+
+    CGRect indicatorFrame = CGRectMake(loadingOverlay.center.x - 37.0f/2.0f, loadingOverlay.center.y - 37.0f/2.0f, 37.0f, 37.0f);
+    UIActivityIndicatorView *loadingIndicator = [[UIActivityIndicatorView alloc] initWithFrame:indicatorFrame];
+    loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    [loadingIndicator startAnimating];
+
+    [loadingOverlay addSubview:loadingIndicator];
+    return loadingOverlay;
 }
 
 + (NSArray<ORKResult *> *_Nonnull)resultsWithIdentifier:(NSString *_Nonnull)identifier fromResults:(NSArray<ORKResult *> *_Nullable)fullResults
