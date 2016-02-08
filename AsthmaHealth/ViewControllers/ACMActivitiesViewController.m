@@ -41,7 +41,9 @@
 
     ACMActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
     NSAssert([cell isKindOfClass:[ACMActivityCell class]], @"ACMActivitiesViewController: Expected an ACMActivityCell, but received %@", [cell class]);
+
     [cell configureWithMetaData:surveyData];
+    [cell displayAsCompleted:(indexPath.row % 2 == 0)]; // TODO: actual logic
 
     return cell;
 }

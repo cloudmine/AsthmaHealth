@@ -5,5 +5,6 @@
 @interface ACMActivityCell : UITableViewCell
 
 - (void)configureWithMetaData:(ACMSurveyMetaData *_Nonnull)metaData;
+- (void)displayAsCompleted:(BOOL)isCompleted;
 
 @end
