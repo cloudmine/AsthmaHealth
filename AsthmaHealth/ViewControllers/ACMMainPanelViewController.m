@@ -2,6 +2,7 @@
 #import "ORKResult+CloudMine.h"
 
 @interface ACMMainPanelViewController ()
+@property (nonatomic, nullable) UIView *loadingOverlay;
 @property (nonatomic, nullable, readwrite) ORKTaskResult *consentResult;
 @property (nonatomic, nullable, readwrite) NSArray <ORKTaskResult *> *surveyResults;
 @end
@@ -11,12 +12,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.loadingOverlay = [[UIView alloc] initWithFrame:self.view.frame];
+    self.loadingOverlay.backgroundColor = [UIColor blackColor];
+    self.loadingOverlay.alpha = 0.2f;
+
     [self refreshData];
 }
 
 - (void)refreshData
 {
+    [self showLoading:YES];
+
     [ORKTaskResult cm_fetchUserResultsWithCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
+        [self showLoading:NO];
+
         if (nil == results) { // TODO: real error handling
             NSLog(@"%@", error.localizedDescription);
             return;
@@ -33,6 +43,27 @@
 }
 
 #pragma mark Private
+- (void)showLoading:(BOOL)isLoading
+{
+    if([NSOperationQueue currentQueue] != [NSOperationQueue mainQueue]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self _showLoading:isLoading];
+        });
+    } else {
+        [self _showLoading:isLoading];
+    }
+}
+
+- (void)_showLoading:(BOOL)isLoading
+{
+    if (isLoading) {
+        [UIApplication.sharedApplication beginIgnoringInteractionEvents];
+        [self.view addSubview:self.loadingOverlay];
+    } else {
+        [UIApplication.sharedApplication endIgnoringInteractionEvents];
+        [self.loadingOverlay removeFromSuperview];
+    }
+}
 
 + (NSArray<ORKResult *> *_Nonnull)resultsWithIdentifier:(NSString *_Nonnull)identifier fromResults:(NSArray<ORKResult *> *_Nullable)fullResults
 {
