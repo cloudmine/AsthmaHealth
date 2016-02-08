@@ -1,6 +1,7 @@
 #import "ACMMainPanelViewController.h"
 #import "ORKResult+CloudMine.h"
 #import "NSDate+ACM.h"
+#import "UIColor+ACM.h"
 
 @interface ACMMainPanelViewController ()
 @property (nonatomic, nullable) UIView *loadingOverlay;
@@ -15,6 +16,8 @@
     [super viewDidLoad];
 
     self.loadingOverlay = [ACMMainPanelViewController loadingIndicatorWithFrame:self.view.frame];
+    self.tabBar.tintColor = [UIColor acmBlueColor];
+    
     [self refreshData];
 }
 

@@ -1,4 +1,5 @@
 #import "ACMSurveyFactory.h"
+#import "UIColor+ACM.h"
 
 @implementation ACMSurveyFactory
 
@@ -8,13 +9,17 @@
         return nil;
     }
 
+    ORKTaskViewController *taskController = nil;
+
     if ([@"ACMAboutYouSurveyTask" isEqualToString:surveyIdentifier]) {
-        return [[ORKTaskViewController alloc] initWithTask:self.aboutYouTask taskRunUUID:nil];
+        taskController =  [[ORKTaskViewController alloc] initWithTask:self.aboutYouTask taskRunUUID:nil];
     } else if([@"ACMDailySurveyTask" isEqualToString:surveyIdentifier]) {
-        return [[ORKTaskViewController alloc] initWithTask:self.dailyTask taskRunUUID:nil];
+        taskController = [[ORKTaskViewController alloc] initWithTask:self.dailyTask taskRunUUID:nil];
     }
 
-    return nil;
+    taskController.view.tintColor = [UIColor acmBlueColor];
+
+    return taskController;
 }
 
 # pragma mark "Daily" Task

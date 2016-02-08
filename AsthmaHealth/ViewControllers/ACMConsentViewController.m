@@ -1,5 +1,6 @@
 #import "ACMConsentViewController.h"
 #import "ACMConsentTask.h"
+#import "UIColor+ACM.h"
 
 @interface ACMConsentViewController ()
 
@@ -13,14 +14,10 @@
     if (nil == self) return nil;
 
     self.showsProgressInNavigationBar = NO;
+    self.view.tintColor = [UIColor acmBlueColor];
     self.task = ACMConsentTask.task;
 
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
 }
 
 @end

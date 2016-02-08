@@ -3,6 +3,7 @@
 #import "ACMAlerter.h"
 #import "ACMUserController.h"
 #import "ACMAppDelegate.h"
+#import "UIColor+ACM.h"
 
 @interface ACMLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -16,6 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.view.tintColor = [UIColor acmBlueColor];
 
     self.doneButton.enabled = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextChange) name:UITextFieldTextDidChangeNotification object:nil];
