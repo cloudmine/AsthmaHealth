@@ -21,11 +21,12 @@
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
 
+    __weak typeof(self) weakSelf = self;
     [NSNotificationCenter.defaultCenter addObserverForName:ACMSurveyDataNotification
                                                     object:nil
                                                      queue:[NSOperationQueue mainQueue]
                                                 usingBlock:^(NSNotification * _Nonnull note) {
-        [self.tableView reloadData];
+        [weakSelf.tableView reloadData];
     }];
 }
 

@@ -18,11 +18,12 @@
 {
     [super viewDidLoad];
 
+    __weak typeof(self) weakSelf = self;
     [NSNotificationCenter.defaultCenter addObserverForName:ACMSurveyDataNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         [self refreshUI];
     }];
 
-    [self refreshUI];
+    [weakSelf refreshUI];
 }
 
 - (void)refreshUI
