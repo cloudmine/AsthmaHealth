@@ -5,6 +5,7 @@
 @property (weak, nonatomic) IBOutlet UIView *frequencyIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questionCountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *completionImage;
 @end
 
 @implementation ACMActivityCell
@@ -14,6 +15,11 @@
     self.nameLabel.text = metaData.displayName;
     self.questionCountLabel.text = [NSString localizedStringWithFormat:@"%@ Questions", metaData.questionCount.stringValue];
     self.frequencyIndicator.backgroundColor = [ACMActivityCell colorForFrequency:metaData.frequency];
+
+    self.completionImage.image = nil;
+    self.completionImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.completionImage.layer.borderWidth = 1.0f;
+    self.completionImage.layer.cornerRadius = self.completionImage.bounds.size.height / 2.0f;
 }
 
 + (UIColor *_Nonnull)colorForFrequency:(ACMSurveyFrequency)frequency

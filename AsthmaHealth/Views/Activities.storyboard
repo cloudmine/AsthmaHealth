@@ -98,6 +98,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="completionImage" destination="5cx-OU-bR3" id="EnK-7r-si3"/>
                                     <outlet property="frequencyIndicator" destination="buk-Iq-Udb" id="TvS-ek-Pj6"/>
                                     <outlet property="nameLabel" destination="RsP-5a-VON" id="eHg-E4-f82"/>
                                     <outlet property="questionCountLabel" destination="iMr-RJ-9UW" id="Izu-05-f8w"/>
