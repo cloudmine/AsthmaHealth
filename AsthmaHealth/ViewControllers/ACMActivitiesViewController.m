@@ -5,6 +5,8 @@
 #import "ACMSurveyMetaData.h"
 #import "ACMSurveyFactory.h"
 #import "ACMActivityCell.h"
+#import "UIViewController+ACM.h"
+#import "ACMMainPanelViewController.h"
 
 @interface ACMActivitiesViewController ()<ORKTaskViewControllerDelegate>
 @property (nonatomic, nullable) ORKTaskResult *surveyResult;
@@ -16,6 +18,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [NSNotificationCenter.defaultCenter addObserverForName:ACMSurveyDataNotification
+                                                    object:nil
+                                                     queue:[NSOperationQueue mainQueue]
+                                                usingBlock:^(NSNotification * _Nonnull note) {
+        [self.tableView reloadData];
+    }];
+}
+
+- (void)dealloc
+{
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark UITableViewDataSource
@@ -43,9 +56,21 @@
     NSAssert([cell isKindOfClass:[ACMActivityCell class]], @"ACMActivitiesViewController: Expected an ACMActivityCell, but received %@", [cell class]);
 
     [cell configureWithMetaData:surveyData];
-    [cell displayAsCompleted:(indexPath.row % 2 == 0)]; // TODO: actual logic
+    [cell displayAsCompleted:[self completedSurvey:surveyData]];
 
     return cell;
+}
+
+- (BOOL)completedSurvey:(ACMSurveyMetaData *_Nonnull)surveyData
+{
+    switch (surveyData.frequency) {
+        case ACMSurveyFrequencyOnce:
+            return 1 < [self.acm_mainPanel countOfSurveyResultsWithIdentifier:surveyData.rkIdentifier];
+        case ACMSurveyFrequencyDaily:
+            // TODO: logic for daily
+        default:
+            return NO;
+    }
 }
 
 #pragma mark UITableViewDelegate

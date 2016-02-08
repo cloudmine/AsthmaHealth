@@ -9,5 +9,6 @@ static NSString *_Nullable const ACMSurveyDataNotification = @"ACMSurveyDataFetc
 @property (nonatomic, nullable, readonly) NSArray <ORKTaskResult *> *surveyResults;
 
 - (void)refreshData;
+- (NSInteger)countOfSurveyResultsWithIdentifier:(NSString *_Nonnull)identifier;
 
 @end

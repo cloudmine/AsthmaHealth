@@ -39,6 +39,11 @@
     }];
 }
 
+- (NSInteger)countOfSurveyResultsWithIdentifier:(NSString *_Nonnull)identifier
+{
+    return [ACMMainPanelViewController resultsWithIdentifier:identifier fromResults:self.surveyResults].count;
+}
+
 #pragma mark Private
 - (void)showLoading:(BOOL)isLoading
 {
