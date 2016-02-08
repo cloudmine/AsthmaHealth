@@ -16,6 +16,10 @@
 {
     [super viewDidLoad];
     [self configureWithUserData:[ACMUserController currentUser].userData];
+
+    self.logoutButton.layer.borderColor = self.logoutButton.titleLabel.textColor.CGColor;
+    self.logoutButton.layer.borderWidth = 1.0f;
+    self.logoutButton.layer.cornerRadius = 4.0f;
 }
 
 - (void)configureWithUserData:(ACMUserData *)userData

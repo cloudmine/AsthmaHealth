@@ -37,10 +37,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6p-T0-7ZN">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21B-AV-dMS" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcW-d3-FiX" userLabel="Name Label">
                                                 <rect key="frame" x="116" y="36" width="107" height="24"/>
@@ -48,56 +48,21 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cYp-Nb-RVu">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" ambiguous="YES" misplaced="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJu-Ur-AVi">
-                                                        <rect key="frame" x="20" y="104" width="54" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="someone@somewhere.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lD-TD-SuF">
-                                                        <rect key="frame" x="82" y="107" width="498" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWh-dx-Yi9">
-                                                        <rect key="frame" x="273" y="178" width="55" height="30"/>
-                                                        <state key="normal" title="Log Out"/>
-                                                        <connections>
-                                                            <action selector="logoutButtonDidPress:" destination="Dgh-54-Glc" eventType="touchUpInside" id="22i-2D-U4P"/>
-                                                        </connections>
-                                                    </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="ProfilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="0PK-ZF-Tvp">
-                                                        <rect key="frame" x="20" y="84" width="80" height="80"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="0PK-ZF-Tvp" secondAttribute="height" multiplier="1:1" id="pU7-he-lzJ"/>
-                                                            <constraint firstAttribute="height" constant="50" id="qg7-au-VTC"/>
-                                                            <constraint firstAttribute="width" constant="80" id="saf-ad-VeV"/>
-                                                        </constraints>
-                                                        <variation key="default">
-                                                            <mask key="constraints">
-                                                                <exclude reference="qg7-au-VTC"/>
-                                                            </mask>
-                                                        </variation>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="2lD-TD-SuF" firstAttribute="bottom" secondItem="pJu-Ur-AVi" secondAttribute="bottom" id="9tp-JX-hDK"/>
-                                                    <constraint firstAttribute="trailing" secondItem="2lD-TD-SuF" secondAttribute="trailing" constant="20" symbolic="YES" id="Gni-s6-5aO"/>
-                                                    <constraint firstItem="2lD-TD-SuF" firstAttribute="leading" secondItem="pJu-Ur-AVi" secondAttribute="trailing" constant="8" id="Xzq-Gi-mHQ"/>
-                                                    <constraint firstItem="FWh-dx-Yi9" firstAttribute="centerX" secondItem="cYp-Nb-RVu" secondAttribute="centerX" id="gXX-s5-Vem"/>
-                                                    <constraint firstItem="0PK-ZF-Tvp" firstAttribute="leading" secondItem="cYp-Nb-RVu" secondAttribute="leading" constant="20" id="lAZ-Jw-MJW"/>
-                                                    <constraint firstItem="FWh-dx-Yi9" firstAttribute="top" secondItem="2lD-TD-SuF" secondAttribute="bottom" constant="50" id="nsf-og-Pmy"/>
-                                                    <constraint firstItem="pJu-Ur-AVi" firstAttribute="leading" secondItem="cYp-Nb-RVu" secondAttribute="leading" constant="20" id="vO8-Vk-xzr"/>
-                                                </constraints>
-                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-6Y-0kc">
-                                                <rect key="frame" x="273" y="130" width="55" height="30"/>
-                                                <state key="normal" title="Log Out"/>
+                                                <rect key="frame" x="238" y="130" width="125" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="125" id="FNz-Mi-9I0"/>
+                                                    <constraint firstAttribute="width" constant="165" id="HXP-tS-JsT"/>
+                                                    <constraint firstAttribute="height" constant="37" id="HnX-Jv-Faq"/>
+                                                </constraints>
+                                                <state key="normal" title="Log Out">
+                                                    <color key="titleColor" red="0.098039215690000001" green="0.054901960780000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="HXP-tS-JsT"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <action selector="logoutButtonDidPress:" destination="Dgh-54-Glc" eventType="touchUpInside" id="t3K-ea-mVB"/>
                                                 </connections>
@@ -138,9 +103,6 @@
                                             <constraint firstItem="BcW-d3-FiX" firstAttribute="leading" secondItem="iTz-0L-4zv" secondAttribute="trailing" constant="16" id="y2Y-yQ-0J6"/>
                                         </constraints>
                                         <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="cYp-Nb-RVu"/>
-                                            </mask>
                                             <mask key="constraints">
                                                 <exclude reference="oOi-Ui-zHu"/>
                                             </mask>
@@ -152,17 +114,29 @@
                                     <constraint firstItem="21B-AV-dMS" firstAttribute="leading" secondItem="O6p-T0-7ZN" secondAttribute="leading" id="GAg-Tz-zPQ"/>
                                     <constraint firstAttribute="trailing" secondItem="21B-AV-dMS" secondAttribute="trailing" id="L7q-Fg-njP"/>
                                     <constraint firstItem="21B-AV-dMS" firstAttribute="top" secondItem="O6p-T0-7ZN" secondAttribute="top" id="X8P-L4-yZP"/>
+                                    <constraint firstItem="21B-AV-dMS" firstAttribute="top" secondItem="O6p-T0-7ZN" secondAttribute="top" id="ZIK-rQ-B8d"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="X8P-L4-yZP"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="21B-AV-dMS" firstAttribute="width" secondItem="vyT-Lp-cP9" secondAttribute="width" id="Bae-0v-YtF"/>
+                            <constraint firstItem="O6p-T0-7ZN" firstAttribute="top" secondItem="vyT-Lp-cP9" secondAttribute="top" id="G1g-HD-UJ9"/>
                             <constraint firstItem="fPo-vX-pGm" firstAttribute="top" secondItem="O6p-T0-7ZN" secondAttribute="bottom" id="O7c-bJ-MxQ"/>
                             <constraint firstItem="O6p-T0-7ZN" firstAttribute="top" secondItem="I8E-pF-TLT" secondAttribute="bottom" id="QF8-5o-U40"/>
                             <constraint firstAttribute="trailing" secondItem="O6p-T0-7ZN" secondAttribute="trailing" id="ULw-86-TEv"/>
                             <constraint firstItem="O6p-T0-7ZN" firstAttribute="leading" secondItem="vyT-Lp-cP9" secondAttribute="leading" id="hPi-7Y-Ofw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="QF8-5o-U40"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="e7j-he-fI9"/>
                     <connections>
