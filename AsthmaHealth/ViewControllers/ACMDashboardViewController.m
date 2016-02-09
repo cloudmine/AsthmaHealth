@@ -21,10 +21,10 @@
 {
     [super viewDidLoad];
 
-    self.oncePieChart.title = NSLocalizedString(@"One Time Surveys Completed", nil);
+    self.oncePieChart.title = NSLocalizedString(@"One Time Surveys", nil);
     self.oncePieChart.showsTitleAboveChart = YES;
 
-    self.dailyPieChart.title = NSLocalizedString(@"Daily Surveys Completed Today", nil);
+    self.dailyPieChart.title = NSLocalizedString(@"Daily Surveys (Today)", nil);
     self.dailyPieChart.showsTitleAboveChart = YES;
 
     __weak typeof(self) weakSelf = self;
@@ -38,7 +38,7 @@
 - (void)refreshUI
 {
     self.aboutYouCount = [self.acm_mainPanel countOfSurveyResultsWithIdentifier:@"ACMAboutYouSurveyTask"];
-    self.dailyCount = [self.acm_mainPanel countOfSurveyResultsWithIdentifier:@"" onCalendarDay:[NSDate new]];
+    self.dailyCount = [self.acm_mainPanel countOfSurveyResultsWithIdentifier:@"ACMDailySurveyTask" onCalendarDay:[NSDate new]];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         // Setting the data source property forces the data to reload
@@ -65,7 +65,8 @@
 
 - (NSString *)pieChartView:(ORKPieChartView *)pieChartView titleForSegmentAtIndex:(NSInteger)index
 {
-    if (self.aboutYouCount > 0) {
+    if ((pieChartView == self.oncePieChart && self.aboutYouCount > 0) ||
+        (pieChartView == self.dailyPieChart && self.dailyCount > 0) ) {
         return NSLocalizedString(@"Complete", nil);
     }
 
@@ -74,11 +75,13 @@
 
 - (UIColor *)pieChartView:(ORKPieChartView *)pieChartView colorForSegmentAtIndex:(NSInteger)index
 {
-    if (self.aboutYouCount > 0) {
+    if (pieChartView == self.oncePieChart && self.aboutYouCount > 0) {
         return [UIColor acmOnceColor];
-    } else {
-        return [UIColor redColor];
+    } else if(pieChartView == self.dailyPieChart && self.dailyCount > 0) {
+        return [UIColor acmDailyColor];
     }
+
+    return [UIColor redColor];
 }
 
 // TODO: Move this to profile?
