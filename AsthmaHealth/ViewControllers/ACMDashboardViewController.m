@@ -3,13 +3,12 @@
 #import <ResearchKit/ResearchKit.h>
 #import "ACMResultWrapper.h"
 #import "ORKResult+CloudMine.h"
-#import "ACMDashSurveysViewController.h"
 #import "ACMMainPanelViewController.h"
 #import "UIViewController+ACM.h"
 
-@interface ACMDashboardViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *consentDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *surveyCountLabel;
+@interface ACMDashboardViewController ()<ORKPieChartViewDataSource>
+@property (weak, nonatomic) IBOutlet ORKPieChartView *oncePieChart;
+@property (nonatomic) NSInteger value;
 @end
 
 @implementation ACMDashboardViewController
@@ -20,20 +19,19 @@
 
     __weak typeof(self) weakSelf = self;
     [NSNotificationCenter.defaultCenter addObserverForName:ACMSurveyDataNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        [self refreshUI];
+        [weakSelf refreshUI];
     }];
 
-    [weakSelf refreshUI];
+    self.value = 1;
+
+    [self refreshUI];
 }
 
 - (void)refreshUI
 {
-    NSString *consentDate = [ACMDashboardViewController consentDateStringForDate:self.acm_mainPanel.consentResult.endDate];
-    NSString *surveyCount = [NSString stringWithFormat:@"%li", (long)self.acm_mainPanel.surveyResults.count];
-
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.consentDateLabel.text = consentDate;
-        self.surveyCountLabel.text = surveyCount;
+        self.oncePieChart.dataSource = self;
+        self.value += 1;
     });
 }
 
@@ -42,17 +40,29 @@
     [self.acm_mainPanel refreshData];
 }
 
-#pragma mark Presentation
-+ (NSString *_Nonnull)consentDateStringForDate:(NSDate *_Nullable)date
+#pragma mark ORKPieChartViewDataSource
+- (NSInteger)numberOfSegmentsInPieChartView:(ORKPieChartView *)pieChartView
 {
-    if (nil == date) {
-        return @"Never";
-    }
-
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.dateFormat = @"MMM dd, yyyy";
-
-    return [formatter stringFromDate:date];
+    return 2;
 }
+
+- (CGFloat)pieChartView:(ORKPieChartView *)pieChartView valueForSegmentAtIndex:(NSInteger)index
+{
+    return self.value + index % 2;
+}
+
+// TODO: Move this to profile?
+//#pragma mark Presentation
+//+ (NSString *_Nonnull)consentDateStringForDate:(NSDate *_Nullable)date
+//{
+//    if (nil == date) {
+//        return @"Never";
+//    }
+//
+//    NSDateFormatter *formatter = [NSDateFormatter new];
+//    formatter.dateFormat = @"MMM dd, yyyy";
+//
+//    return [formatter stringFromDate:date];
+//}
 
 @end

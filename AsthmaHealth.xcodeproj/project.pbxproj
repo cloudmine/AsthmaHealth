@@ -39,7 +39,6 @@
 		B4F208F61C6246C100F81180 /* ACMAlerter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F51C6246C100F81180 /* ACMAlerter.m */; };
 		B4F209071C62A2CE00F81180 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209061C62A2CE00F81180 /* Dashboard.storyboard */; };
 		B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */; };
-		B4F209191C650F9600F81180 /* ACMDashSurveysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209181C650F9600F81180 /* ACMDashSurveysViewController.m */; };
 		B4F2091C1C65440900F81180 /* ACMSurveyMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F2091B1C65440900F81180 /* ACMSurveyMetaData.m */; };
 		B4F2091F1C65458300F81180 /* ACMSurveyCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F2091E1C65458300F81180 /* ACMSurveyCollection.m */; };
 		B4F209211C65B38800F81180 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209201C65B38800F81180 /* Learn.storyboard */; };
@@ -116,8 +115,6 @@
 		B4F209061C62A2CE00F81180 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		B4F209081C62A5D400F81180 /* ACMDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMDashboardViewController.h; sourceTree = "<group>"; };
 		B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMDashboardViewController.m; sourceTree = "<group>"; };
-		B4F209171C650F9600F81180 /* ACMDashSurveysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMDashSurveysViewController.h; sourceTree = "<group>"; };
-		B4F209181C650F9600F81180 /* ACMDashSurveysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMDashSurveysViewController.m; sourceTree = "<group>"; };
 		B4F2091A1C65440900F81180 /* ACMSurveyMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSurveyMetaData.h; sourceTree = "<group>"; };
 		B4F2091B1C65440900F81180 /* ACMSurveyMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMSurveyMetaData.m; sourceTree = "<group>"; };
 		B4F2091D1C65458300F81180 /* ACMSurveyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMSurveyCollection.h; sourceTree = "<group>"; };
@@ -243,8 +240,6 @@
 				B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */,
 				B4F209081C62A5D400F81180 /* ACMDashboardViewController.h */,
 				B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */,
-				B4F209171C650F9600F81180 /* ACMDashSurveysViewController.h */,
-				B4F209181C650F9600F81180 /* ACMDashSurveysViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -477,7 +472,6 @@
 			files = (
 				B4A367371C684DA10093A429 /* NSDate+ACM.m in Sources */,
 				B43ECBDA1C51772300865C5A /* ACMSignUpViewController.m in Sources */,
-				B4F209191C650F9600F81180 /* ACMDashSurveysViewController.m in Sources */,
 				B403FAA01C5806E400146B3C /* ACMSurveyFactory.m in Sources */,
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
 				B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */,
