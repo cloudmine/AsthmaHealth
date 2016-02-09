@@ -36,16 +36,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fy4-9T-8PK">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJa-or-XaF" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="245"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="295"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQj-aG-rwD" customClass="ORKPieChartView">
-                                                <rect key="frame" x="20" y="20" width="560" height="150"/>
+                                                <rect key="frame" x="20" y="20" width="560" height="200"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0r-73-pV7">
-                                                <rect key="frame" x="539" y="195" width="53" height="30"/>
+                                                <rect key="frame" x="527" y="245" width="53" height="30"/>
                                                 <state key="normal" title="Refresh"/>
                                                 <connections>
                                                     <action selector="refreshButtonDidPress:" destination="bFb-Ot-mXW" eventType="touchUpInside" id="fe1-zc-KGf"/>
@@ -55,7 +55,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="k0r-73-pV7" firstAttribute="top" secondItem="vQj-aG-rwD" secondAttribute="bottom" constant="25" id="96R-EA-4PZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="k0r-73-pV7" secondAttribute="trailing" constant="8" id="CCX-lN-rKJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="k0r-73-pV7" secondAttribute="trailing" constant="20" symbolic="YES" id="CCX-lN-rKJ"/>
                                             <constraint firstAttribute="trailing" secondItem="vQj-aG-rwD" secondAttribute="trailing" constant="20" symbolic="YES" id="JXW-5x-pwi"/>
                                             <constraint firstItem="vQj-aG-rwD" firstAttribute="leading" secondItem="BJa-or-XaF" secondAttribute="leading" constant="20" symbolic="YES" id="Kos-pU-i3G"/>
                                             <constraint firstItem="vQj-aG-rwD" firstAttribute="top" secondItem="BJa-or-XaF" secondAttribute="top" constant="20" symbolic="YES" id="WYM-C7-GSE"/>
@@ -69,6 +69,7 @@
                                     <constraint firstItem="BJa-or-XaF" firstAttribute="leading" secondItem="Fy4-9T-8PK" secondAttribute="leading" id="OIg-PB-Ph3"/>
                                     <constraint firstItem="BJa-or-XaF" firstAttribute="top" secondItem="Fy4-9T-8PK" secondAttribute="top" id="qpx-xQ-qWl"/>
                                 </constraints>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="-5" maxX="0.0" maxY="0.0"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,10 +77,16 @@
                             <constraint firstItem="Fy4-9T-8PK" firstAttribute="leading" secondItem="jbz-3g-bHC" secondAttribute="leading" id="7OW-aW-S82"/>
                             <constraint firstItem="BJa-or-XaF" firstAttribute="width" secondItem="jbz-3g-bHC" secondAttribute="width" id="C8d-8h-5b9"/>
                             <constraint firstItem="RJ7-TV-dra" firstAttribute="top" secondItem="Fy4-9T-8PK" secondAttribute="bottom" id="L3a-is-muO"/>
-                            <constraint firstItem="vQj-aG-rwD" firstAttribute="height" secondItem="jbz-3g-bHC" secondAttribute="height" multiplier="1/4" id="Sut-UX-SIj"/>
+                            <constraint firstItem="Fy4-9T-8PK" firstAttribute="top" secondItem="jbz-3g-bHC" secondAttribute="top" id="MDa-4H-tNe"/>
+                            <constraint firstItem="vQj-aG-rwD" firstAttribute="height" secondItem="jbz-3g-bHC" secondAttribute="height" multiplier="1/3" id="Sut-UX-SIj"/>
                             <constraint firstAttribute="trailing" secondItem="Fy4-9T-8PK" secondAttribute="trailing" id="fUq-lj-8WH"/>
                             <constraint firstItem="Fy4-9T-8PK" firstAttribute="top" secondItem="lMs-tP-zGX" secondAttribute="bottom" id="mpV-d9-ige"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mpV-d9-ige"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="mBV-gR-DBZ">
                         <barButtonItem key="backBarButtonItem" title=" " id="iIg-NR-1yh"/>

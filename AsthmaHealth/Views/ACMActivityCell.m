@@ -1,5 +1,6 @@
 #import "ACMActivityCell.h"
 #import "ACMSurveyMetaData.h"
+#import "UIColor+ACM.h"
 
 @interface ACMActivityCell ()
 @property (weak, nonatomic) IBOutlet UIView *frequencyIndicator;
@@ -36,22 +37,12 @@
 {
     switch (frequency) {
         case ACMSurveyFrequencyOnce:
-            return [ACMActivityCell onceColor];
+            return [UIColor acmOnceColor];
         case ACMSurveyFrequencyDaily:
-            return[ACMActivityCell dailyColor];
+            return[UIColor acmDailyColor];
         default:
             return [UIColor clearColor];
     }
 }
 
-+ (UIColor *_Nonnull)onceColor
-{
-    return [UIColor colorWithRed:141.0f/255.0f green:53.0f/255.0f blue:206.0f/255.0f alpha:1.0f];
-}
-
-
-+ (UIColor *_Nonnull)dailyColor
-{
-    return [UIColor colorWithRed:35.0f/255.0f green:204.0f/255.0f blue:104.0f/255.0f alpha:1.0f];
-}
 @end

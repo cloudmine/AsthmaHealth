@@ -5,10 +5,11 @@
 #import "ORKResult+CloudMine.h"
 #import "ACMMainPanelViewController.h"
 #import "UIViewController+ACM.h"
+#import "UIColor+ACM.h"
 
 @interface ACMDashboardViewController ()<ORKPieChartViewDataSource>
 @property (weak, nonatomic) IBOutlet ORKPieChartView *oncePieChart;
-@property (nonatomic) NSInteger value;
+@property (nonatomic) NSInteger aboutYouCount;
 @end
 
 @implementation ACMDashboardViewController
@@ -17,21 +18,23 @@
 {
     [super viewDidLoad];
 
+    self.oncePieChart.title = NSLocalizedString(@"One Time Surveys Completed", nil);
+    self.oncePieChart.showsTitleAboveChart = YES;
+
     __weak typeof(self) weakSelf = self;
     [NSNotificationCenter.defaultCenter addObserverForName:ACMSurveyDataNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         [weakSelf refreshUI];
     }];
-
-    self.value = 1;
 
     [self refreshUI];
 }
 
 - (void)refreshUI
 {
+    self.aboutYouCount = [self.acm_mainPanel countOfSurveyResultsWithIdentifier:@"ACMAboutYouSurveyTask"];
+
     dispatch_async(dispatch_get_main_queue(), ^{
         self.oncePieChart.dataSource = self;
-        self.value += 1;
     });
 }
 
@@ -43,12 +46,30 @@
 #pragma mark ORKPieChartViewDataSource
 - (NSInteger)numberOfSegmentsInPieChartView:(ORKPieChartView *)pieChartView
 {
-    return 2;
+    return 1;
 }
 
 - (CGFloat)pieChartView:(ORKPieChartView *)pieChartView valueForSegmentAtIndex:(NSInteger)index
 {
-    return self.value + index % 2;
+   return 1.0f;
+}
+
+- (NSString *)pieChartView:(ORKPieChartView *)pieChartView titleForSegmentAtIndex:(NSInteger)index
+{
+    if (self.aboutYouCount > 0) {
+        return NSLocalizedString(@"Complete", nil);
+    }
+
+    return NSLocalizedString(@"Incomplete", nil);
+}
+
+- (UIColor *)pieChartView:(ORKPieChartView *)pieChartView colorForSegmentAtIndex:(NSInteger)index
+{
+    if (self.aboutYouCount > 0) {
+        return [UIColor acmOnceColor];
+    } else {
+        return [UIColor redColor];
+    }
 }
 
 // TODO: Move this to profile?
