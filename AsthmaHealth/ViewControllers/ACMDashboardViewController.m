@@ -9,7 +9,10 @@
 
 @interface ACMDashboardViewController ()<ORKPieChartViewDataSource>
 @property (weak, nonatomic) IBOutlet ORKPieChartView *oncePieChart;
+@property (weak, nonatomic) IBOutlet ORKPieChartView *dailyPieChart;
+
 @property (nonatomic) NSInteger aboutYouCount;
+@property (nonatomic) NSInteger dailyCount;
 @end
 
 @implementation ACMDashboardViewController
@@ -20,6 +23,9 @@
 
     self.oncePieChart.title = NSLocalizedString(@"One Time Surveys Completed", nil);
     self.oncePieChart.showsTitleAboveChart = YES;
+
+    self.dailyPieChart.title = NSLocalizedString(@"Daily Surveys Completed Today", nil);
+    self.dailyPieChart.showsTitleAboveChart = YES;
 
     __weak typeof(self) weakSelf = self;
     [NSNotificationCenter.defaultCenter addObserverForName:ACMSurveyDataNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
@@ -32,9 +38,12 @@
 - (void)refreshUI
 {
     self.aboutYouCount = [self.acm_mainPanel countOfSurveyResultsWithIdentifier:@"ACMAboutYouSurveyTask"];
+    self.dailyCount = [self.acm_mainPanel countOfSurveyResultsWithIdentifier:@"" onCalendarDay:[NSDate new]];
 
     dispatch_async(dispatch_get_main_queue(), ^{
+        // Setting the data source property forces the data to reload
         self.oncePieChart.dataSource = self;
+        self.dailyPieChart.dataSource = self;
     });
 }
 
