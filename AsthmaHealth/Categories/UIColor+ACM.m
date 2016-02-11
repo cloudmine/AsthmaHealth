@@ -4,7 +4,7 @@
 
 + (UIColor *_Nonnull)acmBlueColor
 {
-    return [UIColor colorWithRed:34.0f/255.0f green:27.0f/255.0f blue:116.0f/255.0f alpha:1.0f];
+    return [UIColor colorWithRed:13.0f/255.0f green:150.0f/255.0f blue:214.0f/255.0f alpha:1.0f];
 }
 
 + (UIColor *_Nonnull)acmOnceColor
