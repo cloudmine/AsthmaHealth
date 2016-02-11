@@ -19,7 +19,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6r-PS-q4U" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpW-eT-KFo" userLabel="Content View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpW-eT-KFo" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="396"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owT-YQ-FQb" userLabel="Email Container">
@@ -31,7 +31,7 @@
                                                         <color key="textColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dls-ra-9Vu">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Required" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dls-ra-9Vu">
                                                         <rect key="frame" x="106" y="21" width="477.5" height="21"/>
                                                         <color key="tintColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.14117647058823529" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,7 +63,7 @@
                                                         <color key="textColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vW2-Fm-lIU">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Required" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vW2-Fm-lIU">
                                                         <rect key="frame" x="106" y="21" width="477.5" height="21"/>
                                                         <color key="tintColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="textColor" red="0.14117647058823529" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,7 +102,7 @@
                                             <constraint firstItem="2KQ-Sf-biL" firstAttribute="trailing" secondItem="owT-YQ-FQb" secondAttribute="trailing" id="0pg-ul-X2N"/>
                                             <constraint firstItem="Hcc-Ny-aXo" firstAttribute="centerX" secondItem="bpW-eT-KFo" secondAttribute="centerX" id="2yx-X3-LKk"/>
                                             <constraint firstAttribute="trailing" secondItem="owT-YQ-FQb" secondAttribute="trailing" id="3HW-y8-w8E"/>
-                                            <constraint firstAttribute="bottom" secondItem="hFg-kE-Y6g" secondAttribute="bottom" constant="16" id="50j-1c-Rd2"/>
+                                            <constraint firstAttribute="bottom" secondItem="hFg-kE-Y6g" secondAttribute="bottom" constant="196" id="50j-1c-Rd2"/>
                                             <constraint firstItem="dls-ra-9Vu" firstAttribute="leading" secondItem="vW2-Fm-lIU" secondAttribute="leading" id="5ek-58-SRA"/>
                                             <constraint firstItem="2KQ-Sf-biL" firstAttribute="top" secondItem="owT-YQ-FQb" secondAttribute="bottom" id="7Dy-cQ-LTZ"/>
                                             <constraint firstAttribute="bottom" secondItem="owT-YQ-FQb" secondAttribute="bottom" constant="20" symbolic="YES" id="Bcq-mr-If9"/>
@@ -129,7 +129,7 @@
                                 <constraints>
                                     <constraint firstItem="bpW-eT-KFo" firstAttribute="top" secondItem="S6r-PS-q4U" secondAttribute="top" id="P1e-4x-bes"/>
                                     <constraint firstAttribute="trailing" secondItem="bpW-eT-KFo" secondAttribute="trailing" id="lAn-UI-n1b"/>
-                                    <constraint firstAttribute="bottom" secondItem="bpW-eT-KFo" secondAttribute="bottom" id="oSa-YS-iCL"/>
+                                    <constraint firstAttribute="bottom" secondItem="bpW-eT-KFo" secondAttribute="bottom" constant="184" id="oSa-YS-iCL"/>
                                     <constraint firstItem="bpW-eT-KFo" firstAttribute="leading" secondItem="S6r-PS-q4U" secondAttribute="leading" id="sr2-q4-ap1"/>
                                 </constraints>
                             </scrollView>
