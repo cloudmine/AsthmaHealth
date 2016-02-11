@@ -151,6 +151,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="Z9T-Yj-k3h">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="lum-lb-Bbv">
+                            <color key="tintColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="doneButtonDidPress:" destination="tri-7L-OCB" id="1iV-4t-upV"/>
                             </connections>
@@ -164,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVh-oq-xfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="379" y="469"/>
+            <point key="canvasLocation" x="372" y="435"/>
         </scene>
     </scenes>
     <resources>

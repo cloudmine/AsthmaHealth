@@ -156,6 +156,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="75W-FW-KAt">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="E2i-zZ-bPH">
+                            <color key="tintColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="nextButtonDidPress:" destination="xvW-Ik-LM7" id="jFh-wB-hUQ"/>
                             </connections>
