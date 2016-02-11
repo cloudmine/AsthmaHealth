@@ -29,7 +29,7 @@ PODS:
 
 DEPENDENCIES:
   - CloudMine (~> 1.7)
-  - ResearchKit (~> 1.0)
+  - ResearchKit (~> 1.3.0)
   - TPKeyboardAvoiding (~> 1.2)
 
 SPEC CHECKSUMS:
