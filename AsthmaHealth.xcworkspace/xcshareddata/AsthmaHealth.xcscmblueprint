@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "81E7573C606E8EFFF9814CF74EA2B8CBAFBDD1EE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BC036C38BA430ED6DFDD04623ECACBE81965D36D" : 0,
+    "81E7573C606E8EFFF9814CF74EA2B8CBAFBDD1EE" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2E79337E-FC8F-4D3D-99DD-B6741D592326",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BC036C38BA430ED6DFDD04623ECACBE81965D36D" : "CMHealth\/",
+    "81E7573C606E8EFFF9814CF74EA2B8CBAFBDD1EE" : "AsthmaHealth\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AsthmaHealth",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AsthmaHealth.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:cloudmine\/AsthmaHealth.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "81E7573C606E8EFFF9814CF74EA2B8CBAFBDD1EE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:cloudmine\/CMHealthSDK.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BC036C38BA430ED6DFDD04623ECACBE81965D36D"
+    }
+  ]
+}
