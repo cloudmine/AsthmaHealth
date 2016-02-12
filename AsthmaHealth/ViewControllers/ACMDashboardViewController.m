@@ -1,7 +1,7 @@
 #import "ACMDashboardViewController.h"
 #import <CloudMine/CloudMine.h>
 #import <ResearchKit/ResearchKit.h>
-#import "ACMResultWrapper.h"
+#import <CMHealth/CMHResultWrapper.h>
 #import "ORKResult+CloudMine.h"
 #import "ACMMainPanelViewController.h"
 #import "UIViewController+ACM.h"

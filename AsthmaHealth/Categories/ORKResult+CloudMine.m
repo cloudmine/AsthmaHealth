@@ -1,6 +1,6 @@
 #import "ORKResult+CloudMine.h"
 #import <objc/runtime.h>
-#import "ACMResultWrapper.h"
+#import <CMHealth/CMHResultWrapper.h>
 
 void acm_swizzle(Class class, SEL originalSelector, SEL swizzledSelector)
 {
@@ -27,12 +27,12 @@ void acm_swizzle(Class class, SEL originalSelector, SEL swizzledSelector)
 
 - (void)cm_saveWithCompletion:(_Nullable ACMSaveCompletion)block
 {
-    Class resultWrapperClass = [ACMResultWrapper wrapperClassForResultClass:[self class]];
+    Class resultWrapperClass = [CMHResultWrapper wrapperClassForResultClass:[self class]];
     
-    NSAssert([[resultWrapperClass class] isSubclassOfClass:[ACMResultWrapper class]],
+    NSAssert([[resultWrapperClass class] isSubclassOfClass:[CMHResultWrapper class]],
              @"Fatal Error: Result wrapper class not a result of ACMResultWrapper");
 
-    ACMResultWrapper *resultWrapper = [[resultWrapperClass alloc] initWithResult:self];
+    CMHResultWrapper *resultWrapper = [[resultWrapperClass alloc] initWithResult:self];
     
     [resultWrapper saveWithUser:[CMStore defaultStore].user callback:^(CMObjectUploadResponse *response) {
         if (nil == block) {
@@ -68,7 +68,7 @@ void acm_swizzle(Class class, SEL originalSelector, SEL swizzledSelector)
 
 + (void)cm_fetchUserResultsWithCompletion:(_Nullable ACMFetchCompletion)block;
 {
-    Class wrapperClass = [ACMResultWrapper wrapperClassForResultClass:[self class]];
+    Class wrapperClass = [CMHResultWrapper wrapperClassForResultClass:[self class]];
     NSString *queryString = [NSString stringWithFormat:@"[%@ = \"%@\"]", CMInternalClassStorageKey, [self class]];
 
     [[CMStore defaultStore] searchUserObjects:queryString
