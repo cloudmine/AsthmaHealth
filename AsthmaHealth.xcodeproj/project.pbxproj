@@ -26,9 +26,6 @@
 		B463CC6E1C4FEB70002B4F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6D1C4FEB70002B4F9C /* LaunchScreen.storyboard */; };
 		B463CC701C4FEB7F002B4F9C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */; };
 		B4A367371C684DA10093A429 /* NSDate+ACM.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A367361C684DA10093A429 /* NSDate+ACM.m */; };
-		B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */; };
-		B4B6F4931C5C05A3002EB098 /* ACMUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F4921C5C05A3002EB098 /* ACMUserController.m */; };
-		B4B6F4961C5C081B002EB098 /* ACMUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F4951C5C081B002EB098 /* ACMUserData.m */; };
 		B4B6F4981C5FD760002EB098 /* MainPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */; };
 		B4B6F49A1C5FECE7002EB098 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B6F4991C5FECE7002EB098 /* Profile.storyboard */; };
 		B4B6F49D1C5FEFF3002EB098 /* ACMProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */; };
@@ -92,12 +89,6 @@
 		B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		B4A367351C684DA10093A429 /* NSDate+ACM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ACM.h"; sourceTree = "<group>"; };
 		B4A367361C684DA10093A429 /* NSDate+ACM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ACM.m"; sourceTree = "<group>"; };
-		B4A9CEC71C57D4CC0073A76F /* ORKResult+CloudMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ORKResult+CloudMine.h"; sourceTree = "<group>"; };
-		B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ORKResult+CloudMine.m"; sourceTree = "<group>"; };
-		B4B6F4911C5C05A3002EB098 /* ACMUserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMUserController.h; sourceTree = "<group>"; };
-		B4B6F4921C5C05A3002EB098 /* ACMUserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMUserController.m; sourceTree = "<group>"; };
-		B4B6F4941C5C081B002EB098 /* ACMUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMUserData.h; sourceTree = "<group>"; };
-		B4B6F4951C5C081B002EB098 /* ACMUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMUserData.m; sourceTree = "<group>"; };
 		B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPanel.storyboard; sourceTree = "<group>"; };
 		B4B6F4991C5FECE7002EB098 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B4B6F49B1C5FEFF3002EB098 /* ACMProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMProfileViewController.h; sourceTree = "<group>"; };
@@ -268,8 +259,6 @@
 				B43ECBD01C50004A00865C5A /* ACMConsentDocument.m */,
 				B43ECBD21C50027500865C5A /* ACMConsentTask.h */,
 				B43ECBD31C50027500865C5A /* ACMConsentTask.m */,
-				B4B6F4941C5C081B002EB098 /* ACMUserData.h */,
-				B4B6F4951C5C081B002EB098 /* ACMUserData.m */,
 				B4F2091A1C65440900F81180 /* ACMSurveyMetaData.h */,
 				B4F2091B1C65440900F81180 /* ACMSurveyMetaData.m */,
 				B4F2091D1C65458300F81180 /* ACMSurveyCollection.h */,
@@ -281,8 +270,6 @@
 		B4B6F4901C5C0564002EB098 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B4B6F4911C5C05A3002EB098 /* ACMUserController.h */,
-				B4B6F4921C5C05A3002EB098 /* ACMUserController.m */,
 				B4F208F11C615F6E00F81180 /* ACMValidators.h */,
 				B4F208F21C615F6E00F81180 /* ACMValidators.m */,
 				B4F208F41C6246C100F81180 /* ACMAlerter.h */,
@@ -294,8 +281,6 @@
 		B4E8DDD91C57D42A00878DE4 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				B4A9CEC71C57D4CC0073A76F /* ORKResult+CloudMine.h */,
-				B4A9CEC81C57D4CC0073A76F /* ORKResult+CloudMine.m */,
 				B4F209251C66F29F00F81180 /* UIViewController+ACM.h */,
 				B4F209261C66F29F00F81180 /* UIViewController+ACM.m */,
 				B4A367351C684DA10093A429 /* NSDate+ACM.h */,
@@ -469,7 +454,6 @@
 				B43ECBDA1C51772300865C5A /* ACMSignUpViewController.m in Sources */,
 				B403FAA01C5806E400146B3C /* ACMSurveyFactory.m in Sources */,
 				B463CC4B1C4FE13D002B4F9C /* ACMConsentViewController.m in Sources */,
-				B4A9CEC91C57D4CC0073A76F /* ORKResult+CloudMine.m in Sources */,
 				B4F208F61C6246C100F81180 /* ACMAlerter.m in Sources */,
 				B4F208F31C615F6E00F81180 /* ACMValidators.m in Sources */,
 				B4B6F49D1C5FEFF3002EB098 /* ACMProfileViewController.m in Sources */,
@@ -477,13 +461,11 @@
 				B43ECBD11C50004A00865C5A /* ACMConsentDocument.m in Sources */,
 				B4F2091C1C65440900F81180 /* ACMSurveyMetaData.m in Sources */,
 				B403FAA31C58097600146B3C /* ACMActivitiesViewController.m in Sources */,
-				B4B6F4961C5C081B002EB098 /* ACMUserData.m in Sources */,
 				B43ECBD41C50027500865C5A /* ACMConsentTask.m in Sources */,
 				B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */,
 				B4F209241C66EB7100F81180 /* ACMMainPanelViewController.m in Sources */,
 				B4F208F01C615C9800F81180 /* ACMLoginViewController.m in Sources */,
 				B4F2092A1C67002600F81180 /* ACMActivityCell.m in Sources */,
-				B4B6F4931C5C05A3002EB098 /* ACMUserController.m in Sources */,
 				B40BDC571C6922F4002AF7AF /* UIColor+ACM.m in Sources */,
 				B4F2091F1C65458300F81180 /* ACMSurveyCollection.m in Sources */,
 				B463CC451C4FE13D002B4F9C /* main.m in Sources */,

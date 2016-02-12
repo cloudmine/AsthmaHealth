@@ -1,6 +1,5 @@
 #import "ACMProfileViewController.h"
-#import "ACMUserController.h"
-#import "ACMUserData.h"
+#import <CMHealth/CMHealth.h>
 #import "ACMAppDelegate.h"
 
 @interface ACMProfileViewController ()
@@ -15,14 +14,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configureWithUserData:[ACMUserController currentUser].userData];
+    [self configureWithUserData:[CMHUser currentUser].userData];
 
     self.logoutButton.layer.borderColor = self.logoutButton.titleLabel.textColor.CGColor;
     self.logoutButton.layer.borderWidth = 1.0f;
     self.logoutButton.layer.cornerRadius = 4.0f;
 }
 
-- (void)configureWithUserData:(ACMUserData *)userData
+- (void)configureWithUserData:(CMHUserData *)userData
 {
     self.emailLabel.text = userData.email;
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", userData.givenName, userData.familyName];
@@ -60,7 +59,7 @@
 
 - (void)logUserOut
 {
-    [[ACMUserController currentUser] logoutWithCompletion:^(NSError * _Nullable error) {
+    [[CMHUser currentUser] logoutWithCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self presentViewController:[ACMProfileViewController modalAlertWithMessage:error.localizedDescription]

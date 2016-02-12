@@ -1,7 +1,7 @@
 #import "ACMLoginViewController.h"
+#import <CMHealth/CMHealth.h>
 #import "ACMValidators.h"
 #import "ACMAlerter.h"
-#import "ACMUserController.h"
 #import "ACMAppDelegate.h"
 #import "UIColor+ACM.h"
 
@@ -45,7 +45,7 @@
         return;
     }
 
-    [ACMUserController.currentUser loginWithEmail:self.emailTextField.text password:self.passwordTextField.text andCompletion:^(NSError * _Nullable error) {
+    [CMHUser.currentUser loginWithEmail:self.emailTextField.text password:self.passwordTextField.text andCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign In Failure", nil)

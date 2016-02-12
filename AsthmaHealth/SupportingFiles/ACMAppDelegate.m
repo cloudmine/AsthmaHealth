@@ -1,8 +1,7 @@
 #import "ACMAppDelegate.h"
 #import <CloudMine/CloudMine.h>
+#import <CMHealth/CMHealth.h>
 #import "Secrets.h"
-#import "ACMUserController.h"
-#import "ACMUserData.h"
 
 @interface ACMAppDelegate ()
 
@@ -23,8 +22,8 @@
     credentials.appIdentifier = ACMAppIdentifier;
     credentials.appSecret = ACMAppSecret;
 
-    if ([ACMUserController currentUser].isLoggedIn) {
-        NSLog(@"Logged in as %@", [ACMUserController currentUser].userData.email);
+    if ([CMHUser currentUser].isLoggedIn) {
+        NSLog(@"Logged in as %@", [CMHUser currentUser].userData.email);
         [self loadMainPanel];
     } else {
         [self loadOnboarding];
