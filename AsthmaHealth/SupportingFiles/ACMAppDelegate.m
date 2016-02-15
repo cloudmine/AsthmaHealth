@@ -1,5 +1,4 @@
 #import "ACMAppDelegate.h"
-#import <CloudMine/CloudMine.h>
 #import <CMHealth/CMHealth.h>
 #import "Secrets.h"
 
@@ -18,9 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    CMAPICredentials *credentials = [CMAPICredentials sharedInstance];
-    credentials.appIdentifier = ACMAppIdentifier;
-    credentials.appSecret = ACMAppSecret;
+    [CMHealth setAppIdentifier:ACMAppIdentifier appSecret:ACMAppSecret];
 
     if ([CMHUser currentUser].isLoggedIn) {
         NSLog(@"Logged in as %@", [CMHUser currentUser].userData.email);
