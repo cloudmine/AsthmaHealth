@@ -31,12 +31,17 @@ PODS:
   - TPKeyboardAvoiding (1.2.11)
 
 DEPENDENCIES:
-  - CMHealth (from `../CMHealth`)
+  - CMHealth (from `git@github.com:cloudmine/CMHealthSDK.git`)
   - TPKeyboardAvoiding (~> 1.2)
 
 EXTERNAL SOURCES:
   CMHealth:
-    :path: ../CMHealth
+    :git: git@github.com:cloudmine/CMHealthSDK.git
+
+CHECKOUT OPTIONS:
+  CMHealth:
+    :commit: 9d12d564e3ddefab7752a9a96217db7911b3ae4a
+    :git: git@github.com:cloudmine/CMHealthSDK.git
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
