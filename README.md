@@ -8,7 +8,8 @@ Requires [CocoaPods](https://cocoapods.org/) for dependency management
 
 ```
 #> git clone git@github.com:cloudmine/AsthmaHealth.git
-#> mv AsthmaHealth/SupportingFiles/Secrets.h-Template AsthmaHealth/SupportingFiles/Secrets.h
+#> cd AsthmaHealth
+#> cp AsthmaHealth/SupportingFiles/Secrets.h-Template AsthmaHealth/SupportingFiles/Secrets.h
 #> pod install
 #> open AsthmaHealth.xcworkspace
 ```

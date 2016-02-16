@@ -1,6 +1,6 @@
 #import "ACMSignUpViewController.h"
+#import <CMHealth/CMHealth.h>
 #import "ACMAppDelegate.h"
-#import "ACMUserController.h"
 #import "ACMValidators.h"
 #import "ACMAlerter.h"
 
@@ -43,7 +43,7 @@
         return;
     }
 
-    [ACMUserController.currentUser signUpWithEmail:self.emailTextField.text
+    [CMHUser.currentUser signUpWithEmail:self.emailTextField.text
                                           password:self.passwordTextField.text
                                         andConsent:self.consentResults
                                     withCompletion:^(NSError * _Nullable error) {

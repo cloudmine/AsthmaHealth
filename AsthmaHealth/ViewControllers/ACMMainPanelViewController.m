@@ -1,5 +1,5 @@
 #import "ACMMainPanelViewController.h"
-#import "ORKResult+CloudMine.h"
+#import <CMHealth/CMHealth.h>
 #import "NSDate+ACM.h"
 #import "UIColor+ACM.h"
 
@@ -25,7 +25,7 @@
 {
     [self showLoading:YES];
 
-    [ORKTaskResult cm_fetchUserResultsWithCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
+    [ORKTaskResult cmh_fetchUserResultsWithCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
         [self showLoading:NO];
 
         if (nil == results) { // TODO: real error handling
@@ -47,7 +47,7 @@
 {
     [self showLoading:YES];
 
-    [surveyResult cm_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
+    [surveyResult cmh_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
         if (nil == uploadStatus) {
             // TODO: reall error handling
             NSLog(@"Survey upload failed: %@", error.localizedDescription);

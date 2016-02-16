@@ -1,6 +1,6 @@
 #import "ACMActivitiesViewController.h"
 #import <ResearchKit/ResearchKit.h>
-#import "ORKResult+CloudMine.h"
+#import <CMHealth/CMHealth.h>
 #import "ACMSurveyCollection.h"
 #import "ACMSurveyMetaData.h"
 #import "ACMSurveyFactory.h"
