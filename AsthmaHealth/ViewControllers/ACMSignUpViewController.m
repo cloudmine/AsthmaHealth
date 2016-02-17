@@ -48,11 +48,13 @@
                                         andConsent:self.consentResults
                                     withCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
-            NSLog(@"Account Creation Failed: %@", error.localizedDescription);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Registration Failed", nil)
+                                       andMessage:error.localizedDescription
+                                 inViewController:self];
+            });
             return;
         }
-
-        NSLog(@"Account Created Successfully");
 
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.appDelegate loadMainPanel];
