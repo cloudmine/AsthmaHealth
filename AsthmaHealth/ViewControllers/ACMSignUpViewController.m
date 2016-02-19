@@ -43,20 +43,30 @@
         return;
     }
 
-    [CMHUser.currentUser signUpWithEmail:self.emailTextField.text
-                                          password:self.passwordTextField.text
-                                        andConsent:self.consentResults
-                                    withCompletion:^(NSError * _Nullable error) {
+    [CMHUser.currentUser signUpWithEmail:self.emailTextField.text password:self.passwordTextField.text andCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
-            NSLog(@"Account Creation Failed: %@", error.localizedDescription);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign up Failed", nil)
+                                       andMessage:error.localizedDescription
+                                 inViewController:self];
+            });
             return;
         }
 
-        NSLog(@"Account Created Successfully");
+        [CMHUser.currentUser uploadUserConsent:self.consentResults forStudyWithDescriptor:@"ACMHealth" andCompletion:^(NSError * _Nullable consentError) {
+            if (nil != error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Saving Consent Failed", nil)
+                                           andMessage:consentError.localizedDescription
+                                     inViewController:self];
+                });
+                return;
+            }
 
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.appDelegate loadMainPanel];
-        });
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.appDelegate loadMainPanel];
+            });
+        }];
     }];
 }
 
