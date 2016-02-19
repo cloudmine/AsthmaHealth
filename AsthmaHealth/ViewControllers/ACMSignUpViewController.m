@@ -54,7 +54,7 @@
         }
 
         [CMHUser.currentUser uploadUserConsent:self.consentResults forStudyWithDescriptor:@"ACMHealth" andCompletion:^(NSError * _Nullable consentError) {
-            if (nil != error) {
+            if (nil != consentError) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Saving Consent Failed", nil)
                                            andMessage:consentError.localizedDescription
