@@ -25,7 +25,7 @@
 {
     [self showLoading:YES];
 
-    [ORKTaskResult cmh_fetchUserResultsWithCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
+    [ORKTaskResult cmh_fetchUserResultsForStudyWithDescriptor:nil withCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
         [self showLoading:NO];
 
         if (nil == results) { // TODO: real error handling
@@ -47,7 +47,7 @@
 {
     [self showLoading:YES];
 
-    [surveyResult cmh_saveWithCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
+    [surveyResult cmh_saveToStudyWithDescriptor:nil withCompletion:^(NSString * _Nullable uploadStatus, NSError * _Nullable error) {
         if (nil == uploadStatus) {
             // TODO: reall error handling
             NSLog(@"Survey upload failed: %@", error.localizedDescription);
