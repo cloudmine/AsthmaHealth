@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" secondItem="N0g-h3-GVd" secondAttribute="height" multiplier="1:1" id="fkp-og-M3w"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CloudMineLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qq1-Dt-mVm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CMHealth.bundle/cloudmine-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="qq1-Dt-mVm">
                                 <rect key="frame" x="480" y="527.5" width="100" height="52.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qq1-Dt-mVm" secondAttribute="height" multiplier="300:158" id="FT1-gt-2pd"/>
@@ -48,7 +48,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CloudMineLogo" width="300" height="158"/>
+        <image name="CMHealth.bundle/cloudmine-logo.png" width="273" height="224"/>
         <image name="ThinLungs" width="273" height="224"/>
     </resources>
 </document>
