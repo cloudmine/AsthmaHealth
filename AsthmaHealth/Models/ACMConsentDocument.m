@@ -42,7 +42,7 @@ static NSString *const ACMSignatureIdentifier = @"ACMConsentParticipantConsentSi
     return @[self.welcomeSection,
              self.testSection,
              self.dataSection,
-             self.secureSection];
+             [CMHealth initCloudMineSecureConsentSection]];
 }
 
 + (ORKConsentSection *)sectionWithType:(ORKConsentSectionType)type title:(NSString *)title customImage:(UIImage *)customImage summary:(NSString *)summary andContent:(NSString *)content
@@ -81,15 +81,6 @@ static NSString *const ACMSignatureIdentifier = @"ACMConsentParticipantConsentSi
                      customImage:nil
                          summary:NSLocalizedString(@"This study will gather location and sensor data from your phone and personal fitness devices (such as Apple Watch) with your permission. You can choose not to do this and still participate in the study.", nil)
                       andContent:NSLocalizedString(@"If you use a personal health device with your iPhone (such as a Apple Watch) and use iOS8 or later (which includes Apple HealthKit), you can choose to include the data from the device in the study. You can set our app to get all, some, or none of the data. You can choose not to do this and still participate in the study.\n\nYou will have the choice to use the asthma app to receive location-specific information such as weather and air quality in your area. If you choose to do so, the asthma app will use the location of your phone to send you information about your general area. The asthma app will record the location of your iPhone (in latitude/longitude coordinate form) as often as once per hour when the app is open in order to help identify location-specific triggers, such as point sources of industrial pollution that may make your asthma worse. You are free to turn off the asthma app's access to your location. If you do this, your location will not be recorded and you will not receive location-specific information about air quality.\n\nWe will NOT access your personal contacts, other applications, phone use habits, text messages, personal photos, or websites visited.", nil)];
-}
-
-+ (ORKConsentSection *)secureSection
-{
-    return [self sectionWithType:ORKConsentSectionTypeCustom
-                           title:NSLocalizedString(@"Your Data is Secure", nil)
-                     customImage:[UIImage imageNamed:@"CloudMineLogo"]
-                         summary:NSLocalizedString(@"Your study data will be stored on the CloudMine Connected Health Cloud, a HIPAA and ISO 27001 compliant healthcare data platform.  Your data is safe with us.", nil)
-                      andContent:NSLocalizedString(@"Data security & governance often hinders the delivery of mobile initiatives by presenting risks to organizations including privacy, authorization and auditability. Building compliant mobile systems requires expertise in constantly evolving regulations. These challenges make for a perfect storm of complexity within healthcare and highly regulated industries, leading to significant friction instead of innovation. CloudMine provides a turn-key compliance framework to manage this moving target.", nil)];
 }
 
 @end
