@@ -93,7 +93,7 @@
                                                     <color key="titleColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="CloudMineLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Hcc-Ny-aXo">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="CMHealth.bundle/cloudmine-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hcc-Ny-aXo">
                                                 <rect key="frame" x="180" y="240" width="240" height="128"/>
                                             </imageView>
                                         </subviews>
@@ -169,6 +169,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CloudMineLogo" width="300" height="158"/>
+        <image name="CMHealth.bundle/cloudmine-logo.png" width="300" height="158"/>
     </resources>
 </document>
