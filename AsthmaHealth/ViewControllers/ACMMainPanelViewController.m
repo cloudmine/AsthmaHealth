@@ -21,6 +21,13 @@
     self.loadingOverlay = [ACMMainPanelViewController loadingIndicatorWithFrame:self.view.frame];
     self.tabBar.tintColor = [UIColor acmBlueColor];
 
+    [self validateConsentAndFetchData];
+}
+
+- (void)validateConsentAndFetchData
+{
+    [self showLoading:YES];
+
     [CMHUser.currentUser fetchUserConsentForStudyWithDescriptor:@"ACMHealth" andCompletion:^(CMHConsent * _Nullable consent, NSError * _Nullable error) {
         if (nil != error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -45,7 +52,7 @@
 
             return;
         }
-
+        
         [self refreshData];
     }];
 }
