@@ -23,13 +23,12 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "cloudmine-icon-2x.png",
+      "filename" : "icon.png",
       "scale" : "2x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "cloudmine-icon-3x.png",
+      "size" : "60x60",
       "scale" : "3x"
     }
   ],
