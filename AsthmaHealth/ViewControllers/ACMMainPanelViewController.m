@@ -2,11 +2,14 @@
 #import <CMHealth/CMHealth.h>
 #import "NSDate+ACM.h"
 #import "UIColor+ACM.h"
+#import "ACMAlerter.h"
+#import "ACMAppDelegate.h"
 
 @interface ACMMainPanelViewController ()
 @property (nonatomic, nullable) UIView *loadingOverlay;
 @property (nonatomic, nullable, readwrite) ORKTaskResult *consentResult;
 @property (nonatomic, nullable, readwrite) NSArray <ORKTaskResult *> *surveyResults;
+@property (nonatomic, nullable, readonly) ACMAppDelegate *appDelegate;
 @end
 
 @implementation ACMMainPanelViewController
@@ -17,8 +20,41 @@
 
     self.loadingOverlay = [ACMMainPanelViewController loadingIndicatorWithFrame:self.view.frame];
     self.tabBar.tintColor = [UIColor acmBlueColor];
-    
-    [self refreshData];
+
+    [self validateConsentAndFetchData];
+}
+
+- (void)validateConsentAndFetchData
+{
+    [self showLoading:YES];
+
+    [CMHUser.currentUser fetchUserConsentForStudyWithDescriptor:@"ACMHealth" andCompletion:^(CMHConsent * _Nullable consent, NSError * _Nullable error) {
+        if (nil != error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Failled to Verify Consent", nil)
+                                       andMessage:[NSString localizedStringWithFormat:@"Please try logging in or completing particpant consent; %@", error.localizedDescription]
+                                 inViewController:self];
+
+                [self.appDelegate loadOnboarding];
+            });
+
+            return;
+        }
+
+        if (nil == consent) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Consent for study not found", nil)
+                                       andMessage:NSLocalizedString(@"Please complete participant consent before proceeding", nil)
+                                 inViewController:self];
+
+                [self.appDelegate loadOnboarding];
+            });
+
+            return;
+        }
+        
+        [self refreshData];
+    }];
 }
 
 - (void)refreshData
@@ -76,6 +112,15 @@
     }
 
     return surveyResultsOnDay.count;
+}
+
+#pragma mark Getters-Setters
+- (ACMAppDelegate *)appDelegate
+{
+    ACMAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSAssert([appDelegate isKindOfClass:[ACMAppDelegate class]], @"App Delegate is unexpected type: %@", [appDelegate class]);
+
+    return appDelegate;
 }
 
 #pragma mark Private
