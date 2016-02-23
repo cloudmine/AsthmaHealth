@@ -1,6 +1,8 @@
 #import "ACMOnboardingViewController.h"
 #import "ACMConsentViewController.h"
 #import "ACMSignUpViewController.h"
+#import "ACMalerter.h"
+#import "ACMAppDelegate.h"
 
 static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
@@ -80,9 +82,35 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)signupViewDidCompleteWithUsername:(NSString *)username andPassword:(NSString *)password
+- (void)signupViewDidCompleteWithEmail:(NSString *)email andPassword:(NSString *)password
 {
+    [self dismissViewControllerAnimated:YES completion:nil];
 
+    [CMHUser.currentUser signUpWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
+        if (nil != error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign up Failed", nil)
+                                       andMessage:error.localizedDescription
+                                 inViewController:self];
+            });
+            return;
+        }
+
+        [CMHUser.currentUser uploadUserConsent:self.consentResults forStudyWithDescriptor:@"ACMHealth" andCompletion:^(NSError * _Nullable consentError) {
+            if (nil != consentError) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Saving Consent Failed", nil)
+                                           andMessage:consentError.localizedDescription
+                                     inViewController:self];
+                });
+                return;
+            }
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.appDelegate loadMainPanel];
+            });
+        }];
+    }];
 }
 
 #pragma mark Private Helprs
@@ -110,6 +138,15 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
                            barMetrics:UIBarMetricsDefault];
     [navigationBar setShadowImage:[UIImage new]];
 
+}
+
+- (ACMAppDelegate *)appDelegate
+{
+    if (![[UIApplication sharedApplication].delegate isKindOfClass:[ACMAppDelegate class]]) {
+        return nil;
+    }
+
+    return [UIApplication sharedApplication].delegate;
 }
 
 @end
