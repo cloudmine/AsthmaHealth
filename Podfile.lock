@@ -23,7 +23,7 @@ PODS:
   - CloudMine (1.7.8):
     - AFNetworking (~> 2.5.4)
     - MAObjCRuntime (~> 0.0.1)
-  - CMHealth (0.1.8):
+  - CMHealth (0.1.9):
     - CloudMine (~> 1.7)
     - ResearchKit (~> 1.3)
   - MAObjCRuntime (0.0.1)
@@ -31,23 +31,23 @@ PODS:
   - TPKeyboardAvoiding (1.2.11)
 
 DEPENDENCIES:
-  - CMHealth (from `git@github.com:cloudmine/CMHealthSDK.git`, tag `0.1.8`)
+  - CMHealth (from `git@github.com:cloudmine/CMHealthSDK.git`, tag `0.1.9`)
   - TPKeyboardAvoiding (~> 1.2)
 
 EXTERNAL SOURCES:
   CMHealth:
     :git: git@github.com:cloudmine/CMHealthSDK.git
-    :tag: 0.1.8
+    :tag: 0.1.9
 
 CHECKOUT OPTIONS:
   CMHealth:
     :git: git@github.com:cloudmine/CMHealthSDK.git
-    :tag: 0.1.8
+    :tag: 0.1.9
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   CloudMine: 90ca98d8a4ff2b782ad8633706dd33adc2be560c
-  CMHealth: d9502a55a9a4d3b0a20f64a260ee5e53b0b47781
+  CMHealth: 209a98be919532934b51313419654bf518e92326
   MAObjCRuntime: a6a1d95acbfa3784d66cb35bd42904e47943b488
   ResearchKit: 934a1efefed1a3a9150002a1e4b123d0c86c3f2e
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
