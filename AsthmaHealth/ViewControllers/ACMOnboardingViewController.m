@@ -4,7 +4,7 @@
 
 static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
-@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate>
+@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHSignupViewDelegate>
 
 @property (nonatomic, nullable) ORKTaskResult* consentResults;
 @property (weak, nonatomic) IBOutlet UIButton *joinStudyButton;
@@ -69,6 +69,22 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark CMHSignupViewDelegate
+
+- (void)signupViewDidCancel
+{
+    if (![self.presentedViewController isKindOfClass:[CMHSignupViewController class]]) {
+        return;
+    }
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)signupViewDidCompleteWithUsername:(NSString *)username andPassword:(NSString *)password
+{
+
+}
+
 #pragma mark Private Helprs
 
 - (void)handleConsentCompleted
@@ -79,8 +95,11 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     self.consentResults = ((ACMConsentViewController *)self.presentedViewController).result;
 
     [self dismissViewControllerAnimated:YES completion:nil];
-    //[self performSegueWithIdentifier:ACMSignUpSegueIdentifier sender:self];
-    [self presentViewController:[CMHSignupViewController signupViewController] animated:YES completion:nil];
+
+    CMHSignupViewController *signupViewController = [CMHSignupViewController signupViewController];
+    signupViewController.delegate = self;
+
+    [self presentViewController:signupViewController animated:YES completion:nil];
 }
 
 - (void)removeNavigationBarDropShadow
