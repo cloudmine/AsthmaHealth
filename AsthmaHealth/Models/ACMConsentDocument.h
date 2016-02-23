@@ -1,5 +1,5 @@
 #import <ResearchKit/ResearchKit.h>
-#import "CMHealth.h"
+#import <CMHealth/CMHealth.h>
 
 @interface ACMConsentDocument : ORKConsentDocument
 

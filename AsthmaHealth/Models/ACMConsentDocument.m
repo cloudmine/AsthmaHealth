@@ -42,7 +42,7 @@ static NSString *const ACMSignatureIdentifier = @"ACMConsentParticipantConsentSi
     return @[self.welcomeSection,
              self.testSection,
              self.dataSection,
-             [CMHealth initCloudMineSecureConsentSection]];
+             [ORKConsentSection cmh_sectionForSecureCloudMineDataStorage]];
 }
 
 + (ORKConsentSection *)sectionWithType:(ORKConsentSectionType)type title:(NSString *)title customImage:(UIImage *)customImage summary:(NSString *)summary andContent:(NSString *)content
