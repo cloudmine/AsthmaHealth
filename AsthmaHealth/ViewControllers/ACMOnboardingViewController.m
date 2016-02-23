@@ -79,7 +79,8 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     self.consentResults = ((ACMConsentViewController *)self.presentedViewController).result;
 
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self performSegueWithIdentifier:ACMSignUpSegueIdentifier sender:self];
+    //[self performSegueWithIdentifier:ACMSignUpSegueIdentifier sender:self];
+    [self presentViewController:[CMHSignupViewController signupViewController] animated:YES completion:nil];
 }
 
 - (void)removeNavigationBarDropShadow
