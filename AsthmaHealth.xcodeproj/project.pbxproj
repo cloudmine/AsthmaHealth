@@ -342,7 +342,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = CloudMine;
+				ORGANIZATIONNAME = "CloudMine, Inc.";
 				TargetAttributes = {
 					B463CC3F1C4FE13D002B4F9C = {
 						CreatedOnToolsVersion = 7.2;
