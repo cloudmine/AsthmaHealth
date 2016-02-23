@@ -1,6 +1,5 @@
 #import "ACMOnboardingViewController.h"
 #import "ACMConsentViewController.h"
-#import "ACMSignUpViewController.h"
 #import "ACMalerter.h"
 #import "ACMAppDelegate.h"
 
@@ -38,9 +37,6 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     if ([segue.destinationViewController isKindOfClass:[ACMConsentViewController class]]) {
         ACMConsentViewController *consentVC = (ACMConsentViewController *)segue.destinationViewController;
         consentVC.delegate = self;
-    } else if ([segue.destinationViewController isKindOfClass:[ACMSignUpViewController class]] && nil != self.consentResults) {
-        ACMSignUpViewController * signupVC = (ACMSignUpViewController *)segue.destinationViewController;
-        signupVC.consentResults = self.consentResults;
     }
 }
 
