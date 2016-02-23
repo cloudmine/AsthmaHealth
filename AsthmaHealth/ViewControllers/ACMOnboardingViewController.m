@@ -10,6 +10,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
 @property (nonatomic, nullable) ORKTaskResult* consentResults;
 @property (weak, nonatomic) IBOutlet UIButton *joinStudyButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -18,6 +19,8 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self.activityIndicator stopAnimating];
 
     self.joinStudyButton.layer.borderColor = self.joinStudyButton.titleLabel.textColor.CGColor;
     self.joinStudyButton.layer.borderWidth = 1.0f;
@@ -84,6 +87,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
 - (void)signupViewDidCompleteWithEmail:(NSString *)email andPassword:(NSString *)password
 {
+    [self.activityIndicator startAnimating];
     [self dismissViewControllerAnimated:YES completion:nil];
 
     [CMHUser.currentUser signUpWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
