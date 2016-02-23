@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "cloudmine-logo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "lungs-white.png",
       "scale" : "2x"
     },
     {
