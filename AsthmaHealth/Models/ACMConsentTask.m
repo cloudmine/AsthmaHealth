@@ -17,7 +17,7 @@ static NSString *const ACMConsentTaskIdentifier     = @"ACMParticipantConsentTas
     ORKVisualConsentStep *consentStep = [[ORKVisualConsentStep alloc] initWithIdentifier:ACMConsentStepIdentifier document:consentDoc];
 
     ORKConsentReviewStep *reviewStep = [[ORKConsentReviewStep alloc] initWithIdentifier:ACMReviewConsentIdentifier signature:consentDoc.signatures.firstObject inDocument:consentDoc];
-    reviewStep.reasonForConsent = NSLocalizedString(@"Consent to Join ACM Study", nil);
+    reviewStep.reasonForConsent = NSLocalizedString(@"ACMConsentTaskReason", nil);
 
     ACMConsentTask *consentTask = [[ACMConsentTask alloc] initWithIdentifier:ACMConsentTaskIdentifier steps:@[consentStep, self.sharingOptionStep, reviewStep]];
 
@@ -31,8 +31,8 @@ static NSString *const ACMConsentTaskIdentifier     = @"ACMParticipantConsentTas
     ORKTextChoiceAnswerFormat *format = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleSingleChoice textChoices:self.sharingChoices];
 
     ORKQuestionStep *question = [ORKQuestionStep questionStepWithIdentifier:ACMSharingQuestionIdentifier
-                                                                      title:NSLocalizedString(@"Sharing Option", nil)
-                                                                       text:NSLocalizedString(@"Mount Sinai will receive your study data from your participation in this study.\n\nSharing your coded study data more broadly (without information such as your name) may benefit this and future research.", nil)
+                                                                      title:NSLocalizedString(@"ACMConsentTaskSharingOptionTitle", nil)
+                                                                       text:NSLocalizedString(@"ACMConsentTaskSharingOptionText", nil)
                                                                      answer:format];
     question.optional = NO;
     
@@ -41,12 +41,12 @@ static NSString *const ACMConsentTaskIdentifier     = @"ACMParticipantConsentTas
 
 + (NSArray<ORKTextChoice *> *)sharingChoices
 {
-    ORKTextChoice *choice1 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"Share my data with Mount Sinai and qualified researchers worldwide", nil)
+    ORKTextChoice *choice1 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"ACMConsentTaskSharingChoicesText1", nil)
                                                       detailText:nil
                                                            value:@"ACMSharingOptionBroad"
                                                        exclusive:YES];
 
-    ORKTextChoice *choice2 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"Only share my data with Mount Sinai and its partners", nil)
+    ORKTextChoice *choice2 = [[ORKTextChoice alloc] initWithText:NSLocalizedString(@"ACMConsentTaskSharingChoicesText2", nil)
                                                       detailText:nil
                                                            value:@"ACMSharingOptionNarrow"
                                                        exclusive:YES];
