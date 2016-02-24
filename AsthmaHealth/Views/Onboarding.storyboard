@@ -131,20 +131,11 @@
                     <connections>
                         <outlet property="activityIndicator" destination="EY6-Wk-nK9" id="iLW-ol-HfX"/>
                         <outlet property="joinStudyButton" destination="VqH-dx-qG6" id="nKm-t8-pnb"/>
-                        <segue destination="4FL-vY-gdg" kind="show" identifier="ACMSignUpSegue" id="1yr-Yz-fXh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTt-yH-Gho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="499" y="414"/>
-        </scene>
-        <!--SignUp-->
-        <scene sceneID="lbq-9e-juG">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SignUp" id="4FL-vY-gdg" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nEu-et-l0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1035" y="390"/>
         </scene>
         <!--Consent-->
         <scene sceneID="4TC-ht-DwC">
