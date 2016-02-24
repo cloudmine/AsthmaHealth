@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		394D27665E5672044448CDCF /* libPods-AsthmaHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */; };
+		6C3423B11C7D68FA008FFC8E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C3423B01C7D68FA008FFC8E /* Localizable.strings */; };
 		6CC736FD1C7BF8F700F6CBE3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC736FC1C7BF8F700F6CBE3 /* HealthKit.framework */; };
 		B403FA9D1C58002300146B3C /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B403FA9C1C58002300146B3C /* Activities.storyboard */; };
 		B403FAA01C5806E400146B3C /* ACMSurveyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FA9F1C5806E400146B3C /* ACMSurveyFactory.m */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsthmaHealth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCA5FDF42D14EBE6C192A99 /* Pods-AsthmaHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.debug.xcconfig"; sourceTree = "<group>"; };
+		6C3423B01C7D68FA008FFC8E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6CC736FC1C7BF8F700F6CBE3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		6CC736FE1C7BF8F700F6CBE3 /* AsthmaHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AsthmaHealth.entitlements; sourceTree = "<group>"; };
 		B403FA9C1C58002300146B3C /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		B463CC431C4FE13D002B4F9C /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				6C3423B01C7D68FA008FFC8E /* Localizable.strings */,
 				B463CC461C4FE13D002B4F9C /* ACMAppDelegate.h */,
 				B463CC471C4FE13D002B4F9C /* ACMAppDelegate.m */,
 				B463CC441C4FE13D002B4F9C /* main.m */,
@@ -209,22 +212,22 @@
 		B463CC6B1C4FEA2E002B4F9C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B43ECBCC1C4FF9D800865C5A /* ACMOnboardingViewController.h */,
-				B43ECBCD1C4FF9D800865C5A /* ACMOnboardingViewController.m */,
+				B403FAA11C58097600146B3C /* ACMActivitiesViewController.h */,
+				B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */,
 				B463CC491C4FE13D002B4F9C /* ACMConsentViewController.h */,
 				B463CC4A1C4FE13D002B4F9C /* ACMConsentViewController.m */,
+				B4F209081C62A5D400F81180 /* ACMDashboardViewController.h */,
+				B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */,
 				B4F208EE1C615C9800F81180 /* ACMLoginViewController.h */,
 				B4F208EF1C615C9800F81180 /* ACMLoginViewController.m */,
 				B4F209221C66EB7100F81180 /* ACMMainPanelViewController.h */,
 				B4F209231C66EB7100F81180 /* ACMMainPanelViewController.m */,
-				B403FAA11C58097600146B3C /* ACMActivitiesViewController.h */,
-				B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */,
-				B403FA9E1C5806E400146B3C /* ACMSurveyFactory.h */,
-				B403FA9F1C5806E400146B3C /* ACMSurveyFactory.m */,
+				B43ECBCC1C4FF9D800865C5A /* ACMOnboardingViewController.h */,
+				B43ECBCD1C4FF9D800865C5A /* ACMOnboardingViewController.m */,
 				B4B6F49B1C5FEFF3002EB098 /* ACMProfileViewController.h */,
 				B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */,
-				B4F209081C62A5D400F81180 /* ACMDashboardViewController.h */,
-				B4F209091C62A5D400F81180 /* ACMDashboardViewController.m */,
+				B403FA9E1C5806E400146B3C /* ACMSurveyFactory.h */,
+				B403FA9F1C5806E400146B3C /* ACMSurveyFactory.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				B403FA9D1C58002300146B3C /* Activities.storyboard in Resources */,
 				B4B6F49A1C5FECE7002EB098 /* Profile.storyboard in Resources */,
 				B4B6F4981C5FD760002EB098 /* MainPanel.storyboard in Resources */,
+				6C3423B11C7D68FA008FFC8E /* Localizable.strings in Resources */,
 				B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */,
 				B4F209211C65B38800F81180 /* Learn.storyboard in Resources */,
 				B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */,
