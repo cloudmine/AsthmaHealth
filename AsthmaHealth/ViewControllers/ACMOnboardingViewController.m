@@ -154,7 +154,20 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
 - (void)loginWithEmail:(NSString *_Nonnull)email andPassword:(NSString *_Nonnull)password
 {
+    [CMHUser.currentUser loginWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
+        if (nil != error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign In Failure", nil)
+                                       andMessage:[NSString localizedStringWithFormat:@"Sign in failed, please try again. %@", error.localizedDescription]
+                                 inViewController:self];
+            });
+            return;
+        }
 
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.appDelegate loadMainPanel];
+        });
+    }];
 }
 
 - (void)removeNavigationBarDropShadow
