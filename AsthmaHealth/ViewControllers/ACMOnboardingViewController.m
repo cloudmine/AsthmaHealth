@@ -40,6 +40,15 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     }
 }
 
+#pragma mark Target/Action
+- (IBAction)loginButtonDidPress:(UIButton *)sender
+{
+    CMHAuthViewController *loginViewController = [CMHAuthViewController loginViewController];
+    loginViewController.delegate = self;
+    [self presentViewController:loginViewController animated:YES completion:nil];
+}
+
+
 #pragma mark ORKTaskViewControllerDelegate
 
 - (void)taskViewController:(ORKTaskViewController *)taskViewController didFinishWithReason:(ORKTaskViewControllerFinishReason)reason error:(NSError *)error
@@ -72,7 +81,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
 #pragma mark CMHAuthViewDelegate
 
-- (void)authViewDidCancel
+- (void)authViewCancelledType:(CMHAuthType)authType
 {
     if (![self.presentedViewController isKindOfClass:[CMHAuthViewController class]]) {
         return;
@@ -81,11 +90,41 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)authViewDidSubmitWithEmail:(NSString *)email andPassword:(NSString *)password
+- (void)authViewOfType:(CMHAuthType)authType didSubmitWithEmail:(NSString *)email andPassword:(NSString *)password
 {
     [self.activityIndicator startAnimating];
     [self dismissViewControllerAnimated:YES completion:nil];
 
+    switch (authType) {
+        case CMHAuthTypeLogin:
+            [self loginWithEmail:email andPassword:password];
+            break;
+        case CMHAuthTypeSignup:
+            [self signupWithEmail:email andPassword:password];
+        default:
+            break;
+    }
+}
+
+#pragma mark Private Helprs
+
+- (void)handleConsentCompleted
+{
+    NSAssert([self.presentedViewController isKindOfClass:[ACMConsentViewController class]],
+             @"Attempted -handleConsentCompletd when a ACMConsentViewController was not presented");
+
+    self.consentResults = ((ACMConsentViewController *)self.presentedViewController).result;
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    CMHAuthViewController *signupViewController = [CMHAuthViewController signupViewController];
+    signupViewController.delegate = self;
+
+    [self presentViewController:signupViewController animated:YES completion:nil];
+}
+
+- (void)signupWithEmail:(NSString *_Nonnull)email andPassword:(NSString *_Nonnull)password
+{
     [CMHUser.currentUser signUpWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -113,21 +152,9 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     }];
 }
 
-#pragma mark Private Helprs
-
-- (void)handleConsentCompleted
+- (void)loginWithEmail:(NSString *_Nonnull)email andPassword:(NSString *_Nonnull)password
 {
-    NSAssert([self.presentedViewController isKindOfClass:[ACMConsentViewController class]],
-             @"Attempted -handleConsentCompletd when a ACMConsentViewController was not presented");
 
-    self.consentResults = ((ACMConsentViewController *)self.presentedViewController).result;
-
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-    CMHAuthViewController *signupViewController = [CMHAuthViewController signupViewController];
-    signupViewController.delegate = self;
-
-    [self presentViewController:signupViewController animated:YES completion:nil];
 }
 
 - (void)removeNavigationBarDropShadow
