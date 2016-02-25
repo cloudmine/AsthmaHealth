@@ -5,7 +5,7 @@
 
 static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
-@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHSignupViewDelegate>
+@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHAuthViewDelegate>
 
 @property (nonatomic, nullable) ORKTaskResult* consentResults;
 @property (weak, nonatomic) IBOutlet UIButton *joinStudyButton;
@@ -70,9 +70,9 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark CMHSignupViewDelegate
+#pragma mark CMHAuthViewDelegate
 
-- (void)signupViewDidCancel
+- (void)authViewDidCancel
 {
     if (![self.presentedViewController isKindOfClass:[CMHAuthViewController class]]) {
         return;
@@ -81,7 +81,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)signupViewDidCompleteWithEmail:(NSString *)email andPassword:(NSString *)password
+- (void)authViewDidSubmitWithEmail:(NSString *)email andPassword:(NSString *)password
 {
     [self.activityIndicator startAnimating];
     [self dismissViewControllerAnimated:YES completion:nil];
