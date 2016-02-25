@@ -6,6 +6,7 @@ pod-update: clean-xcode clean-pods
 	pod install
 
 clean-xcode:
+	-@rm -rf ~/Library/Developer/Xcode/DerivedData/AsthmaHealth-*
 	xcodebuild -alltargets clean
 
 clean-pods:

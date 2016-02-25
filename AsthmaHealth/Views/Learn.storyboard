@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2wi-Wf-Jas">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2wi-Wf-Jas">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -129,8 +129,8 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="vAe-t2-oB3"/>
                                                     <exclude reference="cvM-Zj-hhM"/>
+                                                    <exclude reference="vAe-t2-oB3"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -177,12 +177,13 @@
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By2-Yd-18m">
                                                 <rect key="frame" x="20" y="202" width="560" height="286.5"/>
-                                                <mutableString key="text">Our team at the Icahn School of Medicine at Mount Sinai invites you to join our Asthma Mobile Health study.  This app is a personalized tool that helps you to gain greater insight into your asthma, adhere to treatment plans, avoid triggers, and take charge of your health.
+                                                <string key="text">Our team at ACME Hospital invite you to join our Asthma Mobile Health study.  This app is a personalized tool that helps you to gain greater insight into your asthma, adhere to treatment plans, avoid triggers, and take charge of your health.
 
-This app is designed for research and educational purposes only. You should not rely on this information as a substitute for personal medical attention, diagnosis or hands-on treatment. If you are concerned about your health or that of a child, please consult your family's health provider immediately. Do not wait for a response from our professionals.</mutableString>
+This app is designed for research and educational purposes only. You should not rely on this information as a substitute for personal medical attention, diagnosis or hands-on treatment. If you are concerned about your health or that of a child, please consult your family's health provider immediately. Do not wait for a response from our professionals.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <string key="userLabel">Our team at ACME Hospital invite you to join our Asthma Mobile Health study.  This app is a personalized tool that helps you to gain greater insight into your asthma, adhere to treatment plans, avoid triggers, and take charge of your health.  This app is designed for research and educational purposes only. You should not rely on this information as a substitute for personal medical attention, diagnosis or hands-on treatment. If you are concerned about your health or that of a child, please consult your family's health provider immediately. Do not wait for a response from our professionals.</string>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
