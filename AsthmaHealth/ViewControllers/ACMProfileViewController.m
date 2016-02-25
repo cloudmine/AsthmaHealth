@@ -89,9 +89,7 @@
     [[CMHUser currentUser] logoutWithCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self presentViewController:[ACMProfileViewController modalAlertWithMessage:error.localizedDescription]
-                                   animated:YES
-                                 completion:nil];
+                [ACMAlerter displayAlertWithTitle:nil andMessage:error.localizedDescription inViewController:self];
             });
 
             return;
@@ -101,15 +99,6 @@
             [self.appDelegate loadOnboarding];
         });
     }];
-}
-
-+ (UIAlertController *)modalAlertWithMessage:(NSString *)message
-{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
-                                              style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction * _Nonnull action) { }]];
-    return alert;
 }
 
 + (MFMailComposeViewController *)mailComposeViewControllerWithDelegate:(id<MFMailComposeViewControllerDelegate>)delegate
