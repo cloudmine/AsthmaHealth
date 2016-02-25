@@ -17,21 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     [self configureWithUserData:[CMHUser currentUser].userData];
+    [ACMProfileViewController styleButtons:@[self.logoutButton, self.emailButton, self.learnButton]];
 
     self.mailViewController = [ACMProfileViewController mailComposeViewControllerWithDelegate:self];
-
-    self.logoutButton.layer.borderColor = self.logoutButton.titleLabel.textColor.CGColor;
-    self.logoutButton.layer.borderWidth = 1.0f;
-    self.logoutButton.layer.cornerRadius = 4.0f;
-    
-    self.emailButton.layer.borderColor = self.logoutButton.layer.borderColor;
-    self.emailButton.layer.borderWidth = 1.0f;
-    self.emailButton.layer.cornerRadius = 4.0f;
-    
-    self.learnButton.layer.borderColor = self.logoutButton.layer.borderColor;
-    self.learnButton.layer.borderWidth = 1.0f;
-    self.learnButton.layer.cornerRadius = 4.0f;
 }
 
 - (void)configureWithUserData:(CMHUserData *)userData
@@ -135,6 +125,15 @@
     [composeVC setMessageBody:@"I would like to learn more about ResearchKit and the CloudMine Connected Health Cloud." isHTML:NO];
 
     return composeVC;
+}
+
++ (void)styleButtons:(NSArray<UIButton *> *)buttons
+{
+    for (UIButton *aButton in buttons) {
+        aButton.layer.borderColor = aButton.titleLabel.textColor.CGColor;
+        aButton.layer.borderWidth = 1.0f;
+        aButton.layer.cornerRadius = 4.0f;
+    }
 }
 
 - (ACMAppDelegate *)appDelegate
