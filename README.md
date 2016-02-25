@@ -7,6 +7,7 @@ Rewrite of the ResearchKit [AsthmaHealth](https://github.com/ResearchKit/AsthmaH
 Requires [CocoaPods](https://cocoapods.org/) for dependency management
 
 ```
+#> sudo gem install cocoapods
 #> git clone git@github.com:cloudmine/AsthmaHealth.git
 #> cd AsthmaHealth
 #> cp AsthmaHealth/SupportingFiles/Secrets.h-Template AsthmaHealth/SupportingFiles/Secrets.h
