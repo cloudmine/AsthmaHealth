@@ -74,7 +74,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
 - (void)signupViewDidCancel
 {
-    if (![self.presentedViewController isKindOfClass:[CMHSignupViewController class]]) {
+    if (![self.presentedViewController isKindOfClass:[CMHAuthViewController class]]) {
         return;
     }
 
@@ -124,7 +124,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
     [self dismissViewControllerAnimated:YES completion:nil];
 
-    CMHSignupViewController *signupViewController = [CMHSignupViewController signupViewController];
+    CMHAuthViewController *signupViewController = [CMHAuthViewController signupViewController];
     signupViewController.delegate = self;
 
     [self presentViewController:signupViewController animated:YES completion:nil];
