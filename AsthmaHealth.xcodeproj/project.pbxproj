@@ -28,8 +28,6 @@
 		B4B6F4981C5FD760002EB098 /* MainPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */; };
 		B4B6F49A1C5FECE7002EB098 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B6F4991C5FECE7002EB098 /* Profile.storyboard */; };
 		B4B6F49D1C5FEFF3002EB098 /* ACMProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */; };
-		B4F208ED1C6152BB00F81180 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F208EC1C6152BB00F81180 /* Login.storyboard */; };
-		B4F208F01C615C9800F81180 /* ACMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208EF1C615C9800F81180 /* ACMLoginViewController.m */; };
 		B4F208F31C615F6E00F81180 /* ACMValidators.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F21C615F6E00F81180 /* ACMValidators.m */; };
 		B4F208F61C6246C100F81180 /* ACMAlerter.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F208F51C6246C100F81180 /* ACMAlerter.m */; };
 		B4F209071C62A2CE00F81180 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F209061C62A2CE00F81180 /* Dashboard.storyboard */; };
@@ -91,9 +89,6 @@
 		B4B6F4991C5FECE7002EB098 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B4B6F49B1C5FEFF3002EB098 /* ACMProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMProfileViewController.h; sourceTree = "<group>"; };
 		B4B6F49C1C5FEFF3002EB098 /* ACMProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMProfileViewController.m; sourceTree = "<group>"; };
-		B4F208EC1C6152BB00F81180 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		B4F208EE1C615C9800F81180 /* ACMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMLoginViewController.h; sourceTree = "<group>"; };
-		B4F208EF1C615C9800F81180 /* ACMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMLoginViewController.m; sourceTree = "<group>"; };
 		B4F208F11C615F6E00F81180 /* ACMValidators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMValidators.h; sourceTree = "<group>"; };
 		B4F208F21C615F6E00F81180 /* ACMValidators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMValidators.m; sourceTree = "<group>"; };
 		B4F208F41C6246C100F81180 /* ACMAlerter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMAlerter.h; sourceTree = "<group>"; };
@@ -238,7 +233,6 @@
 				B463CC4F1C4FE13D002B4F9C /* Assets.xcassets */,
 				B463CC6F1C4FEB7F002B4F9C /* Onboarding.storyboard */,
 				B43ECBCA1C4FF8DF00865C5A /* Consent.storyboard */,
-				B4F208EC1C6152BB00F81180 /* Login.storyboard */,
 				B4B6F4971C5FD760002EB098 /* MainPanel.storyboard */,
 				B403FA9C1C58002300146B3C /* Activities.storyboard */,
 				B4F209281C67002600F81180 /* ACMActivityCell.h */,
@@ -387,7 +381,6 @@
 				B463CC501C4FE13D002B4F9C /* Assets.xcassets in Resources */,
 				B4F209211C65B38800F81180 /* Learn.storyboard in Resources */,
 				B43ECBCB1C4FF8DF00865C5A /* Consent.storyboard in Resources */,
-				B4F208ED1C6152BB00F81180 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +459,6 @@
 				B43ECBD41C50027500865C5A /* ACMConsentTask.m in Sources */,
 				B4F2090A1C62A5D400F81180 /* ACMDashboardViewController.m in Sources */,
 				B4F209241C66EB7100F81180 /* ACMMainPanelViewController.m in Sources */,
-				B4F208F01C615C9800F81180 /* ACMLoginViewController.m in Sources */,
 				B4F2092A1C67002600F81180 /* ACMActivityCell.m in Sources */,
 				B40BDC571C6922F4002AF7AF /* UIColor+ACM.m in Sources */,
 				B4F2091F1C65458300F81180 /* ACMSurveyCollection.m in Sources */,

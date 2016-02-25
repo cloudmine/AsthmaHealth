@@ -67,7 +67,7 @@
                                     <color key="titleColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xBC-Si-tHR" kind="show" id="tNe-0u-nkC"/>
+                                    <action selector="loginButtonDidPress:" destination="OwB-5f-5u0" eventType="touchUpInside" id="CKU-Df-sDf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asthma" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOr-VQ-HZ9">
@@ -144,14 +144,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNH-WP-agK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1038.5" y="438"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="soQ-V2-YMM">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="xBC-Si-tHR" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7iX-Q4-vEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1030" y="483"/>
         </scene>
     </scenes>
     <resources>
