@@ -1,6 +1,6 @@
 /* consent flow */
 
-"ACHConsentReviewContent" = "<center><h3>ACME HOSPITAL<br> CONSENT FORM TO VOLUNTEER IN A RESEARCH STUDY<br> AND AUTHORIZATION FOR USE AND DISCLOSURE OF MEDICAL INFORMATION</h3></center> <p>&nbsp;</p> <p><strong>TITLE OF RESEARCH STUDY:</strong>CloudMine ResearchKit Demo Application<p><strong>PRINCIPAL INVESTIGATOR (HEAD RESEARCHER) NAME AND CONTACT INFORMATION:</strong></p> <p style=padding-left:10px> Name: CloudMine, Inc.<br> Mailing Address: 1217 Sansom Street, Philadelphia, PA 19107<br> Phone: +1.855.662.7722<br> Email: <a href=mailto:sales@cloudmineinc.com;>sales@cloudmineinc.comu</a>";
+"ACHConsentReviewContent" = "<center><h3>ACME HOSPITAL<br> CONSENT FORM TO VOLUNTEER IN A RESEARCH STUDY<br> AND AUTHORIZATION FOR USE AND DISCLOSURE OF MEDICAL INFORMATION</h3></center> <p>&nbsp;</p> <p><strong>TITLE OF RESEARCH STUDY:</strong>CloudMine ResearchKit Demo Application<p><strong>PRINCIPAL INVESTIGATOR (HEAD RESEARCHER) NAME AND CONTACT INFORMATION:</strong></p> <p style=padding-left:10px> Name: CloudMine, Inc.<br> Mailing Address: 1217 Sansom Street, Philadelphia, PA 19107<br> Phone: +1.855.662.7722<br> Email: <a href=mailto:sales@cloudmineinc.com;>sales@cloudmineinc.com</a>";
 
 "ACHConsentSectionWelcomeSummary" = "ACME Hospital is doing a research study about whether an asthma app on your iPhone will help you to monitor your asthma. This simple walkthrough will help you to understand the study, the impact it will have on your life, and will allow you to provide consent to participate.";
 
