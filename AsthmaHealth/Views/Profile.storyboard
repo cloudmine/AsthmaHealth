@@ -39,8 +39,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6p-T0-7ZN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21B-AV-dMS" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21B-AV-dMS" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="499"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcW-d3-FiX" userLabel="Name Label">
                                                 <rect key="frame" x="116" y="36" width="107" height="24"/>
@@ -86,16 +86,67 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Thank you for trying the CloudMine Demo ResearchKit app.  To learn more about the CloudMine Connected Health Cloud you can" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlr-wZ-Hsm" userLabel="Thank You">
+                                                <rect key="frame" x="99" y="255" width="400" height="107.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knm-5g-aAt">
+                                                <rect key="frame" x="102" y="371" width="397" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="165" id="2YV-b8-Ysg"/>
+                                                    <constraint firstAttribute="height" constant="37" id="oc0-C5-g13"/>
+                                                </constraints>
+                                                <state key="normal" title="visit CloudMine on the web">
+                                                    <color key="titleColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="2YV-b8-Ysg"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="learnButtonDidPress:" destination="Dgh-54-Glc" eventType="touchUpInside" id="dDA-5l-Ob2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeK-zH-2GM">
+                                                <rect key="frame" x="139" y="442" width="322" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="165" id="1rw-fb-QkJ"/>
+                                                    <constraint firstAttribute="height" constant="37" id="Z9R-lN-9rs"/>
+                                                </constraints>
+                                                <state key="normal" title="Send an email to the CloudMine Sales Team">
+                                                    <color key="titleColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="1rw-fb-QkJ"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="emailButtonDidPress:" destination="Dgh-54-Glc" eventType="touchUpInside" id="K3l-KL-Dzw"/>
+                                                </connections>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="or" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPw-sm-61d" userLabel="or">
+                                                <rect key="frame" x="123" y="406" width="354" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" red="0.050980392159999999" green="0.58823529409999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BcW-d3-FiX" secondAttribute="trailing" constant="20" symbolic="YES" id="6ts-Uf-45K"/>
+                                            <constraint firstItem="MeK-zH-2GM" firstAttribute="top" secondItem="21B-AV-dMS" secondAttribute="top" constant="311" id="9LI-Q9-MGZ"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="43J-bw-Acp" secondAttribute="trailing" constant="20" symbolic="YES" id="BLb-Aw-JL9"/>
+                                            <constraint firstAttribute="bottom" secondItem="MeK-zH-2GM" secondAttribute="bottom" constant="69" id="DHj-cg-cTx"/>
                                             <constraint firstItem="BcW-d3-FiX" firstAttribute="bottom" secondItem="iTz-0L-4zv" secondAttribute="centerY" id="HfQ-y8-0AI"/>
                                             <constraint firstItem="43J-bw-Acp" firstAttribute="leading" secondItem="BcW-d3-FiX" secondAttribute="leading" id="Nn9-8O-Njd"/>
                                             <constraint firstItem="iTz-0L-4zv" firstAttribute="top" secondItem="21B-AV-dMS" secondAttribute="top" constant="20" id="TsK-nN-5wa"/>
                                             <constraint firstItem="QUQ-6Y-0kc" firstAttribute="centerX" secondItem="21B-AV-dMS" secondAttribute="centerX" id="YOt-RI-gUh"/>
-                                            <constraint firstAttribute="bottom" secondItem="QUQ-6Y-0kc" secondAttribute="bottom" constant="20" symbolic="YES" id="e14-YY-Lb3"/>
                                             <constraint firstItem="43J-bw-Acp" firstAttribute="top" secondItem="BcW-d3-FiX" secondAttribute="bottom" constant="2" id="gBl-Ff-LFO"/>
                                             <constraint firstItem="QUQ-6Y-0kc" firstAttribute="top" secondItem="iTz-0L-4zv" secondAttribute="bottom" constant="30" id="muV-pO-ATM"/>
                                             <constraint firstItem="QUQ-6Y-0kc" firstAttribute="top" secondItem="43J-bw-Acp" secondAttribute="bottom" constant="50" id="oOi-Ui-zHu"/>
@@ -140,7 +191,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="e7j-he-fI9"/>
                     <connections>
+                        <outlet property="emailButton" destination="MeK-zH-2GM" id="Zey-lG-5Zn"/>
                         <outlet property="emailLabel" destination="43J-bw-Acp" id="Adq-vF-mDR"/>
+                        <outlet property="learnButton" destination="Knm-5g-aAt" id="Vdh-eH-jf7"/>
                         <outlet property="logoutButton" destination="QUQ-6Y-0kc" id="9lc-pl-hOr"/>
                         <outlet property="nameLabel" destination="BcW-d3-FiX" id="0lj-rH-BAl"/>
                     </connections>

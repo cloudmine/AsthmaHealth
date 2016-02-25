@@ -6,6 +6,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UIButton *learnButton;
+@property (weak, nonatomic) IBOutlet UIButton *emailButton;
 
 @end
 
@@ -19,6 +21,14 @@
     self.logoutButton.layer.borderColor = self.logoutButton.titleLabel.textColor.CGColor;
     self.logoutButton.layer.borderWidth = 1.0f;
     self.logoutButton.layer.cornerRadius = 4.0f;
+    
+    self.emailButton.layer.borderColor = self.logoutButton.layer.borderColor;
+    self.emailButton.layer.borderWidth = 1.0f;
+    self.emailButton.layer.cornerRadius = 4.0f;
+    
+    self.learnButton.layer.borderColor = self.logoutButton.layer.borderColor;
+    self.learnButton.layer.borderWidth = 1.0f;
+    self.learnButton.layer.cornerRadius = 4.0f;
 }
 
 - (void)configureWithUserData:(CMHUserData *)userData
@@ -32,6 +42,35 @@
 - (IBAction)logoutButtonDidPress:(UIButton *)sender
 {
     [self presentViewController:self.logoutConfirmationAlert animated:YES completion:nil];
+}
+
+- (IBAction)learnButtonDidPress:(UIButton *)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://cloudmineinc.com"]];
+}
+
+- (IBAction)emailButtonDidPress:(id)sender {
+    
+    if (![MFMailComposeViewController canSendMail]) {
+        NSLog(@"Mail services are not available.");
+        return;
+    }
+    
+    MFMailComposeViewController* composeVC = [[MFMailComposeViewController alloc] init];
+    composeVC.mailComposeDelegate = self;
+    
+    [composeVC setToRecipients:@[@"sales@cloudmineinc.com"]];
+    [composeVC setSubject:@"CHC inquiry - AsthmaHealth"];
+    [composeVC setMessageBody:@"I would like to learn more about ResearchKit and the CloudMine Connected Health Cloud." isHTML:NO];
+    
+    [self presentViewController:composeVC animated:YES completion:nil];
+    
+}
+     
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark Private
