@@ -1,6 +1,7 @@
 #import "ACMProfileViewController.h"
 #import <CMHealth/CMHealth.h>
 #import "ACMAppDelegate.h"
+#import "ACMAlerter.h"
 
 @interface ACMProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
@@ -8,7 +9,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIButton *learnButton;
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
-
+@property (nonatomic) MFMailComposeViewController *mailViewController;
 @end
 
 @implementation ACMProfileViewController
@@ -17,6 +18,8 @@
 {
     [super viewDidLoad];
     [self configureWithUserData:[CMHUser currentUser].userData];
+
+    self.mailViewController = [ACMProfileViewController mailComposeViewControllerWithDelegate:self];
 
     self.logoutButton.layer.borderColor = self.logoutButton.titleLabel.textColor.CGColor;
     self.logoutButton.layer.borderWidth = 1.0f;
@@ -49,22 +52,17 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://cloudmineinc.com"]];
 }
 
-- (IBAction)emailButtonDidPress:(id)sender {
-    
-    if (![MFMailComposeViewController canSendMail]) {
-        NSLog(@"Mail services are not available.");
+- (IBAction)emailButtonDidPress:(id)sender
+{
+    if (nil == self.mailViewController) {
+        [ACMAlerter displayAlertWithTitle:nil
+                               andMessage:NSLocalizedString(@"The mail app is not configured on your device.", nil)
+                         inViewController:self];
+
         return;
     }
-    
-    MFMailComposeViewController* composeVC = [[MFMailComposeViewController alloc] init];
-    composeVC.mailComposeDelegate = self;
-    
-    [composeVC setToRecipients:@[@"sales@cloudmineinc.com"]];
-    [composeVC setSubject:@"CHC inquiry - AsthmaHealth"];
-    [composeVC setMessageBody:@"I would like to learn more about ResearchKit and the CloudMine Connected Health Cloud." isHTML:NO];
-    
-    [self presentViewController:composeVC animated:YES completion:nil];
-    
+
+    [self presentViewController:self.mailViewController animated:YES completion:nil];
 }
      
 - (void)mailComposeController:(MFMailComposeViewController *)controller
@@ -122,6 +120,21 @@
                                               style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction * _Nonnull action) { }]];
     return alert;
+}
+
++ (MFMailComposeViewController *)mailComposeViewControllerWithDelegate:(id<MFMailComposeViewControllerDelegate>)delegate
+{
+    if (![MFMailComposeViewController canSendMail]) {
+        return nil;
+    }
+
+    MFMailComposeViewController* composeVC = [MFMailComposeViewController new];
+    composeVC.mailComposeDelegate = delegate;
+    [composeVC setToRecipients:@[@"sales@cloudmineinc.com"]];
+    [composeVC setSubject:@"CHC inquiry - AsthmaHealth"];
+    [composeVC setMessageBody:@"I would like to learn more about ResearchKit and the CloudMine Connected Health Cloud." isHTML:NO];
+
+    return composeVC;
 }
 
 - (ACMAppDelegate *)appDelegate
