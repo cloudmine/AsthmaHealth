@@ -145,14 +145,6 @@
             </objects>
             <point key="canvasLocation" x="1038.5" y="438"/>
         </scene>
-        <!--Login-->
-        <scene sceneID="soQ-V2-YMM">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="xBC-Si-tHR" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7iX-Q4-vEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1030" y="483"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Lungs-White" width="196" height="182"/>
