@@ -19,7 +19,7 @@
     [super viewDidLoad];
 
     [self configureWithUserData:[CMHUser currentUser].userData];
-    [ACMProfileViewController styleButtons:@[self.logoutButton, self.emailButton, self.learnButton]];
+    [ACMProfileViewController styleButtons:@[self.logoutButton]];
 
     self.mailViewController = [ACMProfileViewController mailComposeViewControllerWithDelegate:self];
 }
