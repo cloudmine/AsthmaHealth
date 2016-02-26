@@ -1,12 +1,15 @@
 #import "ACMProfileViewController.h"
 #import <CMHealth/CMHealth.h>
 #import "ACMAppDelegate.h"
+#import "ACMAlerter.h"
 
 @interface ACMProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *learnButton;
+@property (weak, nonatomic) IBOutlet UIButton *emailButton;
+@property (nonatomic) MFMailComposeViewController *mailViewController;
 @end
 
 @implementation ACMProfileViewController
@@ -14,11 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configureWithUserData:[CMHUser currentUser].userData];
 
-    self.logoutButton.layer.borderColor = self.logoutButton.titleLabel.textColor.CGColor;
-    self.logoutButton.layer.borderWidth = 1.0f;
-    self.logoutButton.layer.cornerRadius = 4.0f;
+    [self configureWithUserData:[CMHUser currentUser].userData];
+    [ACMProfileViewController styleButtons:@[self.logoutButton]];
+
+    self.mailViewController = [ACMProfileViewController mailComposeViewControllerWithDelegate:self];
 }
 
 - (void)configureWithUserData:(CMHUserData *)userData
@@ -32,6 +35,30 @@
 - (IBAction)logoutButtonDidPress:(UIButton *)sender
 {
     [self presentViewController:self.logoutConfirmationAlert animated:YES completion:nil];
+}
+
+- (IBAction)learnButtonDidPress:(UIButton *)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://cloudmineinc.com"]];
+}
+
+- (IBAction)emailButtonDidPress:(id)sender
+{
+    if (nil == self.mailViewController) {
+        [ACMAlerter displayAlertWithTitle:nil
+                               andMessage:NSLocalizedString(@"The mail app is not configured on your device.", nil)
+                         inViewController:self];
+
+        return;
+    }
+
+    [self presentViewController:self.mailViewController animated:YES completion:nil];
+}
+     
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark Private
@@ -62,9 +89,7 @@
     [[CMHUser currentUser] logoutWithCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self presentViewController:[ACMProfileViewController modalAlertWithMessage:error.localizedDescription]
-                                   animated:YES
-                                 completion:nil];
+                [ACMAlerter displayAlertWithTitle:nil andMessage:error.localizedDescription inViewController:self];
             });
 
             return;
@@ -76,13 +101,28 @@
     }];
 }
 
-+ (UIAlertController *)modalAlertWithMessage:(NSString *)message
++ (MFMailComposeViewController *)mailComposeViewControllerWithDelegate:(id<MFMailComposeViewControllerDelegate>)delegate
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
-                                              style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction * _Nonnull action) { }]];
-    return alert;
+    if (![MFMailComposeViewController canSendMail]) {
+        return nil;
+    }
+
+    MFMailComposeViewController* composeVC = [MFMailComposeViewController new];
+    composeVC.mailComposeDelegate = delegate;
+    [composeVC setToRecipients:@[@"sales@cloudmineinc.com"]];
+    [composeVC setSubject:@"CHC inquiry - AsthmaHealth"];
+    [composeVC setMessageBody:@"I would like to learn more about ResearchKit and the CloudMine Connected Health Cloud." isHTML:NO];
+
+    return composeVC;
+}
+
++ (void)styleButtons:(NSArray<UIButton *> *)buttons
+{
+    for (UIButton *aButton in buttons) {
+        aButton.layer.borderColor = aButton.titleLabel.textColor.CGColor;
+        aButton.layer.borderWidth = 1.0f;
+        aButton.layer.cornerRadius = 4.0f;
+    }
 }
 
 - (ACMAppDelegate *)appDelegate
