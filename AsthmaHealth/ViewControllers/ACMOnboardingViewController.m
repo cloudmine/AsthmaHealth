@@ -128,6 +128,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     [CMHUser.currentUser signUpWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.activityIndicator stopAnimating];
                 [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign up Failed", nil)
                                        andMessage:error.localizedDescription
                                  inViewController:self];
@@ -138,6 +139,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
         [CMHUser.currentUser uploadUserConsent:self.consentResults forStudyWithDescriptor:@"ACMHealth" andCompletion:^(NSError * _Nullable consentError) {
             if (nil != consentError) {
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.activityIndicator stopAnimating];
                     [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Saving Consent Failed", nil)
                                            andMessage:consentError.localizedDescription
                                      inViewController:self];
@@ -157,6 +159,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     [CMHUser.currentUser loginWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
         if (nil != error) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.activityIndicator stopAnimating];
                 [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign In Failure", nil)
                                        andMessage:[NSString localizedStringWithFormat:@"Sign in failed, please try again. %@", error.localizedDescription]
                                  inViewController:self];
