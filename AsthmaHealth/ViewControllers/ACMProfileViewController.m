@@ -39,7 +39,7 @@
 
 - (IBAction)learnButtonDidPress:(UIButton *)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://cloudmineinc.com"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://cloudmineinc.com"]];
 }
 
 - (IBAction)emailButtonDidPress:(id)sender
