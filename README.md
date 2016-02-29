@@ -21,7 +21,7 @@ This demo application requires [CocoaPods](https://cocoapods.org/) for dependenc
 Then you can proceed to configure and build the project:
 
 ```
-#> git clone git@github.com:cloudmine/AsthmaHealth.git
+#> git clone https://github.com/cloudmine/AsthmaHealth.git
 #> cd AsthmaHealth
 #> cp AsthmaHealth/SupportingFiles/Secrets.h-Template AsthmaHealth/SupportingFiles/Secrets.h
 #> pod install
