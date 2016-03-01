@@ -8,6 +8,8 @@
 @interface ACMMainPanelViewController ()
 @property (nonatomic, nullable) UIView *loadingOverlay;
 @property (nonatomic, nullable, readwrite) NSArray <ORKTaskResult *> *surveyResults;
+@property (nonatomic, nullable, readwrite) ORKTaskResult *todaysDailySurveyResult;
+@property (nonatomic, nullable, readwrite) ORKTaskResult *aboutYouSurveyResult;
 @property (nonatomic, nullable, readonly) ACMAppDelegate *appDelegate;
 @end
 
@@ -60,17 +62,26 @@
 {
     [self showLoading:YES];
 
-    [ORKTaskResult cmh_fetchUserResultsForStudyWithDescriptor:nil withCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
-        [self showLoading:NO];
-
-        if (nil == results) { // TODO: real error handling
+    [ORKTaskResult cmh_fetchUserResultsForStudyWithQuery:@"[identifier = \"ACMAboutYouSurveyTask\"]" withCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
+        if (nil == results) {
             NSLog(@"%@", error.localizedDescription);
             return;
         }
 
-        self.surveyResults = results;
+        self.aboutYouSurveyResult = results.firstObject;
 
-        [NSNotificationCenter.defaultCenter postNotificationName:ACMSurveyDataNotification object:self];
+        [ORKTaskResult cmh_fetchUserResultsForStudyWithQuery:@"[identifier = \"ACMDailySurveyTask\"]" withCompletion:^(NSArray * _Nullable results, NSError * _Nullable error) {
+            [self showLoading:NO];
+
+            if (nil == results) {
+                NSLog(@"%@", error.localizedDescription);
+                return;
+            }
+
+            self.todaysDailySurveyResult = [ACMMainPanelViewController firstResultFromSurveys:results onCalendarDay:[NSDate new]];
+
+            [NSNotificationCenter.defaultCenter postNotificationName:ACMSurveyDataNotification object:self];
+        }];
     }];
 }
 
@@ -90,23 +101,15 @@
     }];
 }
 
-- (NSInteger)countOfSurveyResultsWithIdentifier:(NSString *_Nonnull)identifier
++ (ORKTaskResult *_Nullable)firstResultFromSurveys:(NSArray<ORKTaskResult *> *_Nonnull)surveyResults onCalendarDay:(NSDate *_Nonnull)day
 {
-    return [ACMMainPanelViewController resultsWithIdentifier:identifier fromResults:self.surveyResults].count;
-}
-
-- (NSInteger)countOfSurveyResultsWithIdentifier:(NSString *_Nonnull)identifier onCalendarDay:(NSDate *_Nonnull)day
-{
-    NSArray<ORKResult *> *surveyResults = [ACMMainPanelViewController resultsWithIdentifier:identifier fromResults:self.surveyResults];
-    NSMutableArray *surveyResultsOnDay = [NSMutableArray new];
-
-    for (ORKResult *result in surveyResults) {
+    for (ORKTaskResult *result in surveyResults) {
         if (result.endDate.isToday) {
-            [surveyResultsOnDay addObject:result];
+            return result;
         }
     }
 
-    return surveyResultsOnDay.count;
+    return nil;
 }
 
 #pragma mark Getters-Setters

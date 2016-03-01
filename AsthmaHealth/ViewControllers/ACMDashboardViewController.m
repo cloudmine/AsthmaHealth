@@ -36,8 +36,8 @@
 
 - (void)refreshUI
 {
-    self.aboutYouCount = [self.acm_mainPanel countOfSurveyResultsWithIdentifier:@"ACMAboutYouSurveyTask"];
-    self.dailyCount = [self.acm_mainPanel countOfSurveyResultsWithIdentifier:@"ACMDailySurveyTask" onCalendarDay:[NSDate new]];
+    self.aboutYouCount = nil == self.acm_mainPanel.aboutYouSurveyResult ? 0 : 1;
+    self.dailyCount = nil == self.acm_mainPanel.todaysDailySurveyResult ? 0 : 1;
 
     dispatch_async(dispatch_get_main_queue(), ^{
         // Setting the data source property forces the data to reload
