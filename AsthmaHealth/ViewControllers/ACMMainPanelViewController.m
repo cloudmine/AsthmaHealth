@@ -7,7 +7,6 @@
 
 @interface ACMMainPanelViewController ()
 @property (nonatomic, nullable) UIView *loadingOverlay;
-@property (nonatomic, nullable, readwrite) ORKTaskResult *consentResult;
 @property (nonatomic, nullable, readwrite) NSArray <ORKTaskResult *> *surveyResults;
 @property (nonatomic, nullable, readonly) ACMAppDelegate *appDelegate;
 @end
@@ -69,11 +68,7 @@
             return;
         }
 
-        self.consentResult = (ORKTaskResult *)[ACMMainPanelViewController resultsWithIdentifier:@"ACMParticipantConsentTask" fromResults:results].firstObject;
-
-        NSMutableArray *mutableResults = [results mutableCopy];
-        [mutableResults removeObject:self.consentResult];
-        self.surveyResults = [mutableResults copy];
+        self.surveyResults = results;
 
         [NSNotificationCenter.defaultCenter postNotificationName:ACMSurveyDataNotification object:self];
     }];
