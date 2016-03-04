@@ -22,6 +22,9 @@ tag-version: get-version
 verify-tag: get-version
 	git tag --verify ${VERSION}
 
+push-origin: get-version
+	git push origin ${VERSION}
+
 bump-patch:
 	$(eval VERSION := $(shell agvtool what-version -terse | perl -pe 's/(\d+)$$/($$1+1).$$2/e'))
 	agvtool -noscm new-version -all ${VERSION}
@@ -36,3 +39,5 @@ bump-major:
 	$(eval VERSION := $(shell agvtool what-version -terse | perl -pe 's/(\d+)(\.\d+\.\d+)$$/($$1+1).$$2/e'))
 	agvtool -noscm new-version -all ${VERSION}
 	@$(MAKE) get-version
+
+release: get-version tag-version verify-tag push-origin
