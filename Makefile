@@ -40,4 +40,4 @@ bump-major:
 	agvtool -noscm new-version -all ${VERSION}
 	@$(MAKE) get-version
 
-release: get-version tag-version verify-tag push-origin
+release: get-version tag-version verify-tag push-origin bump-patch
