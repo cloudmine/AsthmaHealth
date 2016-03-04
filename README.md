@@ -1,6 +1,6 @@
 # AsthmaHealth
 
-A demo application that showcases the CloudMine [CMHealth iOS SDK](https://github.com/cloudmine/CMHealthSDK-iOS) interface for Apple [ResearchKit](http://http://researchkit.org/).
+A demo application that showcases the CloudMine [CMHealth iOS SDK](https://github.com/cloudmine/CMHealthSDK-iOS) interface for Apple [ResearchKit](http://researchkit.org/).
 
 
 ## CMHealth iOS SDK and ResearchKit
