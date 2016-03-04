@@ -40,4 +40,9 @@ bump-major:
 	agvtool -noscm new-version -all ${VERSION}
 	@$(MAKE) get-version
 
-release: get-version tag-version verify-tag push-origin bump-patch
+stage-next-release: bump-patch
+	git commit -m"bump to ${VERSION}" AsthmaHealth.xcodeproj/project.pbxproj AsthmaHealth/SupportingFiles/Info.plist AsthmaHealthTests/Info.plist
+	git push origin master
+
+release: get-version tag-version verify-tag push-origin stage-next-release
+
