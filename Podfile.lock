@@ -33,7 +33,7 @@ PODS:
   - TPKeyboardAvoiding (1.2.11)
 
 DEPENDENCIES:
-  - CMHealth
+  - CMHealth (= 0.2.1)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
