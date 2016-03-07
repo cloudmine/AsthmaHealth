@@ -22,7 +22,7 @@ tag-version: get-version
 verify-tag: get-version
 	git tag --verify ${VERSION}
 
-push-origin: get-version
+push-tag-to-origin: get-version
 	git push origin ${VERSION}
 
 bump-patch:
@@ -44,5 +44,5 @@ stage-next-release: bump-patch
 	git commit -m"bump to ${VERSION}" AsthmaHealth.xcodeproj/project.pbxproj AsthmaHealth/SupportingFiles/Info.plist AsthmaHealthTests/Info.plist
 	git push origin master
 
-release: get-version tag-version verify-tag push-origin stage-next-release
+release: get-version tag-version verify-tag push-tag-to-origin stage-next-release
 
