@@ -44,5 +44,16 @@ stage-next-release: bump-patch
 	git commit -m"bump to ${VERSION}" AsthmaHealth.xcodeproj/project.pbxproj AsthmaHealth/SupportingFiles/Info.plist AsthmaHealthTests/Info.plist
 	git push origin master
 
-release: get-version tag-version verify-tag push-tag-to-origin stage-next-release
+create-signatures: get-version
+	curl https://github.com/cloudmine/AsthmaHealth/archive/${VERSION}.tar.gz -o AsthmaHealth-${VERSION}.tar.gz 1>/dev/null 2>&1
+	curl https://github.com/cloudmine/AsthmaHealth/archive/${VERSION}.zip -o AsthmaHealth-${VERSION}.zip 1>/dev/null 2>&1
+	gpg --armor --detach-sign AsthmaHealth-${VERSION}.tar.gz
+	gpg --verify AsthmaHealth-${VERSION}.tar.gz.asc AsthmaHealth-${VERSION}.tar.gz
+	-@rm -f AsthmaHealth-${VERSION}.tar.gz
+	gpg --armor --detach-sign AsthmaHealth-${VERSION}.zip
+	gpg --verify AsthmaHealth-${VERSION}.zip.asc AsthmaHealth-${VERSION}.zip
+	-@rm -f AsthmaHealth-${VERSION}.zip
+
+# only for the brave...
+release: get-version tag-version verify-tag push-tag-to-origin create-signatures stage-next-release
 

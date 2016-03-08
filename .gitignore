@@ -33,3 +33,9 @@ Pods
 *.iml
 
 Secrets.h
+
+# GitHub archives
+AsthmaHealth-*.zip
+AsthmaHealth-*.zip.asc
+AsthmaHealth-*.tar.gz
+AsthmaHealth-*.tar.gz.asc
