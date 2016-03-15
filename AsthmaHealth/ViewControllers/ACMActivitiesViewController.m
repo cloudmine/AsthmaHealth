@@ -74,14 +74,15 @@
 
 - (BOOL)completedSurvey:(ACMSurveyMetaData *_Nonnull)surveyData
 {
-    switch (surveyData.frequency) {
-        case ACMSurveyFrequencyOnce:
-            return 0 < [self.acm_mainPanel countOfSurveyResultsWithIdentifier:surveyData.rkIdentifier];
-        case ACMSurveyFrequencyDaily:
-            return 0 < [self.acm_mainPanel countOfSurveyResultsWithIdentifier:surveyData.rkIdentifier onCalendarDay:[NSDate new]];
-        default:
-            return NO;
+    ORKTaskResult *surveyResponse = nil;
+
+    if ([@"ACMAboutYouSurveyTask" isEqualToString:surveyData.rkIdentifier]) {
+        surveyResponse = self.acm_mainPanel.aboutYouSurveyResult;
+    } else if([@"ACMDailySurveyTask" isEqualToString:surveyData.rkIdentifier]) {
+        surveyResponse = self.acm_mainPanel.todaysDailySurveyResult;
     }
+
+    return nil != surveyResponse;
 }
 
 #pragma mark UITableViewDelegate

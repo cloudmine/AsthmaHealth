@@ -5,13 +5,10 @@ static NSString *_Nullable const ACMSurveyDataNotification = @"ACMSurveyDataFetc
 
 @interface ACMMainPanelViewController : UITabBarController
 
-@property (nonatomic, nullable, readonly) ORKTaskResult *consentResult;
-@property (nonatomic, nullable, readonly) NSArray <ORKTaskResult *> *surveyResults;
+@property (nonatomic, nullable, readonly) ORKTaskResult *todaysDailySurveyResult;
+@property (nonatomic, nullable, readonly) ORKTaskResult *aboutYouSurveyResult;
 
 - (void)refreshData;
 - (void)uploadResult:(ORKResult *_Nonnull)surveyResult;
-
-- (NSInteger)countOfSurveyResultsWithIdentifier:(NSString *_Nonnull)identifier;
-- (NSInteger)countOfSurveyResultsWithIdentifier:(NSString *_Nonnull)identifier onCalendarDay:(NSDate *_Nonnull)day;
 
 @end
