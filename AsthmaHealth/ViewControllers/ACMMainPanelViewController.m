@@ -79,7 +79,7 @@
     }];
 }
 
-- (void)uploadResult:(ORKResult *_Nonnull)surveyResult;
+- (void)uploadResult:(ORKTaskResult *_Nonnull)surveyResult;
 {
     [self showLoading:YES];
 

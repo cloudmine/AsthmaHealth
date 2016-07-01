@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		394D27665E5672044448CDCF /* libPods-AsthmaHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */; };
 		6C3423B11C7D68FA008FFC8E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C3423B01C7D68FA008FFC8E /* Localizable.strings */; };
 		6C8686E81C7F82BA000026DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8686E71C7F82BA000026DD /* MessageUI.framework */; };
 		6CC736FD1C7BF8F700F6CBE3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC736FC1C7BF8F700F6CBE3 /* HealthKit.framework */; };
+		827321FEC29042F2D5691109 /* libPods-AsthmaHealthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE71F42E9BD227A04AC069B /* libPods-AsthmaHealthTests.a */; };
 		B403FA9D1C58002300146B3C /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B403FA9C1C58002300146B3C /* Activities.storyboard */; };
 		B403FAA01C5806E400146B3C /* ACMSurveyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FA9F1C5806E400146B3C /* ACMSurveyFactory.m */; };
 		B403FAA31C58097600146B3C /* ACMActivitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B403FAA21C58097600146B3C /* ACMActivitiesViewController.m */; };
@@ -39,6 +39,7 @@
 		B4F209241C66EB7100F81180 /* ACMMainPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209231C66EB7100F81180 /* ACMMainPanelViewController.m */; };
 		B4F209271C66F29F00F81180 /* UIViewController+ACM.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209261C66F29F00F81180 /* UIViewController+ACM.m */; };
 		B4F2092A1C67002600F81180 /* ACMActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F209291C67002600F81180 /* ACMActivityCell.m */; };
+		F4DE33EA5624098CBAF2E8A6 /* libPods-AsthmaHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C72FD3671CCF2D2FCA0677DB /* libPods-AsthmaHealth.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsthmaHealth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FCA5FDF42D14EBE6C192A99 /* Pods-AsthmaHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.debug.xcconfig"; sourceTree = "<group>"; };
+		31FFC5624C8F4252F3FDC012 /* Pods-AsthmaHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.debug.xcconfig"; sourceTree = "<group>"; };
+		529EC2AA12E8A352F02270EA /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
 		6C3423B01C7D68FA008FFC8E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6C8686E71C7F82BA000026DD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6CC736FC1C7BF8F700F6CBE3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -109,7 +110,10 @@
 		B4F209261C66F29F00F81180 /* UIViewController+ACM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ACM.m"; sourceTree = "<group>"; };
 		B4F209281C67002600F81180 /* ACMActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMActivityCell.h; sourceTree = "<group>"; };
 		B4F209291C67002600F81180 /* ACMActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMActivityCell.m; sourceTree = "<group>"; };
-		ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth.release.xcconfig"; sourceTree = "<group>"; };
+		B6D332361F8B6421AD502B1E /* Pods-AsthmaHealthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealthTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealthTests/Pods-AsthmaHealthTests.release.xcconfig"; sourceTree = "<group>"; };
+		C72FD3671CCF2D2FCA0677DB /* libPods-AsthmaHealth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsthmaHealth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDE71F42E9BD227A04AC069B /* libPods-AsthmaHealthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsthmaHealthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E80279F884B5ACB208CEBBEB /* Pods-AsthmaHealthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaHealthTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaHealthTests/Pods-AsthmaHealthTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +122,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C8686E81C7F82BA000026DD /* MessageUI.framework in Frameworks */,
-				394D27665E5672044448CDCF /* libPods-AsthmaHealth.a in Frameworks */,
 				6CC736FD1C7BF8F700F6CBE3 /* HealthKit.framework in Frameworks */,
+				F4DE33EA5624098CBAF2E8A6 /* libPods-AsthmaHealth.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,17 +131,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				827321FEC29042F2D5691109 /* libPods-AsthmaHealthTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45982A8B8F3404D2936E21D4 /* Pods */ = {
+		57D5BAF6AA9DBB2CE3C33A78 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5FCA5FDF42D14EBE6C192A99 /* Pods-AsthmaHealth.debug.xcconfig */,
-				ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */,
+				31FFC5624C8F4252F3FDC012 /* Pods-AsthmaHealth.debug.xcconfig */,
+				529EC2AA12E8A352F02270EA /* Pods-AsthmaHealth.release.xcconfig */,
+				E80279F884B5ACB208CEBBEB /* Pods-AsthmaHealthTests.debug.xcconfig */,
+				B6D332361F8B6421AD502B1E /* Pods-AsthmaHealthTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -147,7 +154,8 @@
 			children = (
 				6C8686E71C7F82BA000026DD /* MessageUI.framework */,
 				6CC736FC1C7BF8F700F6CBE3 /* HealthKit.framework */,
-				4558CE8C8B08463856C554DF /* libPods-AsthmaHealth.a */,
+				C72FD3671CCF2D2FCA0677DB /* libPods-AsthmaHealth.a */,
+				DDE71F42E9BD227A04AC069B /* libPods-AsthmaHealthTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,8 +166,8 @@
 				B463CC421C4FE13D002B4F9C /* AsthmaHealth */,
 				B463CC5C1C4FE13E002B4F9C /* AsthmaHealthTests */,
 				B463CC411C4FE13D002B4F9C /* Products */,
-				45982A8B8F3404D2936E21D4 /* Pods */,
 				A4508778D160FAB64FC7C871 /* Frameworks */,
+				57D5BAF6AA9DBB2CE3C33A78 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -292,12 +300,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B463CC621C4FE13E002B4F9C /* Build configuration list for PBXNativeTarget "AsthmaHealth" */;
 			buildPhases = (
-				277F08F9B6B5E811FF7CA812 /* Check Pods Manifest.lock */,
+				1FF36A99B2F191874D1FA935 /* [CP] Check Pods Manifest.lock */,
 				B463CC3C1C4FE13D002B4F9C /* Sources */,
 				B463CC3D1C4FE13D002B4F9C /* Frameworks */,
 				B463CC3E1C4FE13D002B4F9C /* Resources */,
-				547487C04960D83E3C101CD3 /* Embed Pods Frameworks */,
-				C57C59DDE52293AFB42D5DC7 /* Copy Pods Resources */,
+				0649E48B1396D18F631E2BFE /* [CP] Embed Pods Frameworks */,
+				4859B429DAC42517D0917D70 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -312,9 +320,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B463CC651C4FE13E002B4F9C /* Build configuration list for PBXNativeTarget "AsthmaHealthTests" */;
 			buildPhases = (
+				AFE3B767365C69E84D1DE93A /* [CP] Check Pods Manifest.lock */,
 				B463CC551C4FE13E002B4F9C /* Sources */,
 				B463CC561C4FE13E002B4F9C /* Frameworks */,
 				B463CC571C4FE13E002B4F9C /* Resources */,
+				F3023E70E0FD78412B01C217 /* [CP] Embed Pods Frameworks */,
+				7291074BDF322E03F135129E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -396,29 +407,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		277F08F9B6B5E811FF7CA812 /* Check Pods Manifest.lock */ = {
+		0649E48B1396D18F631E2BFE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		547487C04960D83E3C101CD3 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,19 +422,79 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C57C59DDE52293AFB42D5DC7 /* Copy Pods Resources */ = {
+		1FF36A99B2F191874D1FA935 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4859B429DAC42517D0917D70 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsthmaHealth/Pods-AsthmaHealth-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7291074BDF322E03F135129E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsthmaHealthTests/Pods-AsthmaHealthTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFE3B767365C69E84D1DE93A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F3023E70E0FD78412B01C217 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsthmaHealthTests/Pods-AsthmaHealthTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -573,14 +629,14 @@
 		};
 		B463CC631C4FE13E002B4F9C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FCA5FDF42D14EBE6C192A99 /* Pods-AsthmaHealth.debug.xcconfig */;
+			baseConfigurationReference = 31FFC5624C8F4252F3FDC012 /* Pods-AsthmaHealth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AsthmaHealth/AsthmaHealth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0.0.2;
-				INFOPLIST_FILE = "AsthmaHealth/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = AsthmaHealth/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealth;
@@ -593,14 +649,14 @@
 		};
 		B463CC641C4FE13E002B4F9C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED477E84A6745291D4FA5E6F /* Pods-AsthmaHealth.release.xcconfig */;
+			baseConfigurationReference = 529EC2AA12E8A352F02270EA /* Pods-AsthmaHealth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AsthmaHealth/AsthmaHealth.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CloudMine LLC (72894QCBVZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CloudMine LLC (72894QCBVZ)";
 				CURRENT_PROJECT_VERSION = 0.0.2;
-				INFOPLIST_FILE = "AsthmaHealth/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = AsthmaHealth/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cloudmineinc.AsthmaHealth;
@@ -613,6 +669,7 @@
 		};
 		B463CC661C4FE13E002B4F9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E80279F884B5ACB208CEBBEB /* Pods-AsthmaHealthTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AsthmaHealthTests/Info.plist;
@@ -625,6 +682,7 @@
 		};
 		B463CC671C4FE13E002B4F9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6D332361F8B6421AD502B1E /* Pods-AsthmaHealthTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AsthmaHealthTests/Info.plist;

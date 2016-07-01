@@ -136,7 +136,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
             return;
         }
 
-        [CMHUser.currentUser uploadUserConsent:self.consentResults forStudyWithDescriptor:@"ACMHealth" andCompletion:^(NSError * _Nullable consentError) {
+        [CMHUser.currentUser uploadUserConsent:self.consentResults forStudyWithDescriptor:@"ACMHealth" andCompletion:^(CMHConsent * _Nullable consent, NSError * _Nullable consentError) {
             if (nil != consentError) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.activityIndicator stopAnimating];
