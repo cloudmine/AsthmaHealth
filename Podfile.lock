@@ -26,7 +26,7 @@ PODS:
     - CloudMine/no-arc (= 1.7.11)
   - CloudMine/no-arc (1.7.11):
     - AFNetworking (~> 2.6.3)
-  - CMHealth (0.4.0):
+  - CMHealth (0.4.1):
     - CareKit (~> 1.0.1)
     - CloudMine (~> 1.7)
     - ResearchKit (~> 1.3.1)
@@ -35,16 +35,20 @@ PODS:
   - TPKeyboardAvoiding (1.3)
 
 DEPENDENCIES:
-  - CMHealth (~> 0.4)
+  - CMHealth (from `../CMHealthSDK-iOS`)
+
+EXTERNAL SOURCES:
+  CMHealth:
+    :path: ../CMHealthSDK-iOS
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   CareKit: 377857f33d3795ed6d24a5df116154773265f81a
   CloudMine: ee5b3643fb1a2f4603de6428aea1252ac928d98d
-  CMHealth: 25f4f54c5de5c335b09b90f1f5b600c223a7da25
+  CMHealth: 6e0fcc70d8c3e2132c4376db53be066afedef3b9
   ResearchKit: badba0340dd71d1cbab4789a0bf01b26022b8f94
   TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
 
-PODFILE CHECKSUM: b5e48dace0926f091fb7de48fe10cc3c35d07cc1
+PODFILE CHECKSUM: 201a036eb81b8d71b14001da0a9eb90a69e974b7
 
 COCOAPODS: 1.0.1

@@ -14,6 +14,7 @@ static NSString *const ACMSignatureIdentifier = @"ACMConsentParticipantConsentSi
     self.sections = ACMConsentDocument.sections;
 
     ORKConsentSignature *signature = [ORKConsentSignature signatureForPersonWithTitle:nil dateFormatString:nil identifier:ACMSignatureIdentifier];
+    signature.requiresName = NO;
     [self addSignature:signature];
 
     return self;

@@ -6,11 +6,8 @@
 static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
 @interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHAuthViewDelegate>
-
-@property (nonatomic, nullable) ORKTaskResult* consentResults;
 @property (weak, nonatomic) IBOutlet UIButton *joinStudyButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
 @end
 
 @implementation ACMOnboardingViewController
@@ -75,7 +72,6 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
             break;
     }
 
-    self.consentResults = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -99,8 +95,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
         case CMHAuthTypeLogin:
             [self loginWithEmail:email andPassword:password];
             break;
-        case CMHAuthTypeSignup:
-            [self signupWithEmail:email andPassword:password];
+        case CMHAuthTypeSignup:            
         default:
             break;
     }
@@ -113,30 +108,27 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     NSAssert([self.presentedViewController isKindOfClass:[ACMConsentViewController class]],
              @"Attempted -handleConsentCompletd when a ACMConsentViewController was not presented");
 
-    self.consentResults = ((ACMConsentViewController *)self.presentedViewController).result;
+    ORKTaskResult *onboardingResults = ((ACMConsentViewController *)self.presentedViewController).result;
 
     [self dismissViewControllerAnimated:YES completion:nil];
-
-    CMHAuthViewController *signupViewController = [CMHAuthViewController signupViewController];
-    signupViewController.delegate = self;
-
-    [self presentViewController:signupViewController animated:YES completion:nil];
+    
+    [self signupWithOnboardingResults:onboardingResults];
 }
 
-- (void)signupWithEmail:(NSString *_Nonnull)email andPassword:(NSString *_Nonnull)password
+- (void)signupWithOnboardingResults:(ORKTaskResult *)results
 {
-    [CMHUser.currentUser signUpWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
-        if (nil != error) {
+    [CMHUser.currentUser signUpWithRegistration:results andCompletion:^(NSError * _Nullable signupError) {
+        if (nil != signupError) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.activityIndicator stopAnimating];
                 [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign up Failed", nil)
-                                       andMessage:error.localizedDescription
+                                       andMessage:signupError.localizedDescription
                                  inViewController:self];
             });
             return;
         }
 
-        [CMHUser.currentUser uploadUserConsent:self.consentResults forStudyWithDescriptor:@"ACMHealth" andCompletion:^(CMHConsent * _Nullable consent, NSError * _Nullable consentError) {
+        [CMHUser.currentUser uploadUserConsent:results forStudyWithDescriptor:@"ACMHealth" andCompletion:^(CMHConsent * _Nullable consent, NSError * _Nullable consentError) {
             if (nil != consentError) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.activityIndicator stopAnimating];

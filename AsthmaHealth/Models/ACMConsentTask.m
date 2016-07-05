@@ -19,7 +19,9 @@ static NSString *const ACMConsentTaskIdentifier     = @"ACMParticipantConsentTas
     ORKConsentReviewStep *reviewStep = [[ORKConsentReviewStep alloc] initWithIdentifier:ACMReviewConsentIdentifier signature:consentDoc.signatures.firstObject inDocument:consentDoc];
     reviewStep.reasonForConsent = NSLocalizedString(@"ACMConsentTaskReason", nil);
 
-    ACMConsentTask *consentTask = [[ACMConsentTask alloc] initWithIdentifier:ACMConsentTaskIdentifier steps:@[consentStep, self.sharingStep, reviewStep]];
+    ACMConsentTask *consentTask = [[ACMConsentTask alloc] initWithIdentifier:ACMConsentTaskIdentifier
+                                                                       steps:@[consentStep, self.sharingStep,
+                                                                               reviewStep, self.registrationStep]];
 
     return consentTask;
 }
@@ -32,6 +34,17 @@ static NSString *const ACMConsentTaskIdentifier     = @"ACMParticipantConsentTas
                                 investigatorShortDescription:NSLocalizedString(@"ACMInstitutionNameShortText", nil)
                                  investigatorLongDescription:NSLocalizedString(@"ACMInstitutionNameShortText", nil)
                                localizedLearnMoreHTMLContent:NSLocalizedString(@"ACMConsentTaskSharingOptionText", nil)];
+}
+
++ (ORKRegistrationStep *)registrationStep
+{
+    ORKRegistrationStepOption options = ORKRegistrationStepIncludeDOB       | ORKRegistrationStepIncludeGender |
+                                        ORKRegistrationStepIncludeGivenName | ORKRegistrationStepIncludeFamilyName;
+    
+    return [[ORKRegistrationStep alloc] initWithIdentifier:@"ACMParticipantRegistrationStep"
+                                                     title:NSLocalizedString(@"Registration", nil)
+                                                      text:NSLocalizedString(@"Create an account", nil)
+                                                   options:options];
 }
 
 @end
