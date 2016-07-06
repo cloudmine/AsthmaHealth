@@ -6,7 +6,7 @@
 
 static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
-@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHAuthViewDelegate, CMHLoginViewControllerDelegate>
+@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHLoginViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *joinStudyButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
@@ -102,32 +102,6 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     [self.appDelegate loadMainPanel];
 }
 
-#pragma mark CMHAuthViewDelegate
-
-- (void)authViewCancelledType:(CMHAuthType)authType
-{
-    if (![self.presentedViewController isKindOfClass:[CMHAuthViewController class]]) {
-        return;
-    }
-
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)authViewOfType:(CMHAuthType)authType didSubmitWithEmail:(NSString *)email andPassword:(NSString *)password
-{
-    [self.activityIndicator startAnimating];
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-    switch (authType) {
-        case CMHAuthTypeLogin:
-            [self loginWithEmail:email andPassword:password];
-            break;
-        case CMHAuthTypeSignup:            
-        default:
-            break;
-    }
-}
-
 #pragma mark Private Helpers
 
 - (void)handleConsentCompleted
@@ -170,25 +144,6 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
                 [self.appDelegate loadMainPanel];
             });
         }];
-    }];
-}
-
-- (void)loginWithEmail:(NSString *_Nonnull)email andPassword:(NSString *_Nonnull)password
-{
-    [CMHUser.currentUser loginWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
-        if (nil != error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.activityIndicator stopAnimating];
-                [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign In Failure", nil)
-                                       andMessage:[NSString localizedStringWithFormat:@"Sign in failed, please try again. %@", error.localizedDescription]
-                                 inViewController:self];
-            });
-            return;
-        }
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.appDelegate loadMainPanel];
-        });
     }];
 }
 
