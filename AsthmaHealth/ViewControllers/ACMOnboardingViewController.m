@@ -2,15 +2,18 @@
 #import "ACMConsentViewController.h"
 #import "ACMalerter.h"
 #import "ACMAppDelegate.h"
+#import "UIColor+ACM.h"
 
 static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
-@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHAuthViewDelegate>
+@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHAuthViewDelegate, CMHLoginViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *joinStudyButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
 @implementation ACMOnboardingViewController
+
+#pragma mark Lifecycle
 
 - (void)viewDidLoad
 {
@@ -38,11 +41,15 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 }
 
 #pragma mark Target/Action
+
 - (IBAction)loginButtonDidPress:(UIButton *)sender
 {
-    CMHAuthViewController *loginViewController = [CMHAuthViewController loginViewController];
-    loginViewController.delegate = self;
-    [self presentViewController:loginViewController animated:YES completion:nil];
+    CMHLoginViewController *loginVC = [[CMHLoginViewController alloc] initWithTitle:NSLocalizedString(@"Log In", nil)
+                                                                               text:NSLocalizedString(@"Please log in to you account to store and access your research data.", nil)
+                                                                           delegate:self];
+    loginVC.view.tintColor = [UIColor acmBlueColor];
+
+    [self presentViewController:loginVC animated:YES completion:nil];
 }
 
 
@@ -75,6 +82,26 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark CMHLoginViewControllerDelegate
+
+- (void)loginViewControllerCancelled:(CMHLoginViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)loginViewController:(CMHLoginViewController *)viewController didLogin:(BOOL)success error:(NSError *)error
+{
+    if (!success) {
+        [self.activityIndicator stopAnimating];
+        [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign In Failure", nil)
+                               andMessage:[NSString localizedStringWithFormat:@"Sign in failed, please try again. %@", error.localizedDescription]
+                         inViewController:viewController];
+        return;
+    }
+
+    [self.appDelegate loadMainPanel];
+}
+
 #pragma mark CMHAuthViewDelegate
 
 - (void)authViewCancelledType:(CMHAuthType)authType
@@ -101,7 +128,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
     }
 }
 
-#pragma mark Private Helprs
+#pragma mark Private Helpers
 
 - (void)handleConsentCompleted
 {
