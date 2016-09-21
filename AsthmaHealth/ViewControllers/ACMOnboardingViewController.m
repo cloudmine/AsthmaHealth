@@ -163,7 +163,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
         return nil;
     }
 
-    return [UIApplication sharedApplication].delegate;
+    return (ACMAppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
 @end
