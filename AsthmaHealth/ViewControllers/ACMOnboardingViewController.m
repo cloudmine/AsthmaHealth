@@ -2,18 +2,18 @@
 #import "ACMConsentViewController.h"
 #import "ACMalerter.h"
 #import "ACMAppDelegate.h"
+#import "UIColor+ACM.h"
 
 static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 
-@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHAuthViewDelegate>
-
-@property (nonatomic, nullable) ORKTaskResult* consentResults;
+@interface ACMOnboardingViewController () <ORKTaskViewControllerDelegate, CMHLoginViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *joinStudyButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
 @end
 
 @implementation ACMOnboardingViewController
+
+#pragma mark Lifecycle
 
 - (void)viewDidLoad
 {
@@ -41,11 +41,15 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
 }
 
 #pragma mark Target/Action
+
 - (IBAction)loginButtonDidPress:(UIButton *)sender
 {
-    CMHAuthViewController *loginViewController = [CMHAuthViewController loginViewController];
-    loginViewController.delegate = self;
-    [self presentViewController:loginViewController animated:YES completion:nil];
+    CMHLoginViewController *loginVC = [[CMHLoginViewController alloc] initWithTitle:NSLocalizedString(@"Log In", nil)
+                                                                               text:NSLocalizedString(@"Please log in to you account to store and access your research data.", nil)
+                                                                           delegate:self];
+    loginVC.view.tintColor = [UIColor acmBlueColor];
+
+    [self presentViewController:loginVC animated:YES completion:nil];
 }
 
 
@@ -75,68 +79,57 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
             break;
     }
 
-    self.consentResults = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark CMHAuthViewDelegate
+#pragma mark CMHLoginViewControllerDelegate
 
-- (void)authViewCancelledType:(CMHAuthType)authType
+- (void)loginViewControllerCancelled:(CMHLoginViewController *)viewController
 {
-    if (![self.presentedViewController isKindOfClass:[CMHAuthViewController class]]) {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)loginViewController:(CMHLoginViewController *)viewController didLogin:(BOOL)success error:(NSError *)error
+{
+    if (!success) {
+        [self.activityIndicator stopAnimating];
+        [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign In Failure", nil)
+                               andMessage:[NSString localizedStringWithFormat:@"Sign in failed, please try again. %@", error.localizedDescription]
+                         inViewController:viewController];
         return;
     }
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.appDelegate loadMainPanel];
 }
 
-- (void)authViewOfType:(CMHAuthType)authType didSubmitWithEmail:(NSString *)email andPassword:(NSString *)password
-{
-    [self.activityIndicator startAnimating];
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-    switch (authType) {
-        case CMHAuthTypeLogin:
-            [self loginWithEmail:email andPassword:password];
-            break;
-        case CMHAuthTypeSignup:
-            [self signupWithEmail:email andPassword:password];
-        default:
-            break;
-    }
-}
-
-#pragma mark Private Helprs
+#pragma mark Private Helpers
 
 - (void)handleConsentCompleted
 {
     NSAssert([self.presentedViewController isKindOfClass:[ACMConsentViewController class]],
              @"Attempted -handleConsentCompletd when a ACMConsentViewController was not presented");
 
-    self.consentResults = ((ACMConsentViewController *)self.presentedViewController).result;
+    ORKTaskResult *onboardingResults = ((ACMConsentViewController *)self.presentedViewController).result;
 
     [self dismissViewControllerAnimated:YES completion:nil];
-
-    CMHAuthViewController *signupViewController = [CMHAuthViewController signupViewController];
-    signupViewController.delegate = self;
-
-    [self presentViewController:signupViewController animated:YES completion:nil];
+    
+    [self signupWithOnboardingResults:onboardingResults];
 }
 
-- (void)signupWithEmail:(NSString *_Nonnull)email andPassword:(NSString *_Nonnull)password
+- (void)signupWithOnboardingResults:(ORKTaskResult *)results
 {
-    [CMHUser.currentUser signUpWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
-        if (nil != error) {
+    [CMHUser.currentUser signUpWithRegistration:results andCompletion:^(NSError * _Nullable signupError) {
+        if (nil != signupError) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.activityIndicator stopAnimating];
                 [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign up Failed", nil)
-                                       andMessage:error.localizedDescription
+                                       andMessage:signupError.localizedDescription
                                  inViewController:self];
             });
             return;
         }
 
-        [CMHUser.currentUser uploadUserConsent:self.consentResults forStudyWithDescriptor:@"ACMHealth" andCompletion:^(NSError * _Nullable consentError) {
+        [CMHUser.currentUser uploadUserConsent:results forStudyWithDescriptor:@"ACMHealth" andCompletion:^(CMHConsent * _Nullable consent, NSError * _Nullable consentError) {
             if (nil != consentError) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.activityIndicator stopAnimating];
@@ -151,25 +144,6 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
                 [self.appDelegate loadMainPanel];
             });
         }];
-    }];
-}
-
-- (void)loginWithEmail:(NSString *_Nonnull)email andPassword:(NSString *_Nonnull)password
-{
-    [CMHUser.currentUser loginWithEmail:email password:password andCompletion:^(NSError * _Nullable error) {
-        if (nil != error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.activityIndicator stopAnimating];
-                [ACMAlerter displayAlertWithTitle:NSLocalizedString(@"Sign In Failure", nil)
-                                       andMessage:[NSString localizedStringWithFormat:@"Sign in failed, please try again. %@", error.localizedDescription]
-                                 inViewController:self];
-            });
-            return;
-        }
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.appDelegate loadMainPanel];
-        });
     }];
 }
 
@@ -189,7 +163,7 @@ static NSString *const ACMSignUpSegueIdentifier = @"ACMSignUpSegue";
         return nil;
     }
 
-    return [UIApplication sharedApplication].delegate;
+    return (ACMAppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
 @end

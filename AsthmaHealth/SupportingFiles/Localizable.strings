@@ -25,3 +25,7 @@
 "ACMConsentTaskSharingChoicesText1" = "Share my data with ACME Hospital and qualified researchers worldwide";
 
 "ACMConsentTaskSharingChoicesText2" = "Only share my data with ACME Hospital and its partners";
+
+"ACMInstitutionNameShortText" = "ACME Hospital";
+
+"ACMInstitutionNameLongText" = "ACME Hospital";

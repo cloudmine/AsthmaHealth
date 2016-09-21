@@ -79,7 +79,7 @@
     }];
 }
 
-- (void)uploadResult:(ORKResult *_Nonnull)surveyResult;
+- (void)uploadResult:(ORKTaskResult *_Nonnull)surveyResult;
 {
     [self showLoading:YES];
 
@@ -117,10 +117,10 @@
 #pragma mark Getters-Setters
 - (ACMAppDelegate *)appDelegate
 {
-    ACMAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
     NSAssert([appDelegate isKindOfClass:[ACMAppDelegate class]], @"App Delegate is unexpected type: %@", [appDelegate class]);
 
-    return appDelegate;
+    return (ACMAppDelegate *)appDelegate;
 }
 
 #pragma mark Private
